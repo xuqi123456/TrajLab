@@ -13,14 +13,83 @@
         <module>TrajLab-core</module>
         <module>TrajLab-db</module>
         <module>TrajLab-example</module>
-        <module>TrajLab-coprocess</module>
+        <module>TrajLab-query</module>
         <module>TrajLab-vis</module>
+        <module>TrajLab-analysis</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <maven.assembly.version>3.3.0</maven.assembly.version>
+        <maven.compiler.version>2.0.2</maven.compiler.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <geotools.version>21.2</geotools.version>
+        <scala.version>2.12.10</scala.version>
+        <scala.compat.version>2.12</scala.compat.version>
+        <akka.actor.version>2.5.32</akka.actor.version>
+        <akka.http.version>10.1.15</akka.http.version>
+        <geotrellis.version>3.0.0</geotrellis.version>
+        <spatial4j.version>0.8</spatial4j.version>
+        <spark.version>3.0.0</spark.version>
+        <hadoop.version>2.8.5</hadoop.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <jts.version>1.19.0</jts.version>
+        <hbase.version>1.4.13</hbase.version>
+        <fastjson.version>1.2.36</fastjson.version>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven.assembly.version}</version>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <!--<mainClass></mainClass>-->
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>utf8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <repositories>
+        <repository>
+            <id>osgeo</id>
+            <name>OSGeo Release Repository</name>
+            <url>https://repo.osgeo.org/repository/release/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
 </project>
