@@ -61,7 +61,7 @@ public class DataSetQuery extends AbstractQuery{
     return dataSetName;
   }
 
-    public HBaseLoadConfig getLoadConfig() {
+  public HBaseLoadConfig getLoadConfig() {
         return loadConfig;
     }
 

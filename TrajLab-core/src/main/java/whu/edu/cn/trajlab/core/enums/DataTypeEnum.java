@@ -8,8 +8,8 @@ import java.io.Serializable;
  */
 public enum DataTypeEnum implements Serializable {
     TRAJ_POINT("traj_point"),
-    TRAJECTORY("whu/edu/cn/trajlab/base/trajectory"),
-    MBR("whu/edu/cn/trajlab/base/mbr");
+    TRAJECTORY("trajectory"),
+    MBR("mbr");
 
     private String dataType;
 
@@ -19,8 +19,8 @@ public enum DataTypeEnum implements Serializable {
 
     public static class Constants {
         public static final String TRAJ_POINT = "traj_point";
-        public static final String TRAJECTORY = "whu/edu/cn/trajlab/base/trajectory";
-        public static final String MBR = "whu/edu/cn/trajlab/base/mbr";
+        public static final String TRAJECTORY = "trajectory";
+        public static final String MBR = "mbr";
 
         public Constants() {
         }

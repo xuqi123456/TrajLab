@@ -5,153 +5,117 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/mbr/MinimumBoundingBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/point/BasePoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/point/StayPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/point/TrajPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/point/TrajPointWithoutGeometry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/trajectory/TrajFeatures.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/trajectory/TrajLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/trajectory/Trajectory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/trajectory/TrajectoryWithoutGeometry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/CheckUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/DateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/GeoUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/SerializerUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/constant/DateDefaultConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/constant/GeoConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/constant/PreProcessDefaultConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/constant/TrajectoryDefaultConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/field/Field.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/index/RTreeIndexOper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/data/IDataConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/data/Mapping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/data/TrajPointConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/data/TrajectoryConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/load/FileModeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/load/HBaseLoadConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/load/HDFSLoadConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/load/HiveLoadConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/load/ILoadConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/load/StandaloneLoadConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/store/HBaseStoreConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/store/HDFSStoreConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/store/HiveStoreConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/store/IStoreConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/store/StandaloneStoreConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/store/StoreTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/BasicDataTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/DataTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/FileSplitterEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/FileTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/StoreSchemaEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/TopologyTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/HBaseLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/HDFSLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/HiveLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/ILoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/StandaloneLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HBaseStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HDFSStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HiveStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/IStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/StandaloneStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/ParquetTransform.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/sink/StayPoint2CSV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/sink/Traj2CSV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/sink/Traj2GeoJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/sink/Traj2KML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/sink/Traj2Shp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/sink/Traj2WKT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/CSV2Traj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/CSV2TrajPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/GeoJson2Traj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/KML2Traj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/Shp2Traj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/WKT2Traj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/util/BasicDateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/util/DataTypeUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/util/FSUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/util/IOUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/CodingRange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/SpatialCoding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/TimeCoding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/XZ2Coding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/XZTCoding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/sfc/CoveredSFCRange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/sfc/OverlapSFCRange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/sfc/SFCRange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/sfc/XZ2SFC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/sfc/XZTSFC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/AbstractQueryCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/DataSetQueryCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/IDQueryCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/IDTemporalQueryCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/SpatialQueryCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/SpatialTemporalQueryCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/TemporalQueryCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/constant/CodingConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/constant/DBConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/constant/IndexConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/constant/SetConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/DataSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/datatypes/KeyFamilyQualifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/datatypes/KeyValueInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/driver/TableBulkLoadDriver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/driver/TextBulkLoadDriver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/mapper/MainToMainMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/mapper/MainToSecondaryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/mapper/TextToMainMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/mapper/TrajectoryDataMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/meta/DataSetMeta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/meta/IndexMeta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/meta/SetMeta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/table/IndexTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/table/MetaTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/util/BulkLoadDriverUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/util/TextTrajParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/util/TrajectorySerdeUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/datatypes/ByteArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/datatypes/TimeBin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/datatypes/TimeElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/datatypes/TimeLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/enums/IndexType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/enums/QueryType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/enums/TemporalQueryType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/enums/TimePeriod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/IndexStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/RowKeyRange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatial/XZ2IndexStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatialtemporal/TXZ2IndexStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatialtemporal/XZ2TIndexStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/time/IDTIndexStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/CoprocessorLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/STCoprocessorQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/STQueryEndPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/autogenerated/QueryCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/autogenerated/QueryCondition.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDTemporalQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialTemporalQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/TemporalQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/util/BasicDateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/util/TrajectoryUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/checkstyle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/conf/ExampleConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/spatial/XZ2IndexStrategyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/time/IDTIndexStrategyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/store/HBaseDataStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/CSVToParquet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/GeojsonToTraj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/KMLToTraj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/ShpToTraj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/TrajToGeojson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/TrajToKML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/TrajToShp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/TrajToWKT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/WKTToTraj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/util/SparkSessionUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081013104428.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081013230418.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081014114737.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081015005143.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081015111010.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081015232937.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081015234917.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081016110447.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081016224935.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081017112840.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081018120606.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081019222847.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081020114150.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081021004622.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081031101923.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081101040025.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081101042408.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081104101900.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081106102334.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081106225500.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081106231922.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081108094106.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081201003431.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/inputfiles/map.geojson" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/inputfiles/map.kml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/inputfiles/map.wkt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/inputfiles/maptest.geojson" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/HBaseStoreConfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/LoadConfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/GeojsonLoad.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/KMLLoad.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/ParquetLoadPoint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/ParquetLoadTraj.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/ShapeLoad.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/WKTLoad.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/GeoJsonStore.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/KMLStore.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/ParquetStore.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/ShapeStore.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/WKTStore.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/geojson/010-20081013104428.geojson" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/kml/010-20081013104428.kml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00000-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00001-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00002-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00003-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00004-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00005-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00006-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00007-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00008-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00009-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00010-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00011-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00000-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00001-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00002-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00003-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00004-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00005-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00006-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00007-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00008-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00009-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00010-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00011-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00000-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00001-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00002-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00003-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00004-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00005-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00006-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00000-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00001-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00002-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00003-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00004-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00005-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00006-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.dbf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.fix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.prj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.shp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.shx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/wkt/010-20081013104428.wkt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-base/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-base/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-coprocess/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-analysis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-db/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/data/IDataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/data/IDataConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/DataTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/DataTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,28 +147,120 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/bigdata/TrajLab/conf",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/bigdata/TrajLab/TrajLab-example/src/main/resources&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.infernus.idea.checkstyle.CheckStyleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources" />
+      <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\java" />
       <recent name="D:\bigdata\TrajLab\conf" />
       <recent name="D:\bigdata\TrajLab\TrajLab-db\src\main\java" />
       <recent name="D:\bigdata\TrajLab\TrajLab-core\src\main\java" />
-      <recent name="D:\bigdata\TrajLab\TrajLab-base\src\main\java" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.GeojsonToTraj.GeojsonToTrajFromConf">
+    <configuration name="CSVToParquet.loadFromParquetTraj" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.CSVToParquet" />
+      <option name="METHOD_NAME" value="loadFromParquetTraj" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CSVToParquet.storeTrajToParquet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.CSVToParquet" />
+      <option name="METHOD_NAME" value="storeTrajToParquet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GeojsonToTraj.GeojsonToTrajFromConf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.GeojsonToTraj" />
+      <option name="METHOD_NAME" value="GeojsonToTrajFromConf" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrajToWKT.TrajToWKTFromConf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.TrajToWKT" />
+      <option name="METHOD_NAME" value="TrajToWKTFromConf" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WKTToTraj.WKTToTrajFromConf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.WKTToTraj" />
+      <option name="METHOD_NAME" value="WKTToTrajFromConf" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GeojsonToTraj.GeojsonToTrajFromConf" />
+        <item itemvalue="JUnit.CSVToParquet.loadFromParquetTraj" />
+        <item itemvalue="JUnit.CSVToParquet.storeTrajToParquet" />
+        <item itemvalue="JUnit.WKTToTraj.WKTToTrajFromConf" />
+        <item itemvalue="JUnit.TrajToWKT.TrajToWKTFromConf" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -215,7 +271,8 @@
       <option name="presentableId" value="Default" />
       <updated>1705053789342</updated>
       <workItem from="1705053790751" duration="21933000" />
-      <workItem from="1705397492213" duration="3643000" />
+      <workItem from="1705397492213" duration="8782000" />
+      <workItem from="1705479724098" duration="1630000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
@@ -231,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705078755419</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initialize transfer">
+      <created>1705401442013</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705401442013</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +304,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialize commit" />
     <MESSAGE value="module commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="module commit" />
+    <MESSAGE value="Initialize transfer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initialize transfer" />
   </component>
 </project>

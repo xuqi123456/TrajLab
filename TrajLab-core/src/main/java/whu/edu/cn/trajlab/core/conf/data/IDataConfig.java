@@ -15,7 +15,7 @@ import java.io.Serializable;
 )
 @JsonSubTypes({@JsonSubTypes.Type(
         value = TrajectoryConfig.class,
-        name = "whu/edu/cn/trajlab/base/trajectory"
+        name = "trajectory"
 ), @JsonSubTypes.Type(
         value = TrajPointConfig.class,
         name = "traj_point"
