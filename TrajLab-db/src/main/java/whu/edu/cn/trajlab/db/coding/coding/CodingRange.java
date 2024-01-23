@@ -51,6 +51,9 @@ public class CodingRange {
         }
         validated = sfcRange.validated;
     }
+    public ByteArray byteSfcCode(Long code){
+        return new ByteArray(ByteBuffer.allocate(Long.SIZE / Byte.SIZE).putLong(code));
+    }
 
     public void concatTimeIndexRange(SFCRange timeIndexRange) {
         if (lower == null || upper == null) {

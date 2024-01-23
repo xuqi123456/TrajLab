@@ -1,5 +1,8 @@
 package whu.edu.cn.trajlab.query.query.basic;
 
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.SparkSession;
+import whu.edu.cn.trajlab.base.util.SparkUtils;
 import whu.edu.cn.trajlab.query.coprocessor.STCoprocessorQuery;
 import whu.edu.cn.trajlab.db.condition.AbstractQueryCondition;
 import whu.edu.cn.trajlab.db.condition.TemporalQueryCondition;
@@ -36,25 +39,22 @@ public class IDTemporalQuery extends AbstractQuery {
   }
 
   @Override
-  public List<RowKeyRange> getIndexRanges() throws IOException {
-    setupTargetIndexTable();
-    return targetIndexTable
-        .getIndexMeta()
-        .getIndexStrategy()
-        .getScanRanges(
-            abstractQueryCondition,
-            ((IDTemporalQueryCondition) abstractQueryCondition).getIdQueryCondition().getMoid());
-  }
+  public JavaRDD<Trajectory> getRDDQuery(SparkSession sc) throws IOException {
+    List<RowKeyRange> indexRanges = getIndexRanges();
+    JavaSparkContext context = SparkUtils.getJavaSparkContext(sc);
+    JavaRDD<RowKeyRange> rowKeyRangeJavaRDD = context.parallelize(indexRanges);
 
-  @Override
-  public List<Trajectory> executeQuery() throws IOException {
-    List<RowKeyRange> rowKeyRanges = getIndexRanges();
-    return executeQuery(rowKeyRanges);
-  }
-
-  @Override
-  public JavaRDD<Trajectory> query() throws IOException {
-    return null;
+    return rowKeyRangeJavaRDD.mapPartitions(
+        iterator -> {
+          // 对每个分区中的元素进行转换操作
+          List<RowKeyRange> result = new ArrayList<>();
+          while (iterator.hasNext()) {
+            RowKeyRange next = iterator.next();
+            result.add(next);
+          }
+          List<Trajectory> trajectories = executeQuery(result);
+          return trajectories.iterator();
+        });
   }
 
   @Override

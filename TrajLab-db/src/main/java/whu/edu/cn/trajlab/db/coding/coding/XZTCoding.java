@@ -4,6 +4,7 @@ import whu.edu.cn.trajlab.base.trajectory.TrajFeatures;
 import whu.edu.cn.trajlab.db.coding.sfc.SFCRange;
 import whu.edu.cn.trajlab.db.coding.sfc.XZTSFC;
 import whu.edu.cn.trajlab.db.condition.TemporalQueryCondition;
+import whu.edu.cn.trajlab.db.constant.IndexConstants;
 import whu.edu.cn.trajlab.db.datatypes.ByteArray;
 import whu.edu.cn.trajlab.db.datatypes.TimeBin;
 import whu.edu.cn.trajlab.db.datatypes.TimeLine;
@@ -21,6 +22,8 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import static whu.edu.cn.trajlab.db.constant.IndexConstants.DEFAULT_range_NUM;
 
 
 /**
@@ -101,6 +104,34 @@ public class XZTCoding implements TimeCoding {
         List<SFCRange> indexRangeList = new ArrayList<>(500);
         indexRangeList = xztsfc.ranges(condition.getQueryWindows(), condition.getTemporalQueryType() == TemporalQueryType.CONTAIN);
         return rangesToCodingRange(indexRangeList);
+    }
+    public List<CodingRange> rangesWithPartition(TemporalQueryCondition condition) {
+        List<SFCRange> indexRangeList = new ArrayList<>(500);
+        indexRangeList = xztsfc.ranges(condition.getQueryWindows(), condition.getTemporalQueryType() == TemporalQueryType.CONTAIN);
+        List<SFCRange> sfcRanges = splitPartitionSFCRange(indexRangeList);
+        return rangesToCodingRange(sfcRanges);
+    }
+    public List<SFCRange> splitPartitionSFCRange(List<SFCRange> sfcRanges) {
+        ArrayList<SFCRange> ranges = new ArrayList<>();
+        for (SFCRange sfcRange : sfcRanges) {
+            long low = sfcRange.lower;
+            long up = sfcRange.upper;
+            ByteArray cShardKey = new ByteArray(ByteBuffer.allocate(Long.SIZE / Byte.SIZE).putLong(low));
+            short cShard = (short) Math.abs(cShardKey.hashCode() / DEFAULT_range_NUM % IndexConstants.DEFAULT_SHARD_NUM);
+            for (long key = sfcRange.lower + 1; key <= sfcRange.upper; key++){
+                ByteArray shardKey = new ByteArray(ByteBuffer.allocate(Long.SIZE / Byte.SIZE).putLong(key));
+                short shard = (short) Math.abs(shardKey.hashCode() / DEFAULT_range_NUM % IndexConstants.DEFAULT_SHARD_NUM);
+                if(shard == cShard){
+                    continue;
+                }else {
+                    ranges.add(new SFCRange(low, key-1, sfcRange.validated));
+                    low = key;
+                    cShard = shard;
+                }
+            }
+            ranges.add(new SFCRange(low, up, sfcRange.validated));
+        }
+        return ranges;
     }
 
     // public List<CodingRange> rangesMerged(TemporalQueryCondition condition) {

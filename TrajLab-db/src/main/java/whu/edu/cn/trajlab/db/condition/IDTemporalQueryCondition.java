@@ -12,25 +12,16 @@ import java.util.List;
  */
 public class IDTemporalQueryCondition extends AbstractQueryCondition {
 
-  private List<TimeLine> queryWindows;
-  private TemporalQueryType temporalQueryType;
+  private TemporalQueryCondition temporalQueryCondition;
   private IDQueryCondition idQueryCondition;
 
-  public IDTemporalQueryCondition(
-      List<TimeLine> queryWindows,
-      TemporalQueryType temporalQueryType,
-      IDQueryCondition idQueryCondition) {
-    this.queryWindows = queryWindows;
-    this.temporalQueryType = temporalQueryType;
+  public IDTemporalQueryCondition(TemporalQueryCondition temporalQueryCondition, IDQueryCondition idQueryCondition) {
+    this.temporalQueryCondition = temporalQueryCondition;
     this.idQueryCondition = idQueryCondition;
   }
 
-  public List<TimeLine> getQueryWindows() {
-    return queryWindows;
-  }
-
-  public TemporalQueryType getTemporalQueryType() {
-    return temporalQueryType;
+  public TemporalQueryCondition getTemporalQueryCondition() {
+    return temporalQueryCondition;
   }
 
   public IDQueryCondition getIdQueryCondition() {
@@ -40,8 +31,7 @@ public class IDTemporalQueryCondition extends AbstractQueryCondition {
   @Override
   public String getConditionInfo() {
     return "IDTemporalQueryCondition{" +
-            "queryWindows=" + queryWindows +
-            ", temporalQueryType=" + temporalQueryType +
+            "temporalQueryCondition=" + temporalQueryCondition +
             ", idQueryCondition=" + idQueryCondition +
             '}';
   }

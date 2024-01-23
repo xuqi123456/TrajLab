@@ -10,4 +10,5 @@ public class IndexConstants {
      * 集群核数的整数倍
      */
     public static short DEFAULT_SHARD_NUM = 24;
+    public static short DEFAULT_range_NUM = 4;
 }

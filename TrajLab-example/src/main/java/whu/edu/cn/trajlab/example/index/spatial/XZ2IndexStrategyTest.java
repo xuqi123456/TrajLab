@@ -1,7 +1,6 @@
 package whu.edu.cn.trajlab.example.index.spatial;
 
 import junit.framework.TestCase;
-import org.junit.Test;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.io.ParseException;
 import org.locationtech.jts.io.WKTReader;
@@ -70,9 +69,15 @@ public class XZ2IndexStrategyTest extends TestCase {
       SpatialQueryCondition spatialQueryCondition =
           new SpatialQueryCondition(geom, SpatialQueryCondition.SpatialQueryType.INTERSECT);
       XZ2IndexStrategy XZ2IndexStrategy = new XZ2IndexStrategy();
-      List<RowKeyRange> list = XZ2IndexStrategy.getScanRanges(spatialQueryCondition);
+      List<RowKeyRange> list = XZ2IndexStrategy.getPartitionScanRanges(spatialQueryCondition);
       for (RowKeyRange range : list) {
-        System.out.println(range);
+        System.out.println(
+                "start : "
+                        + XZ2IndexStrategy.parsePhysicalIndex2String(range.getStartKey())
+                        + " end : "
+                        + XZ2IndexStrategy.parsePhysicalIndex2String(range.getEndKey())
+                        + " isContained "
+                        + range.isValidate());
       }
     } catch (ParseException e) {
       e.printStackTrace();

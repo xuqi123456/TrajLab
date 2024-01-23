@@ -1,6 +1,9 @@
 package whu.edu.cn.trajlab.query.query.basic;
 
 import com.google.protobuf.ByteString;
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.SparkSession;
+import whu.edu.cn.trajlab.base.util.SparkUtils;
 import whu.edu.cn.trajlab.db.condition.AbstractQueryCondition;
 import whu.edu.cn.trajlab.db.database.DataSet;
 import whu.edu.cn.trajlab.db.database.Database;
@@ -48,7 +51,14 @@ public abstract class AbstractQuery {
    *
    * @return
    */
-  public abstract List<RowKeyRange> getIndexRanges() throws IOException;
+  public List<RowKeyRange> getIndexRanges() throws IOException{
+    setupTargetIndexTable();
+    return targetIndexTable.getIndexMeta().getIndexStrategy().getScanRanges(abstractQueryCondition);
+  }
+  public List<RowKeyRange> getSplitIndexRanges() throws IOException{
+    setupTargetIndexTable();
+    return targetIndexTable.getIndexMeta().getIndexStrategy().getPartitionScanRanges(abstractQueryCondition);
+  }
 
   public IndexTable getTargetIndexTable() {
     return targetIndexTable;
@@ -59,15 +69,28 @@ public abstract class AbstractQuery {
    *
    * @return
    */
-  public abstract List<Trajectory> executeQuery() throws IOException;
-  public abstract JavaRDD<Trajectory> query() throws IOException;
+  public List<Trajectory> executeQuery() throws IOException{
+    List<RowKeyRange> rowKeyRanges = getIndexRanges();
+    return executeQuery(rowKeyRanges);
+  }
+  public abstract List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) throws IOException;
+  public JavaRDD<Trajectory> getRDDQuery(SparkSession ss) throws IOException{
+    List<RowKeyRange> indexRanges = getSplitIndexRanges();
+    JavaSparkContext context = SparkUtils.getJavaSparkContext(ss);
+    JavaRDD<RowKeyRange> rowKeyRangeJavaRDD = context.parallelize(indexRanges);
 
-  /**
-   * Query <strong>some</strong> ranges on target table.
-   *
-   * @return
-   */
-  public abstract List<Trajectory> executeQuery(List<RowKeyRange> range) throws IOException;
+    return rowKeyRangeJavaRDD
+            .groupBy(RowKeyRange::getShardKey)
+            .flatMap(
+                    iteratorPair -> {
+                      // 对每个分区中的元素进行转换操作
+                      List<RowKeyRange> result = new ArrayList<>();
+                      for (RowKeyRange rowKeyRange : iteratorPair._2) {
+                        result.add(rowKeyRange);
+                      }
+                      return executeQuery(result).iterator();
+                    });
+  };
 
   // 这里面能实现比较复杂的逻辑，比如根据数据的时空分布、主副索引的性能差异、查询条件对不同维度的侧重点，选择恰当的index。
   // 当下是一个最简单的逻辑：找到对应查询适合的索引，从里面选一个主索引，避免多次回表查询。

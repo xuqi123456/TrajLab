@@ -46,22 +46,6 @@ public class SpatialTemporalQuery extends AbstractQuery {
     this.filterBeforeLookFullRow = filterBeforeLookFullRow;
   }
 
-  @Override
-  public List<RowKeyRange> getIndexRanges() throws IOException {
-    setupTargetIndexTable();
-    return targetIndexTable.getIndexMeta().getIndexStrategy().getScanRanges(abstractQueryCondition);
-  }
-
-  @Override
-  public List<Trajectory> executeQuery() throws IOException {
-    List<RowKeyRange> rowKeyRanges = getIndexRanges();
-    return executeQuery(rowKeyRanges);
-  }
-
-  @Override
-  public JavaRDD<Trajectory> query() throws IOException {
-    return null;
-  }
 
   @Override
   public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) throws IOException {

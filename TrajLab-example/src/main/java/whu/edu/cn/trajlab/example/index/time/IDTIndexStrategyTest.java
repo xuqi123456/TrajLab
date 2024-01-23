@@ -4,6 +4,8 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.db.coding.coding.XZTCoding;
+import whu.edu.cn.trajlab.db.condition.IDQueryCondition;
+import whu.edu.cn.trajlab.db.condition.IDTemporalQueryCondition;
 import whu.edu.cn.trajlab.db.condition.TemporalQueryCondition;
 import whu.edu.cn.trajlab.db.datatypes.ByteArray;
 import whu.edu.cn.trajlab.db.datatypes.TimeLine;
@@ -54,10 +56,12 @@ public class IDTIndexStrategyTest extends TestCase {
     ZonedDateTime end = ZonedDateTime.parse("2015-12-26 13:00:00", dateTimeFormatter);
     TimeLine timeLine = new TimeLine(start, end);
     String Oid = "001";
-    TemporalQueryCondition temporalQueryCondition =
-        new TemporalQueryCondition(timeLine, TemporalQueryType.INTERSECT);
+    IDQueryCondition idQueryCondition = new IDQueryCondition(Oid);
+    TemporalQueryCondition temporalQueryCondition = new TemporalQueryCondition(timeLine, TemporalQueryType.INTERSECT);
+    IDTemporalQueryCondition idTemporalQueryCondition =
+            new IDTemporalQueryCondition(temporalQueryCondition, idQueryCondition);
     IDTIndexStrategy IDTIndexStrategy = new IDTIndexStrategy(new XZTCoding());
-    List<RowKeyRange> scanRanges = IDTIndexStrategy.getScanRanges(temporalQueryCondition, Oid);
+    List<RowKeyRange> scanRanges = IDTIndexStrategy.getScanRanges(idTemporalQueryCondition);
     System.out.println("Single ID-Time Range:");
     for (RowKeyRange scanRange : scanRanges) {
       System.out.println(
@@ -83,10 +87,12 @@ public class IDTIndexStrategyTest extends TestCase {
     timeLines.add(timeLine1);
     timeLines.add(timeLine2);
     String Oid = "001";
-    TemporalQueryCondition temporalQueryCondition =
-        new TemporalQueryCondition(timeLines, TemporalQueryType.INTERSECT);
+    IDQueryCondition idQueryCondition = new IDQueryCondition(Oid);
+    TemporalQueryCondition temporalQueryCondition = new TemporalQueryCondition(timeLines, TemporalQueryType.INTERSECT);
+    IDTemporalQueryCondition idTemporalQueryCondition =
+        new IDTemporalQueryCondition(temporalQueryCondition, idQueryCondition);
     IDTIndexStrategy IDTIndexStrategy = new IDTIndexStrategy(new XZTCoding());
-    List<RowKeyRange> scanRanges = IDTIndexStrategy.getScanRanges(temporalQueryCondition, Oid);
+    List<RowKeyRange> scanRanges = IDTIndexStrategy.getScanRanges(idTemporalQueryCondition);
     System.out.println("Multi ID-Time Range:");
     for (RowKeyRange scanRange : scanRanges) {
       System.out.println(
@@ -113,10 +119,12 @@ public class IDTIndexStrategyTest extends TestCase {
     timeLines.add(timeLine1);
     timeLines.add(timeLine2);
     String Oid = "001";
-    TemporalQueryCondition temporalQueryCondition =
-        new TemporalQueryCondition(timeLines, TemporalQueryType.INTERSECT);
+    IDQueryCondition idQueryCondition = new IDQueryCondition(Oid);
+    TemporalQueryCondition temporalQueryCondition = new TemporalQueryCondition(timeLines, TemporalQueryType.INTERSECT);
+    IDTemporalQueryCondition idTemporalQueryCondition =
+            new IDTemporalQueryCondition(temporalQueryCondition, idQueryCondition);
     IDTIndexStrategy IDTIndexStrategy = new IDTIndexStrategy(new XZTCoding());
-    List<RowKeyRange> scanRanges = IDTIndexStrategy.getScanRanges(temporalQueryCondition, Oid);
+    List<RowKeyRange> scanRanges = IDTIndexStrategy.getScanRanges(idTemporalQueryCondition);
     System.out.println("Multi InnerBin ID-Time Range:");
     for (RowKeyRange scanRange : scanRanges) {
       System.out.println(

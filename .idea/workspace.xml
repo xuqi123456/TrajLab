@@ -5,117 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/conf/ExampleConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/spatial/XZ2IndexStrategyTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/time/IDTIndexStrategyTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/store/HBaseDataStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/CSVToParquet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/GeojsonToTraj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/KMLToTraj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/ShpToTraj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/TrajToGeojson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/TrajToKML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/TrajToShp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/TrajToWKT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/transform/WKTToTraj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/util/SparkSessionUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081013104428.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081013230418.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081014114737.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081015005143.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081015111010.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081015232937.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081015234917.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081016110447.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081016224935.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081017112840.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081018120606.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081019222847.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081020114150.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081021004622.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081031101923.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081101040025.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081101042408.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081104101900.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081106102334.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081106225500.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081106231922.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081108094106.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/geolife/010-20081201003431.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/inputfiles/map.geojson" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/inputfiles/map.kml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/inputfiles/map.wkt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/inputfiles/maptest.geojson" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/HBaseStoreConfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/LoadConfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/GeojsonLoad.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/KMLLoad.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/ParquetLoadPoint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/ParquetLoadTraj.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/ShapeLoad.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/load/WKTLoad.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/GeoJsonStore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/KMLStore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/ParquetStore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/ShapeStore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/store/WKTStore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/geojson/010-20081013104428.geojson" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/kml/010-20081013104428.kml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00000-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00001-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00002-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00003-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00004-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00005-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00006-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00007-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00008-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00009-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00010-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/.part-00011-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00000-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00001-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00002-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00003-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00004-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00005-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00006-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00007-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00008-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00009-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00010-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet/part-00011-ffd54f4a-e1d6-4133-ae4e-c0bd3e3bfbcc-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00000-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00001-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00002-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00003-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00004-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00005-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/.part-00006-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00000-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00001-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00002-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00003-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00004-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00005-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/parquet_traj/part-00006-0a70921a-c25d-4799-a40f-4fc5b99c183c-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.dbf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.fix" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.prj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.shp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/shape/010-20081013104428.shx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/outfiles/wkt/010-20081013104428.wkt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/SparkUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/id/IDIndexStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/time/TemporalIndexStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/time/TIndexStrategyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/google-java-format.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/data/IDataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/conf/data/IDataConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/DataTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/DataTypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-example/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/CodingRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/CodingRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/XZ2Coding.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/XZ2Coding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/XZTCoding.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/coding/XZTCoding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/sfc/XZTSFC.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/coding/sfc/XZTSFC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/IDTemporalQueryCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/condition/IDTemporalQueryCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/constant/IndexConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/constant/IndexConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/IndexStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/IndexStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/RowKeyRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/RowKeyRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatial/XZ2IndexStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatial/XZ2IndexStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatialtemporal/TXZ2IndexStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatialtemporal/TXZ2IndexStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatialtemporal/XZ2TIndexStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/spatialtemporal/XZ2TIndexStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/time/IDTIndexStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/time/IDTIndexStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/spatial/XZ2IndexStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/spatial/XZ2IndexStrategyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/time/IDTIndexStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/index/time/IDTIndexStrategyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/store/HBaseDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/store/HBaseDataStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/util/SparkSessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/util/SparkSessionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDTemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDTemporalQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialTemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialTemporalQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/TemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/TemporalQuery.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +54,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="dummy://scala-decompiled/SparkContext.decompiled.java" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -147,21 +69,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/bigdata/TrajLab/TrajLab-example/src/main/resources&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.infernus.idea.checkstyle.CheckStyleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/bigdata/TrajLab/TrajLab-example/src/main/resources",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources" />
@@ -171,82 +93,82 @@
       <recent name="D:\bigdata\TrajLab\TrajLab-core\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GeojsonToTraj.GeojsonToTrajFromConf">
-    <configuration name="CSVToParquet.loadFromParquetTraj" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TIndexStrategyTest.testGetSingleScanRanges">
+    <configuration name="IDTIndexStrategyTest.testGetSingleScanRanges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.index.time.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.CSVToParquet" />
-      <option name="METHOD_NAME" value="loadFromParquetTraj" />
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.index.time" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.index.time.IDTIndexStrategyTest" />
+      <option name="METHOD_NAME" value="testGetSingleScanRanges" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CSVToParquet.storeTrajToParquet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IDTIndexStrategyTest.testGetTimeRange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.index.time.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.CSVToParquet" />
-      <option name="METHOD_NAME" value="storeTrajToParquet" />
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.index.time" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.index.time.IDTIndexStrategyTest" />
+      <option name="METHOD_NAME" value="testGetTimeRange" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeojsonToTraj.GeojsonToTrajFromConf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IDTIndexStrategyTest.testIndex" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.index.time.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.GeojsonToTraj" />
-      <option name="METHOD_NAME" value="GeojsonToTrajFromConf" />
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.index.time" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.index.time.IDTIndexStrategyTest" />
+      <option name="METHOD_NAME" value="testIndex" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrajToWKT.TrajToWKTFromConf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IDTIndexStrategyTest.testMultiInnerBinScan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.index.time.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.TrajToWKT" />
-      <option name="METHOD_NAME" value="TrajToWKTFromConf" />
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.index.time" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.index.time.IDTIndexStrategyTest" />
+      <option name="METHOD_NAME" value="testMultiInnerBinScan" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WKTToTraj.WKTToTrajFromConf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TIndexStrategyTest.testGetSingleScanRanges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.index.time.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.WKTToTraj" />
-      <option name="METHOD_NAME" value="WKTToTrajFromConf" />
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.index.time" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.index.time.TIndexStrategyTest" />
+      <option name="METHOD_NAME" value="testGetSingleScanRanges" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -254,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GeojsonToTraj.GeojsonToTrajFromConf" />
-        <item itemvalue="JUnit.CSVToParquet.loadFromParquetTraj" />
-        <item itemvalue="JUnit.CSVToParquet.storeTrajToParquet" />
-        <item itemvalue="JUnit.WKTToTraj.WKTToTrajFromConf" />
-        <item itemvalue="JUnit.TrajToWKT.TrajToWKTFromConf" />
+        <item itemvalue="JUnit.TIndexStrategyTest.testGetSingleScanRanges" />
+        <item itemvalue="JUnit.IDTIndexStrategyTest.testGetSingleScanRanges" />
+        <item itemvalue="JUnit.IDTIndexStrategyTest.testGetTimeRange" />
+        <item itemvalue="JUnit.IDTIndexStrategyTest.testIndex" />
+        <item itemvalue="JUnit.IDTIndexStrategyTest.testMultiInnerBinScan" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +194,10 @@
       <updated>1705053789342</updated>
       <workItem from="1705053790751" duration="21933000" />
       <workItem from="1705397492213" duration="8782000" />
-      <workItem from="1705479724098" duration="1630000" />
+      <workItem from="1705479724098" duration="5574000" />
+      <workItem from="1705646817829" duration="5310000" />
+      <workItem from="1705672699027" duration="1140000" />
+      <workItem from="1705673979368" duration="50836000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
@@ -295,16 +220,43 @@
       <option name="project" value="LOCAL" />
       <updated>1705401442013</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initialize trans example">
+      <created>1705482910057</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705482910057</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Initialize trans example2">
+      <created>1705483010216</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705483010216</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialize commit" />
     <MESSAGE value="module commit" />
     <MESSAGE value="Initialize transfer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialize transfer" />
+    <MESSAGE value="Initialize trans example" />
+    <MESSAGE value="Initialize trans example2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initialize trans example2" />
   </component>
 </project>

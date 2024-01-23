@@ -2,6 +2,7 @@ package whu.edu.cn.trajlab.example.util;
 
 import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import whu.edu.cn.trajlab.core.conf.load.ILoadConfig;
 

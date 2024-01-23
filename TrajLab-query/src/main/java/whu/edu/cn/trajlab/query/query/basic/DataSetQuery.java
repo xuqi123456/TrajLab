@@ -83,23 +83,13 @@ public class DataSetQuery extends AbstractQuery{
   }
 
   @Override
-  public List<RowKeyRange> getIndexRanges() throws IOException {
+  public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) {
     return null;
   }
 
   @Override
-  public List<Trajectory> executeQuery() throws IOException {
-    return null;
-  }
-
-  @Override
-  public JavaRDD<Trajectory> query() throws IOException {
-    return null;
-  }
-
-  @Override
-  public List<Trajectory> executeQuery(List<RowKeyRange> range) throws IOException {
-    return null;
+  public JavaRDD<Trajectory> getRDDQuery(SparkSession sc) throws IOException {
+    return loadDataSet(sc);
   }
 
   @Override
@@ -109,6 +99,6 @@ public class DataSetQuery extends AbstractQuery{
 
   @Override
   public String getQueryInfo() {
-    return null;
+    return abstractQueryCondition.getConditionInfo();
   }
 }

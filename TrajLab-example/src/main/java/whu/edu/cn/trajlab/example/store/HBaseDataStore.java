@@ -3,6 +3,7 @@ package whu.edu.cn.trajlab.example.store;
 import junit.framework.TestCase;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.sql.SparkSession;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
@@ -22,6 +23,7 @@ import java.util.Objects;
 public class HBaseDataStore extends TestCase {
     private static final Logger LOGGER = LoggerFactory.getLogger(HBaseDataStore.class);
 
+    @Test
     public void testStoreHBase() throws IOException {
         String inPath =
                 Objects.requireNonNull(HBaseDataStore.class.getResource("/ioconf/HBaseStoreConfig.json"))

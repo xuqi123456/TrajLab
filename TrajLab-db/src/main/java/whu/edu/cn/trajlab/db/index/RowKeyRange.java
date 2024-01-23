@@ -12,16 +12,24 @@ public class RowKeyRange {
     ByteArray startKey;
     ByteArray endKey;
     boolean validate;
+    short shardKey;
 
     public RowKeyRange(ByteArray startKey, ByteArray endKey) {
         this.startKey = startKey;
         this.endKey = endKey;
     }
 
-    public RowKeyRange(ByteArray startKey, ByteArray endKey, boolean validated) {
+    public RowKeyRange(ByteArray startKey, ByteArray endKey, boolean validate) {
         this.startKey = startKey;
         this.endKey = endKey;
-        this.validate = validated;
+        this.validate = validate;
+    }
+
+    public RowKeyRange(ByteArray startKey, ByteArray endKey, boolean validate, short shardKey) {
+        this.startKey = startKey;
+        this.endKey = endKey;
+        this.validate = validate;
+        this.shardKey = shardKey;
     }
 
     public ByteArray getStartKey() {
@@ -36,11 +44,16 @@ public class RowKeyRange {
         return validate;
     }
 
+    public short getShardKey() {
+        return shardKey;
+    }
+
     @Override
     public String toString() {
         return "RowKeyRange{" +
                 "startKey=" + startKey +
                 ", endKey=" + endKey +
+                ", validate=" + validate +
                 '}';
     }
 }

@@ -21,6 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import static whu.edu.cn.trajlab.db.constant.IndexConstants.DEFAULT_range_NUM;
 
 /**
  * @author xuqi
@@ -44,8 +45,14 @@ public class XZ2TIndexStrategy extends IndexStrategy {
   }
 
   private static final int PHYSICAL_KEY_BYTE_LEN =
-      Short.BYTES + XZ2Coding.BYTES + XZTCoding.BYTES_NUM + CodingConstants.MAX_OID_LENGTH + CodingConstants.MAX_TID_LENGTH;
-  private static final int LOGICAL_KEY_BYTE_LEN = PHYSICAL_KEY_BYTE_LEN - Short.BYTES - CodingConstants.MAX_TID_LENGTH;
+      Short.BYTES
+          + XZ2Coding.BYTES
+          + XZTCoding.BYTES_NUM
+          + CodingConstants.MAX_OID_LENGTH
+          + CodingConstants.MAX_TID_LENGTH;
+  private static final int LOGICAL_KEY_BYTE_LEN =
+      PHYSICAL_KEY_BYTE_LEN - Short.BYTES - CodingConstants.MAX_TID_LENGTH;
+  private static final int PARTITION_KEY_BYTE_LEN = XZ2Coding.BYTES;
   private static final int SCAN_RANGE_BYTE_LEN =
       PHYSICAL_KEY_BYTE_LEN - CodingConstants.MAX_OID_LENGTH - CodingConstants.MAX_TID_LENGTH;
 
@@ -63,6 +70,14 @@ public class XZ2TIndexStrategy extends IndexStrategy {
     byteBuffer.put(timeCode.getBytes());
     byteBuffer.put(getObjectIDBytes(trajectory));
     byteBuffer.put(getTrajectoryIDBytes(trajectory));
+    return new ByteArray(byteBuffer);
+  }
+
+  @Override
+  protected ByteArray partitionIndex(Trajectory trajectory) {
+    ByteArray spatialCoding = xz2Coding.code(trajectory.getLineString());
+    ByteBuffer byteBuffer = ByteBuffer.allocate(PARTITION_KEY_BYTE_LEN);
+    byteBuffer.put(spatialCoding.getBytes());
     return new ByteArray(byteBuffer);
   }
 
@@ -87,34 +102,34 @@ public class XZ2TIndexStrategy extends IndexStrategy {
   public List<RowKeyRange> getScanRanges(AbstractQueryCondition abstractQueryCondition) {
     if (abstractQueryCondition instanceof SpatialTemporalQueryCondition) {
       SpatialTemporalQueryCondition spatialTemporalQueryCondition =
-          (SpatialTemporalQueryCondition) abstractQueryCondition;
+              (SpatialTemporalQueryCondition) abstractQueryCondition;
       List<RowKeyRange> result = new ArrayList<>();
       SpatialQueryCondition spatialQueryCondition =
-          spatialTemporalQueryCondition.getSpatialQueryCondition();
+              spatialTemporalQueryCondition.getSpatialQueryCondition();
       TemporalQueryCondition temporalQueryCondition =
-          spatialTemporalQueryCondition.getTemporalQueryCondition();
+              spatialTemporalQueryCondition.getTemporalQueryCondition();
       // 四重循环，所有可能的时间编码都应单独取值
       for (CodingRange spatialCodingRange : xz2Coding.ranges(spatialQueryCondition)) {
         long lowerXZ2Code = Bytes.toLong(spatialCodingRange.getLower().getBytes());
         long upperXZ2Code = Bytes.toLong(spatialCodingRange.getUpper().getBytes());
-        List<CodingRange> temporalCodingRanges = xztCoding.ranges(temporalQueryCondition);
         boolean sValidate = spatialCodingRange.isValidated();
+        List<CodingRange> temporalCodingRanges = xztCoding.ranges(temporalQueryCondition);
         for (long xzCode = lowerXZ2Code; xzCode <= upperXZ2Code; xzCode++) {
           for (CodingRange temporalCodingRange : temporalCodingRanges) {
             boolean tValidate = temporalCodingRange.isValidated();
             for (short shard = 0; shard < shardNum; shard++) {
               ByteArray byteArray1 =
-                  toRowKeyRangeBoundary(
-                      shard,
-                      new ByteArray(Bytes.toBytes(xzCode)),
-                      temporalCodingRange.getLower(),
-                      false);
+                      toRowKeyRangeBoundary(
+                              shard,
+                              new ByteArray(Bytes.toBytes(xzCode)),
+                              temporalCodingRange.getLower(),
+                              false);
               ByteArray byteArray2 =
-                  toRowKeyRangeBoundary(
-                      shard,
-                      new ByteArray(Bytes.toBytes(xzCode)),
-                      temporalCodingRange.getUpper(),
-                      true);
+                      toRowKeyRangeBoundary(
+                              shard,
+                              new ByteArray(Bytes.toBytes(xzCode)),
+                              temporalCodingRange.getUpper(),
+                              true);
               result.add(new RowKeyRange(byteArray1, byteArray2, tValidate && sValidate));
             }
           }
@@ -127,8 +142,50 @@ public class XZ2TIndexStrategy extends IndexStrategy {
   }
 
   @Override
-  public List<RowKeyRange> getScanRanges(AbstractQueryCondition queryCondition, String oid) {
-    throw new UnsupportedOperationException();
+  public List<RowKeyRange> getPartitionScanRanges(AbstractQueryCondition abstractQueryCondition) {
+    if (abstractQueryCondition instanceof SpatialTemporalQueryCondition) {
+      SpatialTemporalQueryCondition spatialTemporalQueryCondition =
+              (SpatialTemporalQueryCondition) abstractQueryCondition;
+      List<RowKeyRange> result = new ArrayList<>();
+      SpatialQueryCondition spatialQueryCondition =
+              spatialTemporalQueryCondition.getSpatialQueryCondition();
+      TemporalQueryCondition temporalQueryCondition =
+              spatialTemporalQueryCondition.getTemporalQueryCondition();
+      // 四重循环，所有可能的时间编码都应单独取值
+      for (CodingRange spatialCodingRange : xz2Coding.ranges(spatialQueryCondition)) {
+        long lowerXZ2Code = Bytes.toLong(spatialCodingRange.getLower().getBytes());
+        long upperXZ2Code = Bytes.toLong(spatialCodingRange.getUpper().getBytes());
+        boolean sValidate = spatialCodingRange.isValidated();
+        List<CodingRange> temporalCodingRanges = xztCoding.ranges(temporalQueryCondition);
+        for (long xzCode = lowerXZ2Code; xzCode <= upperXZ2Code; xzCode++) {
+          short shard =
+                  (short)
+                          Math.abs(
+                                  (spatialCodingRange.byteSfcCode(xzCode).hashCode()
+                                          / DEFAULT_range_NUM
+                                          % shardNum));
+          for (CodingRange temporalCodingRange : temporalCodingRanges) {
+            boolean tValidate = temporalCodingRange.isValidated();
+            ByteArray byteArray1 =
+                    toRowKeyRangeBoundary(
+                            shard,
+                            new ByteArray(Bytes.toBytes(xzCode)),
+                            temporalCodingRange.getLower(),
+                            false);
+            ByteArray byteArray2 =
+                    toRowKeyRangeBoundary(
+                            shard,
+                            new ByteArray(Bytes.toBytes(xzCode)),
+                            temporalCodingRange.getUpper(),
+                            true);
+            result.add(new RowKeyRange(byteArray1, byteArray2, tValidate && sValidate, shard));
+          }
+        }
+      }
+      return result;
+    } else {
+      throw new UnsupportedOperationException();
+    }
   }
 
   @Override

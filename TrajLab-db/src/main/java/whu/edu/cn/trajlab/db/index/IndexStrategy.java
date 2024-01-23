@@ -14,6 +14,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
 
+import static whu.edu.cn.trajlab.db.constant.IndexConstants.DEFAULT_range_NUM;
+
 
 /**
  * 接收对象,输出row-key.
@@ -32,8 +34,9 @@ public abstract class IndexStrategy implements Serializable {
      * 获取轨迹在数据库中的物理索引, 即在逻辑索引之前拼接上shard, shard由逻辑索引的hash值作模运算得到。
      */
     public ByteArray index(Trajectory trajectory) {
+        ByteArray partitionIndex= partitionIndex(trajectory);
+        short shard = (short) Math.abs((partitionIndex.hashCode() / DEFAULT_range_NUM % shardNum));
         ByteArray logicalIndex = logicalIndex(trajectory);
-        short shard = (short) Math.abs((logicalIndex.hashCode() % shardNum));
         ByteBuffer buffer = ByteBuffer.allocate(logicalIndex.getBytes().length + Short.BYTES);
         buffer.put(Bytes.toBytes(shard));
         buffer.put(logicalIndex.getBytes());
@@ -42,6 +45,7 @@ public abstract class IndexStrategy implements Serializable {
 
     // 对轨迹编码
     protected abstract ByteArray logicalIndex(Trajectory trajectory);
+    protected abstract ByteArray partitionIndex(Trajectory trajectory);
 
     public IndexType getIndexType() {
         return indexType;
@@ -54,7 +58,7 @@ public abstract class IndexStrategy implements Serializable {
      * @return RowKey pairs
      */
     public abstract List<RowKeyRange> getScanRanges(AbstractQueryCondition queryCondition);
-    public abstract List<RowKeyRange> getScanRanges(AbstractQueryCondition queryCondition, String oid);
+    public abstract List<RowKeyRange> getPartitionScanRanges(AbstractQueryCondition queryCondition);
 
     public abstract String parsePhysicalIndex2String(ByteArray byteArray);
 
@@ -113,6 +117,10 @@ public abstract class IndexStrategy implements Serializable {
             splits[i] = bytes;
         }
         return splits;
+    }
+
+    public short getShardByOid(String oid) {
+        return (short) Math.abs(oid.hashCode() % shardNum);
     }
 
     @Override

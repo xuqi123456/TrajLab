@@ -1,7 +1,9 @@
 package whu.edu.cn.trajlab.db.database;
 
+import org.apache.hadoop.hbase.client.*;
 import whu.edu.cn.trajlab.db.database.meta.DataSetMeta;
 import whu.edu.cn.trajlab.db.database.meta.IndexMeta;
+import whu.edu.cn.trajlab.db.database.table.IndexTable;
 import whu.edu.cn.trajlab.db.database.table.MetaTable;
 import whu.edu.cn.trajlab.db.enums.IndexType;
 import org.apache.hadoop.conf.Configuration;
@@ -9,10 +11,6 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
-import org.apache.hadoop.hbase.client.Admin;
-import org.apache.hadoop.hbase.client.Connection;
-import org.apache.hadoop.hbase.client.ConnectionFactory;
-import org.apache.hadoop.hbase.client.Table;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import whu.edu.cn.trajlab.db.constant.DBConstants;
@@ -204,6 +202,14 @@ public final class Database {
         } finally {
             if (admin != null) admin.close();
         }
+    }
+    public ResultScanner getScan(Table table, Scan scan) throws IOException {
+        return table.getScanner(scan);
+    }
+    public Result getMainIndexedResult(Result result, IndexTable indexTable) throws IOException {
+        return instance.getDataSet(IndexTable.extractDataSetName(indexTable))
+                .getCoreIndexTable()
+                .get(new Get(result.getValue(DBConstants.COLUMN_FAMILY, DBConstants.PTR_QUALIFIER)));
     }
 
     public Admin getAdmin() throws IOException {
