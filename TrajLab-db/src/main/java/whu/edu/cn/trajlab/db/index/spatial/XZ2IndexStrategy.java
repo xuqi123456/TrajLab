@@ -126,6 +126,20 @@ public class XZ2IndexStrategy extends IndexStrategy {
         + '}';
   }
 
+  @Override
+  public String parseScanIndex2String(ByteArray byteArray) {
+    return "Row key index: {"
+            + "shardNum="
+            + getShardNum(byteArray)
+            + ", xz2="
+            + extractSpatialCode(byteArray)
+            + ", oidAndTid="
+            + getObjectID(byteArray)
+            + "-"
+            + getTrajectoryID(byteArray)
+            + '}';
+  }
+
   public SpatialCoding getSpatialCoding() {
     return xz2Coding;
   }

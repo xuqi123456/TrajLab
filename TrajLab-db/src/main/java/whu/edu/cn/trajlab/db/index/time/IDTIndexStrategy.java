@@ -121,6 +121,20 @@ public class IDTIndexStrategy extends IndexStrategy {
         + getObjectID(byteArray)
         + ", XZT = "
         + getTimeCode(byteArray)
+        + ", Tid="
+        + getTrajectoryID(byteArray)
+        + '}';
+  }
+
+  @Override
+  public String parseScanIndex2String(ByteArray byteArray) {
+    return "Row key index: {"
+        + "shardNum = "
+        + getShardNum(byteArray)
+        + ", OID = "
+        + getObjectID(byteArray)
+        + ", XZT = "
+        + getTimeCode(byteArray)
         + '}';
   }
 

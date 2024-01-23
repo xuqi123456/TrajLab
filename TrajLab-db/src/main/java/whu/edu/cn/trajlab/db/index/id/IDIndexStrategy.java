@@ -95,6 +95,16 @@ public class IDIndexStrategy extends IndexStrategy {
     }
 
     @Override
+    public String parseScanIndex2String(ByteArray byteArray) {
+        return "Row key index: {"
+                + "shardNum = "
+                + getShardNum(byteArray)
+                + ", OID = "
+                + getObjectID(byteArray)
+                + '}';
+    }
+
+    @Override
     public short getShardNum(ByteArray physicalIndex) {
         ByteBuffer buffer = physicalIndex.toByteBuffer();
         ((Buffer) buffer).flip();

@@ -66,9 +66,9 @@ public class IDTIndexStrategyTest extends TestCase {
     for (RowKeyRange scanRange : scanRanges) {
       System.out.println(
           "start : "
-              + IDTIndexStrategy.parsePhysicalIndex2String(scanRange.getStartKey())
+              + IDTIndexStrategy.parseScanIndex2String(scanRange.getStartKey())
               + " end : "
-              + IDTIndexStrategy.parsePhysicalIndex2String(scanRange.getEndKey())
+              + IDTIndexStrategy.parseScanIndex2String(scanRange.getEndKey())
               + " isContained "
               + scanRange.isValidate());
     }
@@ -97,9 +97,9 @@ public class IDTIndexStrategyTest extends TestCase {
     for (RowKeyRange scanRange : scanRanges) {
       System.out.println(
           "start : "
-              + IDTIndexStrategy.parsePhysicalIndex2String(scanRange.getStartKey())
+              + IDTIndexStrategy.parseScanIndex2String(scanRange.getStartKey())
               + " end : "
-              + IDTIndexStrategy.parsePhysicalIndex2String(scanRange.getEndKey())
+              + IDTIndexStrategy.parseScanIndex2String(scanRange.getEndKey())
               + " isContained "
               + scanRange.isValidate());
     }
@@ -129,9 +129,9 @@ public class IDTIndexStrategyTest extends TestCase {
     for (RowKeyRange scanRange : scanRanges) {
       System.out.println(
           "start : "
-              + IDTIndexStrategy.parsePhysicalIndex2String(scanRange.getStartKey())
+              + IDTIndexStrategy.parseScanIndex2String(scanRange.getStartKey())
               + " end : "
-              + IDTIndexStrategy.parsePhysicalIndex2String(scanRange.getEndKey())
+              + IDTIndexStrategy.parseScanIndex2String(scanRange.getEndKey())
               + " isContained "
               + scanRange.isValidate());
     }

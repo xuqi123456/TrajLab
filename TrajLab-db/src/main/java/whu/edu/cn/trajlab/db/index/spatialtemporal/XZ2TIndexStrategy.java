@@ -195,8 +195,6 @@ public class XZ2TIndexStrategy extends IndexStrategy {
         + getShardNum(physicalIndex)
         + ", xz2="
         + extractSpatialCode(physicalIndex)
-        + ", bin = "
-        + getTimeBin(physicalIndex)
         + ", timeCoding = "
         + getTimeElementCode(physicalIndex)
         + ", oidAndTid="
@@ -204,6 +202,18 @@ public class XZ2TIndexStrategy extends IndexStrategy {
         + "-"
         + getTrajectoryID(physicalIndex)
         + '}';
+  }
+
+  @Override
+  public String parseScanIndex2String(ByteArray byteArray) {
+    return "Row key index: {"
+            + "shardNum="
+            + getShardNum(byteArray)
+            + ", xz2="
+            + extractSpatialCode(byteArray)
+            + ", timeCoding = "
+            + getTimeElementCode(byteArray)
+            + '}';
   }
 
   public SpatialCoding getSpatialCoding() {

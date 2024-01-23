@@ -32,9 +32,9 @@ public class TIndexStrategyTest extends TestCase {
         for (RowKeyRange scanRange : scanRanges) {
             System.out.println(
                     "start : "
-                            + temporalIndexStrategy.parsePhysicalIndex2String(scanRange.getStartKey())
+                            + temporalIndexStrategy.parseScanIndex2String(scanRange.getStartKey())
                             + " end : "
-                            + temporalIndexStrategy.parsePhysicalIndex2String(scanRange.getEndKey())
+                            + temporalIndexStrategy.parseScanIndex2String(scanRange.getEndKey())
                             + " isContained "
                             + scanRange.isValidate());
         }

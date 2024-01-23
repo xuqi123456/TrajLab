@@ -10,6 +10,7 @@ import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.core.operator.load.ILoader;
 import whu.edu.cn.trajlab.core.operator.store.IStore;
 import whu.edu.cn.trajlab.core.util.IOUtils;
+import whu.edu.cn.trajlab.db.database.Database;
 import whu.edu.cn.trajlab.example.conf.ExampleConfig;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
 
@@ -22,8 +23,6 @@ import java.util.Objects;
  */
 public class HBaseDataStore extends TestCase {
     private static final Logger LOGGER = LoggerFactory.getLogger(HBaseDataStore.class);
-
-    @Test
     public void testStoreHBase() throws IOException {
         String inPath =
                 Objects.requireNonNull(HBaseDataStore.class.getResource("/ioconf/HBaseStoreConfig.json"))
@@ -52,5 +51,9 @@ public class HBaseDataStore extends TestCase {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public void testDeleteDataSet() throws IOException {
+        Database instance = Database.getInstance();
+        instance.deleteDataSet("TRAJECTORY_TEST");
     }
 }

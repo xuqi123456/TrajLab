@@ -208,8 +208,6 @@ public class TXZ2IndexStrategy extends IndexStrategy {
     return "Row key index: {"
         + "shardNum="
         + getShardNum(byteArray)
-        + ", bin = "
-        + getTimeBin(byteArray)
         + ", timeCoding = "
         + getTimeElementCode(byteArray)
         + ", xz2="
@@ -219,6 +217,18 @@ public class TXZ2IndexStrategy extends IndexStrategy {
         + "-"
         + getTrajectoryID(byteArray)
         + '}';
+  }
+
+  @Override
+  public String parseScanIndex2String(ByteArray byteArray) {
+    return "Row key index: {"
+            + "shardNum="
+            + getShardNum(byteArray)
+            + ", timeCoding = "
+            + getTimeElementCode(byteArray)
+            + ", xz2="
+            + extractSpatialCode(byteArray)
+            + '}';
   }
 
   public SpatialCoding getSpatialCoding() {

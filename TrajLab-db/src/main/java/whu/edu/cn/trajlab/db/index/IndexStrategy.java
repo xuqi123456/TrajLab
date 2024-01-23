@@ -61,6 +61,7 @@ public abstract class IndexStrategy implements Serializable {
     public abstract List<RowKeyRange> getPartitionScanRanges(AbstractQueryCondition queryCondition);
 
     public abstract String parsePhysicalIndex2String(ByteArray byteArray);
+    public abstract String parseScanIndex2String(ByteArray byteArray);
 
     public byte[] getObjectIDBytes(Trajectory trajectory) {
         return getObjectIDBytes(trajectory.getObjectID());

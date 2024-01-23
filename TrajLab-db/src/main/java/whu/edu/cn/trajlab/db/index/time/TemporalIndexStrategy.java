@@ -145,6 +145,20 @@ public class TemporalIndexStrategy extends IndexStrategy {
             + getShardNum(byteArray)
             + ", XZT = "
             + getTimeCode(byteArray)
+            + ", oidAndTid="
+            + getObjectID(byteArray)
+            + "-"
+            + getTrajectoryID(byteArray)
+            + '}';
+  }
+
+  @Override
+  public String parseScanIndex2String(ByteArray byteArray) {
+    return "Row key index: {"
+            + "shardNum = "
+            + getShardNum(byteArray)
+            + ", XZT = "
+            + getTimeCode(byteArray)
             + '}';
   }
 

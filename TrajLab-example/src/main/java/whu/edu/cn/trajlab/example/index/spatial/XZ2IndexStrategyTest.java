@@ -73,9 +73,9 @@ public class XZ2IndexStrategyTest extends TestCase {
       for (RowKeyRange range : list) {
         System.out.println(
                 "start : "
-                        + XZ2IndexStrategy.parsePhysicalIndex2String(range.getStartKey())
+                        + XZ2IndexStrategy.parseScanIndex2String(range.getStartKey())
                         + " end : "
-                        + XZ2IndexStrategy.parsePhysicalIndex2String(range.getEndKey())
+                        + XZ2IndexStrategy.parseScanIndex2String(range.getEndKey())
                         + " isContained "
                         + range.isValidate());
       }

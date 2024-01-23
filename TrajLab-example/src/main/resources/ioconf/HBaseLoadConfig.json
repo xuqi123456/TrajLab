@@ -1,0 +1,6 @@
+{
+  "loadConfig": {
+    "@type": "hbase",
+    "dataSetName": "TRAJECTORY_TEST"
+  }
+}
