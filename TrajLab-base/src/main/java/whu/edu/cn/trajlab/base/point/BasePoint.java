@@ -3,12 +3,14 @@ package whu.edu.cn.trajlab.base.point;
 import org.locationtech.jts.geom.*;
 import org.locationtech.jts.geom.impl.CoordinateArraySequence;
 
+import java.io.Serializable;
+
 /**
  * @author xuqi
  * @date 2023/11/06
  */
 
-public class BasePoint extends Point {
+public class BasePoint extends Point implements Serializable {
     private static final int SRID = 4326;
     public BasePoint(CoordinateSequence coordinates, GeometryFactory factory) {
         super(coordinates, factory);

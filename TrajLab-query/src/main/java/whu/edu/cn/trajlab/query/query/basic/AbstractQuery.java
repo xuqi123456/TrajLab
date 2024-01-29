@@ -30,9 +30,9 @@ public abstract class AbstractQuery {
 
   private static final Logger logger = LoggerFactory.getLogger(AbstractQuery.class);
 
-  DataSet dataSet;
-  IndexTable targetIndexTable;
-  AbstractQueryCondition abstractQueryCondition;
+  public DataSet dataSet;
+  public IndexTable targetIndexTable;
+  public AbstractQueryCondition abstractQueryCondition;
 
   public AbstractQuery(DataSet dataSet, AbstractQueryCondition abstractQueryCondition) {
     this.dataSet = dataSet;

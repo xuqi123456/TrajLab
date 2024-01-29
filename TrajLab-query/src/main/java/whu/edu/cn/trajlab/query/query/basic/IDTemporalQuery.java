@@ -66,17 +66,22 @@ public class IDTemporalQuery extends AbstractQuery {
 
     QueryCondition.QueryRequest timeQueryRequest =
         QueryCondition.QueryRequest.newBuilder()
-            .setTemporalQueryType(
-                temporalQueryCondition.getTemporalQueryType() == TemporalQueryType.CONTAIN
-                    ? QueryCondition.QueryType.CONTAIN
-                    : QueryCondition.QueryType.INTERSECT)
-            .setTemporalQueryWindows(
-                QueryCondition.TemporalQueryWindows.newBuilder()
-                    .addAllTemporalQueryWindow(temporalQueryWindows)
-                    .build())
-            .setOid(
-                ((IDTemporalQueryCondition) abstractQueryCondition).getIdQueryCondition().getMoid())
             .addAllRange(ranges)
+            .setSt(
+                QueryCondition.STQueryRequest.newBuilder()
+                    .setTemporalQueryType(
+                        temporalQueryCondition.getTemporalQueryType() == TemporalQueryType.CONTAIN
+                            ? QueryCondition.QueryType.CONTAIN
+                            : QueryCondition.QueryType.INTERSECT)
+                    .setTemporalQueryWindows(
+                        QueryCondition.TemporalQueryWindows.newBuilder()
+                            .addAllTemporalQueryWindow(temporalQueryWindows)
+                            .build())
+                    .setOid(
+                        ((IDTemporalQueryCondition) abstractQueryCondition)
+                            .getIdQueryCondition()
+                            .getMoid())
+                    .build())
             .build();
 
     return STCoprocessorQuery.executeQuery(targetIndexTable, timeQueryRequest);

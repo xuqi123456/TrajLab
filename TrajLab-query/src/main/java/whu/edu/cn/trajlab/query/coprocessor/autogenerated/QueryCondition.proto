@@ -10,6 +10,12 @@ enum QueryType {
   CONTAIN = 0;
   INTERSECT = 1;
 }
+enum QueryMethod {
+  ST = 0;
+  KNN = 1;
+  SIMILAR = 2;
+  ACCOMPANY = 3;
+}
 
 message Range {
   required bytes start = 1;
@@ -31,14 +37,41 @@ message TemporalQueryWindows {
 }
 
 
-message QueryRequest {
-  repeated Range range = 1;
+message STQueryRequest {
   optional QueryType spatialQueryType = 2;
   optional SpatialQueryWindow spatialQueryWindow = 3;
   optional QueryType temporalQueryType = 4;
   optional TemporalQueryWindows temporalQueryWindows = 5;
   optional string oid = 6;
   optional bool filterBeforeLookFullRow = 7;
+}
+
+message KNNQueryRequest{
+  required int64 k = 2;
+  required double distance = 3;
+  optional bytes point = 4;
+  optional bytes trajectory = 5;
+}
+message SimilarQueryRequest{
+  required int64 k = 2;
+  required double distance = 3;
+  optional bytes point = 4;
+  optional bytes trajectory = 5;
+}
+message AccompanyQueryRequest{
+  required int64 k = 2;
+  required double distance = 3;
+  optional bytes point = 4;
+  optional bytes trajectory = 5;
+}
+
+message QueryRequest {
+  repeated Range range = 1;
+  required QueryMethod queryOperation = 2;
+  optional STQueryRequest st = 3;
+  optional KNNQueryRequest knn = 4;
+  optional SimilarQueryRequest sim = 5;
+  optional AccompanyQueryRequest acc = 6;
 }
 
 message QueryResponse {

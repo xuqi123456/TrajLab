@@ -14,7 +14,6 @@ import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static whu.edu.cn.trajlab.base.util.GeoUtils.getEuclideanDistanceKM;
 
 
 public class Trajectory implements Serializable {

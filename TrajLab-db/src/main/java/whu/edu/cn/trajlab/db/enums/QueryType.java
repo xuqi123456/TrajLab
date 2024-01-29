@@ -12,7 +12,11 @@ public enum QueryType implements Serializable {
     ID("id"),
     ST("st"),
     ID_T("id-temporal"),
-    DATASET("dataset");
+    DATASET("dataset"),
+    KNN("knn"),
+    SIMILAR("similar"),
+    BUFFER("buffer"),
+    ACCOMPANY("Accompany");
     private String queryType;
 
     QueryType(String queryType) {

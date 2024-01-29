@@ -44,6 +44,7 @@ public class TrajLine extends LineString {
         this.userData = userData;
     }
 
+    @Override
     public Coordinate[] getCoordinates() {
         Coordinate[] coordinates = new Coordinate[trajPointList.size()];
         ArrayList<Long> timestamp = new ArrayList<>();

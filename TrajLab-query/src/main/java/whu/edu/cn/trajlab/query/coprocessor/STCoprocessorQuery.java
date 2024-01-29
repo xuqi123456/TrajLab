@@ -21,7 +21,6 @@ public class STCoprocessorQuery {
 
     public static List<Trajectory> executeQuery(IndexTable indexTable, QueryCondition.QueryRequest request) throws IOException {
         List<QueryCondition.Range> ranges = request.getRangeList();
-
         Map<byte[], List<QueryCondition.TrajectoryResult>> coprocessorResult = null;
         try {
             coprocessorResult = indexTable.getTable().coprocessorService(QueryCondition.QueryService.class,
