@@ -1,5 +1,7 @@
 package whu.edu.cn.trajlab.base.util;
 
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.operation.distance.DistanceOp;
 import whu.edu.cn.trajlab.base.mbr.MinimumBoundingBox;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Envelope;
@@ -302,5 +304,13 @@ public class GeoUtils implements Serializable {
             return getEuclideanDistanceM(
                     new BasePoint(var8, var6), new BasePoint(var12, var10));
         }
+    }
+    public static double nearDistanceOp(Geometry point, Geometry mbrPolygon){
+        DistanceOp distanceOp = new DistanceOp(point, mbrPolygon);
+//        GeometryFactory factory = new GeometryFactory();
+//        Coordinate[] closestCoords = distanceOp.nearestPoints();
+//        org.locationtech.jts.geom.Point closestCoord = factory.createPoint(closestCoords[1]);
+
+        return distanceOp.distance();
     }
 }

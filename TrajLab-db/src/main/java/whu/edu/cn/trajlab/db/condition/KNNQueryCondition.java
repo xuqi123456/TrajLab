@@ -14,7 +14,7 @@ import java.io.IOException;
  * @date 2024/01/24
  */
 public class KNNQueryCondition extends AbstractQueryCondition{
-    private int k;
+    private final int k;
     private BasePoint centralPoint;
     private Trajectory centralTrajectory;
     private TemporalQueryCondition temporalQueryCondition;

@@ -1,5 +1,6 @@
 package whu.edu.cn.trajlab.db.database.util;
 
+import scala.Tuple2;
 import whu.edu.cn.trajlab.db.database.meta.IndexMeta;
 import whu.edu.cn.trajlab.db.datatypes.TimeLine;
 import whu.edu.cn.trajlab.base.mbr.MinimumBoundingBox;
@@ -202,6 +203,13 @@ public class TrajectorySerdeUtils {
         ZonedDateTime endTime = ((TrajPoint) SerializerUtils.deserializeObject(
                 result.getValue(DBConstants.COLUMN_FAMILY, DBConstants.END_POINT_QUALIFIER), TrajPoint.class)).getTimestamp();
         return new TimeLine(startTime, endTime);
+    }
+    public static Tuple2<TrajPoint, TrajPoint> getTrajectorySEPoint(Result result) {
+        TrajPoint startPoint = ((TrajPoint) SerializerUtils.deserializeObject(
+                result.getValue(DBConstants.COLUMN_FAMILY, DBConstants.START_POINT_QUALIFIER), TrajPoint.class));
+        TrajPoint endPoint = ((TrajPoint) SerializerUtils.deserializeObject(
+                result.getValue(DBConstants.COLUMN_FAMILY, DBConstants.END_POINT_QUALIFIER), TrajPoint.class));
+        return new Tuple2<TrajPoint, TrajPoint>(startPoint, endPoint);
     }
 
     public static byte[] getByteArrayByQualifier(Result result, byte[] qualifier) {

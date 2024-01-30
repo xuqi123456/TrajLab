@@ -38,31 +38,30 @@ message TemporalQueryWindows {
 
 
 message STQueryRequest {
-  optional QueryType spatialQueryType = 2;
-  optional SpatialQueryWindow spatialQueryWindow = 3;
-  optional QueryType temporalQueryType = 4;
-  optional TemporalQueryWindows temporalQueryWindows = 5;
-  optional string oid = 6;
-  optional bool filterBeforeLookFullRow = 7;
+  optional QueryType spatialQueryType = 1;
+  optional SpatialQueryWindow spatialQueryWindow = 2;
+  optional QueryType temporalQueryType = 3;
+  optional TemporalQueryWindows temporalQueryWindows = 4;
+  optional string oid = 5;
+  optional bool filterBeforeLookFullRow = 6;
 }
 
 message KNNQueryRequest{
-  required int64 k = 2;
-  required double distance = 3;
-  optional bytes point = 4;
-  optional bytes trajectory = 5;
+  required int64 k = 1;
+  required double distance = 2;
+  optional bytes point = 3;
+  optional bytes trajectory = 4;
+  optional TemporalQueryWindow temporalQueryWindow = 5;
 }
 message SimilarQueryRequest{
-  required int64 k = 2;
-  required double distance = 3;
-  optional bytes point = 4;
-  optional bytes trajectory = 5;
+  required double distance = 1;
+  required  bytes trajectory = 2;
+  optional TemporalQueryWindow temporalQueryWindow = 5;
 }
 message AccompanyQueryRequest{
-  required int64 k = 2;
-  required double distance = 3;
-  optional bytes point = 4;
-  optional bytes trajectory = 5;
+  required double distance = 1;
+  required int64 timeInterval = 2;
+  required bytes trajectory = 3;
 }
 
 message QueryRequest {

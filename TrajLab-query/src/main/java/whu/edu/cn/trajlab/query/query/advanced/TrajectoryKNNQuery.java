@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.util.*;
 
 import static whu.edu.cn.trajlab.query.constants.QueryConstants.BASIC_BUFFER_DISTANCE;
+import static whu.edu.cn.trajlab.query.query.basic.TemporalQuery.buildProtoTemporalWindow;
 
 /**
  * @author xuqi
@@ -106,6 +107,8 @@ public class TrajectoryKNNQuery extends AbstractQuery {
     setupTargetIndexTable();
     List<QueryCondition.Range> ranges = rowKeyRangeToProtoRange(rowKeyRanges);
     KNNQueryCondition knnQueryCondition = (KNNQueryCondition) abstractQueryCondition;
+    QueryCondition.TemporalQueryWindow temporalQueryWindow =
+        buildProtoTemporalWindow(knnQueryCondition.getTemporalQueryCondition());
     switch (knnQueryCondition.getKnnQueryType()) {
       case Point:
         {
@@ -116,7 +119,14 @@ public class TrajectoryKNNQuery extends AbstractQuery {
                       QueryCondition.KNNQueryRequest.newBuilder()
                           .setK(knnQueryCondition.getK())
                           .setPoint(ByteString.copyFrom(knnQueryCondition.getPointBytes()))
-                          .setDistance(maxDistance)
+                          .setDistance(GeoUtils.getDegreeFromKm(maxDistance))
+                          .setTemporalQueryWindow(
+                              hasTimeConstrain()
+                                  ? QueryCondition.TemporalQueryWindow.newBuilder()
+                                      .setStartMs(temporalQueryWindow.getStartMs())
+                                      .setEndMs(temporalQueryWindow.getEndMs())
+                                      .build()
+                                  : null)
                           .build())
                   .build();
           return STCoprocessorQuery.executeQuery(targetIndexTable, knnQueryRequest);
@@ -131,7 +141,14 @@ public class TrajectoryKNNQuery extends AbstractQuery {
                           .setK(knnQueryCondition.getK())
                           .setTrajectory(
                               ByteString.copyFrom(knnQueryCondition.getTrajectoryBytes()))
-                          .setDistance(maxDistance)
+                          .setDistance(GeoUtils.getDegreeFromKm(maxDistance))
+                          .setTemporalQueryWindow(
+                              hasTimeConstrain()
+                                  ? QueryCondition.TemporalQueryWindow.newBuilder()
+                                      .setStartMs(temporalQueryWindow.getStartMs())
+                                      .setEndMs(temporalQueryWindow.getEndMs())
+                                      .build()
+                                  : null)
                           .build())
                   .build();
           return STCoprocessorQuery.executeQuery(targetIndexTable, knnQueryRequest);
@@ -210,6 +227,12 @@ public class TrajectoryKNNQuery extends AbstractQuery {
               maxDistance = pq.peek().getDistance();
             }
             getSearchRadiusKM(resultSearch, kqc.getK(), curSearchDist);
+            stage++;
+            logger.info(
+                "Start search radius {} at stage {}, got {} numbers count.",
+                curSearchDist,
+                stage,
+                collect.size());
           }
           return context.parallelize(heapToResultList(pq));
         }
@@ -243,6 +266,12 @@ public class TrajectoryKNNQuery extends AbstractQuery {
               maxDistance = pq.peek().getDistance();
             }
             getSearchRadiusKM(resultSearch, kqc.getK(), curSearchDist);
+            stage++;
+            logger.info(
+                "Start search radius {} at stage {}, got {} numbers count.",
+                curSearchDist,
+                stage,
+                collect.size());
           }
           return context.parallelize(heapToResultList(pq));
         }

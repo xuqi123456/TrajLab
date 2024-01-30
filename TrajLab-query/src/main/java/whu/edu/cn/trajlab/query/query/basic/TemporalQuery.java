@@ -92,4 +92,15 @@ public class TemporalQuery extends AbstractQuery {
     }
     return temporalQueryWindows;
   }
+
+  public static QueryCondition.TemporalQueryWindow buildProtoTemporalWindow(
+      TemporalQueryCondition temporalQueryCondition) {
+    if (temporalQueryCondition == null) return null;
+    TimeLine queryWindow = temporalQueryCondition.getQueryWindows().get(0);
+
+    return QueryCondition.TemporalQueryWindow.newBuilder()
+        .setStartMs(queryWindow.getTimeStart().toEpochSecond())
+        .setEndMs(queryWindow.getTimeEnd().toEpochSecond())
+        .build();
+  }
 }
