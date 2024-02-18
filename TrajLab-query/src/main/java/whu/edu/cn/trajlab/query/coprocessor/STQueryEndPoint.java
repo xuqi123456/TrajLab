@@ -368,36 +368,41 @@ public class STQueryEndPoint extends QueryCondition.QueryService
       return distance <= maxDis && timeFilter(result, knnQueryRequest.getTemporalQueryWindow());
     }
   }
+
   protected boolean simFilter(Result result, QueryCondition.SimilarQueryRequest similarQueryRequest)
-          throws IOException {
+      throws IOException {
     MinimumBoundingBox mbr = TrajectorySerdeUtils.getTrajectoryMBR(result);
     double maxDis = similarQueryRequest.getDistance();
-      Trajectory centralTrajectory =
-              (Trajectory)
-                      SerializerUtils.deserializeObject(
-                              similarQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
-    Envelope envelopeInternal = centralTrajectory
-            .getLineString()
-            .getEnvelopeInternal();
-    envelopeInternal
-        .expandBy(maxDis);
+    Trajectory centralTrajectory =
+        (Trajectory)
+            SerializerUtils.deserializeObject(
+                similarQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
+    Envelope envelopeInternal = centralTrajectory.getLineString().getEnvelopeInternal();
+    envelopeInternal.expandBy(maxDis);
     TrajPoint startPoint = centralTrajectory.getTrajectoryFeatures().getStartPoint();
     TrajPoint endPoint = centralTrajectory.getTrajectoryFeatures().getEndPoint();
-    if(!envelopeInternal.contains(mbr)) return false;
-    Tuple2<TrajPoint, TrajPoint> trajectorySEPoint = TrajectorySerdeUtils.getTrajectorySEPoint(result);
+    if (!envelopeInternal.contains(mbr)) return false;
+    Tuple2<TrajPoint, TrajPoint> trajectorySEPoint =
+        TrajectorySerdeUtils.getTrajectorySEPoint(result);
     double distance1 = GeoUtils.getEuclideanDistanceKM(startPoint, trajectorySEPoint._1);
     double distance2 = GeoUtils.getEuclideanDistanceKM(endPoint, trajectorySEPoint._2);
 
-    return GeoUtils.getDegreeFromKm(distance1) <= maxDis && GeoUtils.getDegreeFromKm(distance2) <= maxDis;
+    return GeoUtils.getDegreeFromKm(distance1) <= maxDis
+        && GeoUtils.getDegreeFromKm(distance2) <= maxDis
+        && timeFilter(result, similarQueryRequest.getTemporalQueryWindow());
   }
-  protected boolean fineSimFilter(Result result, QueryCondition.SimilarQueryRequest similarQueryRequest) throws IOException {
+
+  protected boolean fineSimFilter(
+      Result result, QueryCondition.SimilarQueryRequest similarQueryRequest) throws IOException {
     double maxDis = similarQueryRequest.getDistance();
     Trajectory resultTrajectory = TrajectorySerdeUtils.getTrajectoryFromResult(result);
     Trajectory centralTrajectory =
-            (Trajectory)
-                    SerializerUtils.deserializeObject(
-                            similarQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
-    double dfd = DiscreteFrechetDistance.calculateDFD(resultTrajectory.getLineString(), centralTrajectory.getLineString());
+        (Trajectory)
+            SerializerUtils.deserializeObject(
+                similarQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
+    double dfd =
+        DiscreteFrechetDistance.calculateDFD(
+            resultTrajectory.getLineString(), centralTrajectory.getLineString());
     return GeoUtils.getDegreeFromKm(dfd) <= maxDis;
   }
 

@@ -46,8 +46,8 @@ public class SimilarQuery extends AbstractQuery {
 
   private boolean hasTimeConstrain() {
     if (abstractQueryCondition instanceof SimilarQueryCondition) {
-      SimilarQueryCondition knnQueryCondition = (SimilarQueryCondition) abstractQueryCondition;
-      return knnQueryCondition.getTemporalQueryCondition() != null;
+      SimilarQueryCondition similarQueryCondition = (SimilarQueryCondition) abstractQueryCondition;
+      return similarQueryCondition.getTemporalQueryCondition() != null;
     } else {
       throw new UnsupportedOperationException();
     }
