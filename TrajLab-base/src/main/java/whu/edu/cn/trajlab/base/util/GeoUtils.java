@@ -217,6 +217,17 @@ public class GeoUtils implements Serializable {
             return null;
         }
     }
+    public static Geometry createEnvelopeGeometry(Envelope envelope){
+        // 将 envelope 转换为 geometry
+        GeometryFactory geometryFactory = new GeometryFactory();
+        Coordinate[] coordinates = new Coordinate[5];
+        coordinates[0] = new Coordinate(envelope.getMinX(), envelope.getMinY());
+        coordinates[1] = new Coordinate(envelope.getMinX(), envelope.getMaxY());
+        coordinates[2] = new Coordinate(envelope.getMaxX(), envelope.getMaxY());
+        coordinates[3] = new Coordinate(envelope.getMaxX(), envelope.getMinY());
+        coordinates[4] = coordinates[0];  // 闭合坐标
+        return geometryFactory.createPolygon(coordinates);
+    }
 
     public static double getEuclideanDistance(BasePoint p0, BasePoint p1) {
         double dx = p1.getX() - p0.getX();

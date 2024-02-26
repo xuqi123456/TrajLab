@@ -128,6 +128,7 @@ public class TrajectoryKNNQuery extends AbstractQuery {
                                       .build()
                                   : null)
                           .build())
+                  .setQueryOperation(QueryCondition.QueryMethod.KNN)
                   .build();
           return STCoprocessorQuery.executeQuery(targetIndexTable, knnQueryRequest);
         }
@@ -240,7 +241,7 @@ public class TrajectoryKNNQuery extends AbstractQuery {
         {
           Trajectory centralTrajectory = kqc.getCentralTrajectory();
           while ((pq.size() < k) || (resultSearch != 0)) {
-            Geometry buffer = centralTrajectory.buffer(curSearchDist);
+            Geometry buffer = centralTrajectory.buffer(GeoUtils.getDegreeFromKm(curSearchDist));
             AbstractQueryCondition stQc = generateSTQueryCondition(buffer);
             Tuple2<List<RowKeyRange>, HashSet<RowKeyRange>> ranges = getSplitRanges(stQc, set);
             List<RowKeyRange> splitRanges = ranges._1;

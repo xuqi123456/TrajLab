@@ -56,12 +56,14 @@ message KNNQueryRequest{
 message SimilarQueryRequest{
   required double distance = 1;
   required  bytes trajectory = 2;
-  optional TemporalQueryWindow temporalQueryWindow = 5;
+  optional TemporalQueryWindow temporalQueryWindow = 3;
 }
 message AccompanyQueryRequest{
   required double distance = 1;
   required int64 timeInterval = 2;
   required bytes trajectory = 3;
+  required int32 k = 4;
+  required int32 startPoint = 5;
 }
 
 message QueryRequest {

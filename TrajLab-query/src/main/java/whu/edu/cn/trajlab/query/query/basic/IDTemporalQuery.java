@@ -82,6 +82,7 @@ public class IDTemporalQuery extends AbstractQuery {
                             .getIdQueryCondition()
                             .getMoid())
                     .build())
+            .setQueryOperation(QueryCondition.QueryMethod.ST)
             .build();
 
     return STCoprocessorQuery.executeQuery(targetIndexTable, timeQueryRequest);

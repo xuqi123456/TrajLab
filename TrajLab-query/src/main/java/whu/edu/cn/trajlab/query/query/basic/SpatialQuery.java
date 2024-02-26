@@ -54,6 +54,7 @@ public class SpatialQuery extends AbstractQuery {
                         QueryCondition.SpatialQueryWindow.newBuilder()
                             .setWkt(spatialQueryCondition.getQueryWindowWKT()))
                     .build())
+            .setQueryOperation(QueryCondition.QueryMethod.ST)
             .build();
     return STCoprocessorQuery.executeQuery(targetIndexTable, spatialQueryRequest);
   }

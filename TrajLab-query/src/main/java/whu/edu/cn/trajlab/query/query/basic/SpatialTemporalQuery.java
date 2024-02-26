@@ -79,6 +79,7 @@ public class SpatialTemporalQuery extends AbstractQuery {
                             .build())
                     .setFilterBeforeLookFullRow(filterBeforeLookFullRow)
                     .build())
+            .setQueryOperation(QueryCondition.QueryMethod.ST)
             .build();
 
     return STCoprocessorQuery.executeQuery(targetIndexTable, spatialTemporalQueryRequest);

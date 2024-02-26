@@ -54,6 +54,7 @@ public class TemporalQuery extends AbstractQuery {
                             .addAllTemporalQueryWindow(temporalQueryWindows)
                             .build())
                     .build())
+            .setQueryOperation(QueryCondition.QueryMethod.ST)
             .build();
 
     return STCoprocessorQuery.executeQuery(targetIndexTable, timeQueryRequest);

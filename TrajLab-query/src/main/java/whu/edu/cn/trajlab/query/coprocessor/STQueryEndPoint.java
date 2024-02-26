@@ -6,7 +6,6 @@ import com.google.protobuf.RpcController;
 import com.google.protobuf.Service;
 import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Polygon;
-import org.locationtech.jts.operation.distance.DistanceOp;
 import scala.Tuple2;
 import whu.edu.cn.trajlab.base.point.BasePoint;
 import whu.edu.cn.trajlab.base.point.TrajPoint;
@@ -179,6 +178,33 @@ public class STQueryEndPoint extends QueryCondition.QueryService
         }
       case ACCOMPANY:
         {
+          QueryCondition.AccompanyQueryRequest acc = request.getAcc();
+          try {
+            // 扫描, 解析结果
+            for (MarkedScan markedScan : markedScans) {
+              Scan scan = markedScan.scan;
+              InternalScanner scanner = env.getRegion().getScanner(scan);
+              List<Cell> cells = new ArrayList<>();
+              boolean hasMore = scanner.next(cells) || !cells.isEmpty();
+              while (hasMore) {
+                Result result = Result.create(cells);
+                // 如果当前索引是辅助索引，且不需要在回表查询之前作粗过滤，则先回表查询。
+                if (!TrajectorySerdeUtils.isMainIndexed(result)) {
+                  result = getMainIndexedResult(result);
+                }
+                if (accFilter(result, acc)) {
+                  if (fineAccFilter(result, acc)) {
+                    trajectoryResults.add(buildTrajectoryResult(result));
+                  }
+                }
+                // 读取下一行
+                cells.clear();
+                hasMore = scanner.next(cells) || !cells.isEmpty();
+              }
+            }
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
           break;
         }
     }
@@ -392,6 +418,33 @@ public class STQueryEndPoint extends QueryCondition.QueryService
         && timeFilter(result, similarQueryRequest.getTemporalQueryWindow());
   }
 
+  protected boolean accFilter(
+      Result result, QueryCondition.AccompanyQueryRequest accompanyQueryRequest)
+      throws IOException {
+
+    MinimumBoundingBox mbr = TrajectorySerdeUtils.getTrajectoryMBR(result);
+    TimeLine tLine = TrajectorySerdeUtils.getTrajectoryTimeLine(result);
+
+    Trajectory centralTrajectory =
+        (Trajectory)
+            SerializerUtils.deserializeObject(
+                accompanyQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
+    int startPointCount = accompanyQueryRequest.getStartPoint();
+    int k = accompanyQueryRequest.getK();
+    //空间缓冲区
+    List<TrajPoint> trajPoints =
+        centralTrajectory.getPointList().subList(startPointCount, startPointCount + k);
+    MinimumBoundingBox minimumBoundingBox = GeoUtils.calMinimumBoundingBox(trajPoints);
+    minimumBoundingBox.expandBy(accompanyQueryRequest.getDistance());
+    //时间缓冲区
+    long timeInterval = accompanyQueryRequest.getTimeInterval();
+    TimeLine timeLine =
+        new TimeLine(
+            trajPoints.get(0).getTimestamp().minusNanos(timeInterval * 1000000),
+            trajPoints.get(trajPoints.size() - 1).getTimestamp().plusNanos(timeInterval * 1000000));
+    return mbr.isIntersects(minimumBoundingBox) && tLine.intersect(timeLine);
+  }
+
   protected boolean fineSimFilter(
       Result result, QueryCondition.SimilarQueryRequest similarQueryRequest) throws IOException {
     double maxDis = similarQueryRequest.getDistance();
@@ -404,6 +457,34 @@ public class STQueryEndPoint extends QueryCondition.QueryService
         DiscreteFrechetDistance.calculateDFD(
             resultTrajectory.getLineString(), centralTrajectory.getLineString());
     return GeoUtils.getDegreeFromKm(dfd) <= maxDis;
+  }
+
+  protected boolean fineAccFilter(
+      Result result, QueryCondition.AccompanyQueryRequest accompanyQueryRequest)
+      throws IOException {
+    Trajectory trajectory = TrajectorySerdeUtils.mainRowToTrajectory(result);
+    TimeLine tLine = TrajectorySerdeUtils.getTrajectoryTimeLine(result);
+
+    Trajectory centralTrajectory =
+            (Trajectory)
+                    SerializerUtils.deserializeObject(
+                            accompanyQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
+    int startPointCount = accompanyQueryRequest.getStartPoint();
+    int k = accompanyQueryRequest.getK();
+    List<TrajPoint> trajPoints =
+            centralTrajectory.getPointList().subList(startPointCount, startPointCount + k);
+    double distance = accompanyQueryRequest.getDistance();
+    long timeInterval = accompanyQueryRequest.getTimeInterval();
+
+    for (TrajPoint trajPoint : trajPoints) {
+      Geometry buffer = trajPoint.buffer(distance);
+      TimeLine timeLine =
+              new TimeLine(
+                      trajPoint.getTimestamp().minusNanos(timeInterval * 1000000),
+                      trajPoint.getTimestamp().plusNanos(timeInterval * 1000000));
+      if (!buffer.intersects(trajectory.getLineString()) || !timeLine.intersect(tLine)) return false;
+    }
+    return true;
   }
 
   @Override

@@ -66,7 +66,8 @@ public class SimilarQuery extends AbstractQuery {
             .addAllRange(ranges)
             .setSim(
                 QueryCondition.SimilarQueryRequest.newBuilder()
-                    .setDistance(GeoUtils.getDegreeFromKm(similarQueryCondition.getSimDisThreshold()))
+                    .setDistance(
+                        GeoUtils.getDegreeFromKm(similarQueryCondition.getSimDisThreshold()))
                     .setTrajectory(ByteString.copyFrom(similarQueryCondition.getTrajectoryBytes()))
                     .setTemporalQueryWindow(
                         hasTimeConstrain()
@@ -76,6 +77,7 @@ public class SimilarQuery extends AbstractQuery {
                                 .build()
                             : null)
                     .build())
+            .setQueryOperation(QueryCondition.QueryMethod.SIMILAR)
             .build();
     return STCoprocessorQuery.executeQuery(targetIndexTable, simQueryRequest);
   }
@@ -86,7 +88,7 @@ public class SimilarQuery extends AbstractQuery {
     JavaSparkContext context = SparkUtils.getJavaSparkContext(ss);
     SimilarQueryCondition sqc = (SimilarQueryCondition) abstractQueryCondition;
     Trajectory centralTrajectory = sqc.getCentralTrajectory();
-    //轨迹起止点作为过滤条件
+    // 轨迹起止点作为过滤条件
     TrajPoint startPoint = centralTrajectory.getTrajectoryFeatures().getStartPoint();
     TrajPoint endPoint = centralTrajectory.getTrajectoryFeatures().getEndPoint();
     Geometry buffer1 = startPoint.buffer(GeoUtils.getDegreeFromKm(sqc.getSimDisThreshold()));
@@ -108,9 +110,7 @@ public class SimilarQuery extends AbstractQuery {
                   }
                   return executeQuery(result).iterator();
                 });
-    logger.info(
-            "Start SimilarQuery at {} SimDisThreshold",
-            sqc.getSimDisThreshold());
+    logger.info("Start SimilarQuery at {} SimDisThreshold", sqc.getSimDisThreshold());
     return trajRDD;
   }
 

@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * @author xuqi
  * @date 2024/01/29
@@ -59,6 +58,7 @@ public class BufferQuery extends AbstractQuery {
                         QueryCondition.SpatialQueryWindow.newBuilder().setWkt(queryWindowWKT))
                     .setSpatialQueryType(QueryCondition.QueryType.INTERSECT)
                     .build())
+            .setQueryOperation(QueryCondition.QueryMethod.ST)
             .build();
     return STCoprocessorQuery.executeQuery(targetIndexTable, bufferQueryRequest);
   }
@@ -84,17 +84,20 @@ public class BufferQuery extends AbstractQuery {
 
   public List<RowKeyRange> getSplitRanges(AbstractQueryCondition abQc1) throws IOException {
     setupTargetIndexTable();
-    if (abQc1 instanceof BufferQueryConditon){
+    if (abQc1 instanceof BufferQueryConditon) {
       BufferQueryConditon bufferQueryConditon = (BufferQueryConditon) abQc1;
       Trajectory centralTrajectory = bufferQueryConditon.getCentralTrajectory();
       double disThreshold = bufferQueryConditon.getDisThreshold();
       Geometry buffer =
-              centralTrajectory.getLineString().buffer(GeoUtils.getDegreeFromKm(disThreshold));
+          centralTrajectory.getLineString().buffer(GeoUtils.getDegreeFromKm(disThreshold));
       SpatialQueryCondition spatialQueryCondition =
-              new SpatialQueryCondition(buffer, SpatialQueryCondition.SpatialQueryType.INTERSECT);
+          new SpatialQueryCondition(buffer, SpatialQueryCondition.SpatialQueryType.INTERSECT);
 
-      return targetIndexTable.getIndexMeta().getIndexStrategy().getPartitionScanRanges(spatialQueryCondition);
-    }else {
+      return targetIndexTable
+          .getIndexMeta()
+          .getIndexStrategy()
+          .getPartitionScanRanges(spatialQueryCondition);
+    } else {
       throw new UnsupportedOperationException();
     }
   }
