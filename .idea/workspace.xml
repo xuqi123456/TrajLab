@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/cluster/DBCluster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/cluster/DBScanCluster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/cluster/DBScanTraLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/index/RTreeIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/partition/DBPartition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/partition/Grid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/distance/MDL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/distance/TraDistance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/segment/MdlSegment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/segment/SegmentUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/index/STRTreeIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/index/TreeIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/application/segment/MdlSegmentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-analysis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/trajectory/Trajectory.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/trajectory/Trajectory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/GeoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/GeoUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/SparkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/SparkUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/constant/PreProcessDefaultConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/common/constant/PreProcessDefaultConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HBaseStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HBaseStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HDFSStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HDFSStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-db/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/mapper/TrajectoryDataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/mapper/TrajectoryDataMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-example/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +26,18 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dc2ca6084552d988c5aed44463dfd43f160f63af" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -64,21 +48,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/bigdata/TrajLab/TrajLab-analysis/src/main/java&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/bigdata/TrajLab/TrajLab-analysis/src/main/java",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\bigdata\TrajLab\TrajLab-analysis\src\main\java" />
@@ -186,6 +170,7 @@
       <workItem from="1705673979368" duration="128824000" />
       <workItem from="1708158635558" duration="61526000" />
       <workItem from="1709398095718" duration="34560000" />
+      <workItem from="1709544541491" duration="1997000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
