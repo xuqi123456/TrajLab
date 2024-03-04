@@ -1,5 +1,7 @@
 package whu.edu.cn.trajlab.base.util;
 
+import org.geotools.geometry.jts.JTSFactoryFinder;
+import org.geotools.referencing.GeodeticCalculator;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.operation.distance.DistanceOp;
 import whu.edu.cn.trajlab.base.mbr.MinimumBoundingBox;
@@ -33,6 +35,7 @@ public class GeoUtils implements Serializable {
     private static final double MAX_LNG = 180.;
     private static final double MIN_LAT = -90.;
     private static final double MAX_LAT = 90.;
+    static GeodeticCalculator calculator = new GeodeticCalculator();
 
     public static double distanceToDEG(double distance) {
         return distance * DistanceUtils.KM_TO_DEG;

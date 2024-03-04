@@ -1,5 +1,6 @@
 package whu.edu.cn.trajlab.core.operator.store;
 
+import scala.Tuple2;
 import whu.edu.cn.trajlab.core.conf.store.HBaseStoreConfig;
 import whu.edu.cn.trajlab.db.constant.DBConstants;
 import whu.edu.cn.trajlab.db.database.Database;
@@ -30,7 +31,6 @@ import org.apache.spark.sql.SparkSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.NotImplementedError;
-import scala.Tuple2;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 
 import java.io.IOException;

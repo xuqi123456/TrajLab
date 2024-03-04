@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/TrajLab-analysis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TrajLab-analysis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TrajLab-application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TrajLab-application/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TrajLab-base/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TrajLab-base/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TrajLab-core/src/main/java" charset="UTF-8" />

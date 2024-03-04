@@ -10,7 +10,6 @@ import org.apache.spark.sql.SparkSession;
  */
 public class SparkUtils {
     public static JavaSparkContext getJavaSparkContext(SparkSession sc) {
-        SparkConf conf = sc.sparkContext().getConf();
-        return new JavaSparkContext(conf);
+        return new JavaSparkContext(sc.sparkContext());
     }
 }

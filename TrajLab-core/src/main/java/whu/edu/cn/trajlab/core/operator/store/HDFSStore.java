@@ -19,6 +19,7 @@ import whu.edu.cn.trajlab.core.util.IOUtils;
 
 import javax.ws.rs.NotSupportedException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 

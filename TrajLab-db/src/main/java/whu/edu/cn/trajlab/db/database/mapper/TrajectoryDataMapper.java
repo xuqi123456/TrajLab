@@ -1,5 +1,6 @@
 package whu.edu.cn.trajlab.db.database.mapper;
 
+import scala.Tuple2;
 import whu.edu.cn.trajlab.db.database.Database;
 import whu.edu.cn.trajlab.db.database.datatypes.KeyFamilyQualifier;
 import whu.edu.cn.trajlab.db.database.datatypes.KeyValueInfo;
@@ -19,7 +20,6 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.mapreduce.Job;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scala.Tuple2;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.db.constant.DBConstants;
 

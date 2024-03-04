@@ -14,8 +14,6 @@ import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
-
 public class Trajectory implements Serializable {
   private String trajectoryID;
   private String objectID;
@@ -134,6 +132,7 @@ public class Trajectory implements Serializable {
 
     return this.lineString;
   }
+
   public LineString getLineStringAsDate() {
     if (this.updateLineString) {
       this.updateLineStringDate();
@@ -175,6 +174,19 @@ public class Trajectory implements Serializable {
 
   public int getSRID() {
     return this.getLineString().getSRID();
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Trajectory that = (Trajectory) o;
+    return Objects.equals(trajectoryID, that.trajectoryID) && Objects.equals(objectID, that.objectID);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(trajectoryID, objectID);
   }
 
   public TrajFeatures getTrajectoryFeatures() {
@@ -227,39 +239,38 @@ public class Trajectory implements Serializable {
                                         list.add(
                                             DateUtils.parseDateToTimeStamp(
                                                 gpsPoint.getTimestamp()));
-                                        return new Coordinate(
-                                            gpsPoint.getLng(),
-                                            gpsPoint.getLat()
-                                            );
+                                        return new Coordinate(gpsPoint.getLng(), gpsPoint.getLat());
                                       })
                                   .collect(Collectors.toList()))
                           .toArray(new Coordinate[0])),
-              new GeometryFactory(new PrecisionModel(), srid), pointList);
+              new GeometryFactory(new PrecisionModel(), srid),
+              pointList);
       this.updateLineString = false;
       lineString.setUserData(list);
     }
   }
-  private void updateLineStringDate(){
+
+  private void updateLineStringDate() {
     if (this.pointList != null) {
       int srid = this.lineString == null ? 4326 : this.lineString.getSRID();
       this.lineString =
-              new TrajLine(
-                      new CoordinateArraySequence(
-                              (Coordinate[])
-                                      ((List)
-                                              this.pointList.stream()
-                                                      .map(
-                                                              (gpsPoint) -> {
-                                                                return new Coordinate(
-                                                                        gpsPoint.getLng(),
-                                                                        gpsPoint.getLat(),
-                                                                        DateUtils.parseDateToTimeStamp(
-                                                                                gpsPoint.getTimestamp())
-                                                                );
-                                                              })
-                                                      .collect(Collectors.toList()))
-                                              .toArray(new Coordinate[0])),
-                      new GeometryFactory(new PrecisionModel(), srid), pointList);
+          new TrajLine(
+              new CoordinateArraySequence(
+                  (Coordinate[])
+                      ((List)
+                              this.pointList.stream()
+                                  .map(
+                                      (gpsPoint) -> {
+                                        return new Coordinate(
+                                            gpsPoint.getLng(),
+                                            gpsPoint.getLat(),
+                                            DateUtils.parseDateToTimeStamp(
+                                                gpsPoint.getTimestamp()));
+                                      })
+                                  .collect(Collectors.toList()))
+                          .toArray(new Coordinate[0])),
+              new GeometryFactory(new PrecisionModel(), srid),
+              pointList);
       this.updateLineString = false;
     }
   }
@@ -290,7 +301,8 @@ public class Trajectory implements Serializable {
     double len = 0.0;
     for (int i = 1; i < trajList.size(); i++) {
       len +=
-          GeoUtils.getEuclideanDistanceKM(trajList.get(i - 1).getCentroid(), trajList.get(i).getCentroid());
+          GeoUtils.getEuclideanDistanceKM(
+              trajList.get(i - 1).getCentroid(), trajList.get(i).getCentroid());
     }
     return len;
   }

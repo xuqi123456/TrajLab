@@ -15,7 +15,7 @@
         <module>TrajLab-example</module>
         <module>TrajLab-query</module>
         <module>TrajLab-vis</module>
-        <module>TrajLab-analysis</module>
+        <module>TrajLab-application</module>
     </modules>
 
     <properties>
