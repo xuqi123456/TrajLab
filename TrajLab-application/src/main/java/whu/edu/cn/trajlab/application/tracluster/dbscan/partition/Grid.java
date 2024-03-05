@@ -1,4 +1,4 @@
-package whu.edu.cn.trajlab.application.Tracluster.dbscan.partition;
+package whu.edu.cn.trajlab.application.tracluster.dbscan.partition;
 
 import java.util.Objects;
 

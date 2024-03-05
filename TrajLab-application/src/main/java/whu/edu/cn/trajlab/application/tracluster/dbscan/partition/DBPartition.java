@@ -1,4 +1,4 @@
-package whu.edu.cn.trajlab.application.Tracluster.dbscan.partition;
+package whu.edu.cn.trajlab.application.tracluster.dbscan.partition;
 
 import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;

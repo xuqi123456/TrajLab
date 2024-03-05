@@ -1,12 +1,8 @@
-package whu.edu.cn.trajlab.application.Tracluster.dbscan.cluster;
+package whu.edu.cn.trajlab.application.tracluster.dbscan.cluster;
 
-import org.locationtech.jts.geom.CoordinateSequence;
-import org.locationtech.jts.geom.GeometryFactory;
-import whu.edu.cn.trajlab.base.point.BasePoint;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
 
 /**

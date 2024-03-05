@@ -1,7 +1,7 @@
-package whu.edu.cn.trajlab.application.Tracluster.segment;
+package whu.edu.cn.trajlab.application.tracluster.segment;
 
 import org.apache.spark.api.java.JavaRDD;
-import whu.edu.cn.trajlab.application.Tracluster.distance.MDL;
+import whu.edu.cn.trajlab.application.tracluster.distance.MDL;
 import whu.edu.cn.trajlab.base.point.TrajPoint;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 

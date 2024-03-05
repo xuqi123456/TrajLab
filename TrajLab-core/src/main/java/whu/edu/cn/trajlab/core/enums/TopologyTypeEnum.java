@@ -8,13 +8,14 @@ public enum TopologyTypeEnum {
 
     CONTAINS,
     CROSSES,
+    COVERS,
+    COVERED_BY,
     DISJOINT,
-    EQUAL,
+    EQUALS,
     INTERSECTS,
     OVERLAPS,
-    TOUCH,
+    TOUCHES,
     WITHIN,
-
     WITHIN_DISTANCE,
     BUFFER,
 

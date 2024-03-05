@@ -6,14 +6,13 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.junit.Test;
-import whu.edu.cn.trajlab.application.Tracluster.segment.MdlSegment;
+import whu.edu.cn.trajlab.application.tracluster.segment.MdlSegment;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.base.util.SparkUtils;
 import whu.edu.cn.trajlab.core.operator.load.ILoader;
 import whu.edu.cn.trajlab.core.operator.transform.sink.Traj2GeoJson;
 import whu.edu.cn.trajlab.core.util.IOUtils;
 import whu.edu.cn.trajlab.example.conf.ExampleConfig;
-import whu.edu.cn.trajlab.example.load.HBaseDataLoad;
 import whu.edu.cn.trajlab.example.transform.TrajToGeojson;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
 

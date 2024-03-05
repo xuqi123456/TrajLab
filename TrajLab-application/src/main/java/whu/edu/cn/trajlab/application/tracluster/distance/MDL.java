@@ -1,4 +1,4 @@
-package whu.edu.cn.trajlab.application.Tracluster.distance;
+package whu.edu.cn.trajlab.application.tracluster.distance;
 
 import org.locationtech.jts.geom.Point;
 import whu.edu.cn.trajlab.base.point.TrajPoint;

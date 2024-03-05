@@ -1,4 +1,4 @@
-package whu.edu.cn.trajlab.application.Tracluster.dbscan.cluster;
+package whu.edu.cn.trajlab.application.tracluster.dbscan.cluster;
 
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -6,18 +6,17 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.locationtech.jts.geom.Envelope;
 import scala.Tuple2;
-import whu.edu.cn.trajlab.application.Tracluster.dbscan.partition.DBPartition;
-import whu.edu.cn.trajlab.application.Tracluster.dbscan.partition.Grid;
+import whu.edu.cn.trajlab.application.tracluster.dbscan.partition.DBPartition;
+import whu.edu.cn.trajlab.application.tracluster.dbscan.partition.Grid;
 import whu.edu.cn.trajlab.base.mbr.MinimumBoundingBox;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.base.util.DiscreteFrechetDistance;
 import whu.edu.cn.trajlab.base.util.GeoUtils;
 import whu.edu.cn.trajlab.base.util.SparkUtils;
-import whu.edu.cn.trajlab.application.Tracluster.dbscan.index.RTreeIndex;
+import whu.edu.cn.trajlab.application.tracluster.dbscan.index.RTreeIndex;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;

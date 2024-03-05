@@ -1,12 +1,9 @@
-package whu.edu.cn.trajlab.application.Tracluster.dbscan.index;
+package whu.edu.cn.trajlab.application.tracluster.dbscan.index;
 
 import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;
-import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.index.strtree.STRtree;
-import whu.edu.cn.trajlab.application.Tracluster.dbscan.cluster.DBScanTraLine;
-import whu.edu.cn.trajlab.base.trajectory.Trajectory;
-import whu.edu.cn.trajlab.base.util.GeoUtils;
+import whu.edu.cn.trajlab.application.tracluster.dbscan.cluster.DBScanTraLine;
 
 import java.io.Serializable;
 import java.util.List;

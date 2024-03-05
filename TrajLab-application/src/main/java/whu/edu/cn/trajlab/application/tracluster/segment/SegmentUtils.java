@@ -1,4 +1,4 @@
-package whu.edu.cn.trajlab.application.Tracluster.segment;
+package whu.edu.cn.trajlab.application.tracluster.segment;
 
 import whu.edu.cn.trajlab.base.point.TrajPoint;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;

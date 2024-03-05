@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/geofence/Geofence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/geofence/GeofenceUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/geofence/common/MultiPolygonWithIndex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/geofence/common/PolygonWithIndex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/util/EvaluatorUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HDFSStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HDFSStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/cluster/DBCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/cluster/DBCluster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/cluster/DBScanCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/cluster/DBScanCluster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/cluster/DBScanTraLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/cluster/DBScanTraLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/index/RTreeIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/index/RTreeIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/partition/DBPartition.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/partition/DBPartition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/dbscan/partition/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/partition/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/distance/MDL.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/distance/MDL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/distance/TraDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/distance/TraDistance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/segment/MdlSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/segment/MdlSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/Tracluster/segment/SegmentUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/segment/SegmentUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/TopologyTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/enums/TopologyTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/application/segment/MdlSegmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/application/segment/MdlSegmentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +109,7 @@
       <module name="TrajLab-application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.application.Tracluster.dbscan.cluster.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.application.tracluster.dbscan.cluster.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,7 +135,7 @@
       <module name="TrajLab-application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.application.Tracluster.distance.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.application.tracluster.distance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -170,7 +185,7 @@
       <workItem from="1705673979368" duration="128824000" />
       <workItem from="1708158635558" duration="61526000" />
       <workItem from="1709398095718" duration="34560000" />
-      <workItem from="1709544541491" duration="1997000" />
+      <workItem from="1709544541491" duration="10029000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
@@ -249,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1708950433240</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix tuple2 dependency">
+      <created>1709546633239</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709546633239</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +300,7 @@
     <MESSAGE value="add similar query" />
     <MESSAGE value="add buffer query" />
     <MESSAGE value="add AccompanyQuery" />
-    <option name="LAST_COMMIT_MESSAGE" value="add AccompanyQuery" />
+    <MESSAGE value="fix tuple2 dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix tuple2 dependency" />
   </component>
 </project>
