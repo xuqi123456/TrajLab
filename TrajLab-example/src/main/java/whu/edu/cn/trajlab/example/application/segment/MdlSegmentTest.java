@@ -31,8 +31,9 @@ public class MdlSegmentTest {
         String inPath =
                 Objects.requireNonNull(TrajToGeojson.class.getResource("/ioconf/LoadConfig.json"))
                         .getPath();
-        String outPath = "D:/bigdata/oge-computation-ogc/src/main/resources/outfiles/segment/trans.geojson";
-        String outPath1 = "D:/bigdata/oge-computation-ogc/src/main/resources/outfiles/segment/transSeg.geojson";
+    String outPath =
+        "D:/bigdata/TrajLab/TrajLab-example/src/main/resources/outfiles/segment/trans.geojson";
+        String outPath1 = "D:/bigdata/TrajLab/TrajLab-example/src/main/resources/outfiles/segment/transSeg.geojson";
         String fileStr = IOUtils.readLocalTextFile(inPath);
         ExampleConfig exampleConfig = ExampleConfig.parse(fileStr);
         LOGGER.info("Init sparkSession...");
