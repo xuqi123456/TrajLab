@@ -16,9 +16,7 @@ import whu.edu.cn.trajlab.base.util.SparkUtils;
 import whu.edu.cn.trajlab.application.tracluster.dbscan.index.RTreeIndex;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 
@@ -26,6 +24,14 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author xuqi
  * @date 2024/03/02
  */
+class ListNode<V> {
+  V val;
+  ListNode<V> next;
+
+  public ListNode(V val) {
+    this.val = val;
+  }
+}
 public class DBScanCluster implements Serializable {
   private final int minLines;
   protected double radius;//km
@@ -36,69 +42,46 @@ public class DBScanCluster implements Serializable {
   }
 
   public MinimumBoundingBox getTraEnv(JavaRDD<Trajectory> traRDD) {
-    // 创建AtomicReference对象，初始值为全局box对象
-    AtomicReference<MinimumBoundingBox> boxRef = new AtomicReference<>(null);
 
-    // 对RDD进行foreachPartition操作
-    traRDD.foreachPartition(
-        partitionItr -> {
-          // 创建一个临时的局部box对象
-          MinimumBoundingBox localBox = null;
-
-          while (partitionItr.hasNext()) {
-            Trajectory t = partitionItr.next();
-            if (localBox == null) {
-              localBox = t.getTrajectoryFeatures().getMbr();
-            } else {
-              localBox = localBox.union(t.getTrajectoryFeatures().getMbr());
-            }
+    JavaRDD<MinimumBoundingBox> result = traRDD.mapPartitions(partitionItr -> {
+      List<MinimumBoundingBox> localBoxes = new ArrayList<>();
+      if (partitionItr.hasNext()) {
+        MinimumBoundingBox localBox = null;
+        while (partitionItr.hasNext()) {
+          Trajectory t = partitionItr.next();
+          if (localBox == null) {
+            localBox = t.getTrajectoryFeatures().getMbr();
+          } else {
+            localBox = localBox.union(t.getTrajectoryFeatures().getMbr());
           }
-          // 将局部box对象合并到全局box对象中
-          MinimumBoundingBox finalLocalBox = localBox;
+        }
+        localBoxes.add(localBox);
+      }
+      return localBoxes.iterator();
+    });
 
-          boxRef.getAndUpdate(
-              currentBox -> {
-                if (currentBox == null) return finalLocalBox;
-                else {
-                  return currentBox.union(finalLocalBox);
-                }
-              });
-        });
-    return boxRef.get();
+    MinimumBoundingBox finalBox = result.reduce((box1, box2) -> box1.union(box2));
+
+    return finalBox;
   }
 
   public List<DBCluster> doCluster(SparkSession ss, JavaRDD<Trajectory> traRDD) {
-    JavaSparkContext context = SparkUtils.getJavaSparkContext(ss);
     MinimumBoundingBox traEnv = getTraEnv(traRDD);
     DBPartition dbPartition = new DBPartition(radius, traEnv);
-
     // 将轨迹映射到网格
     JavaRDD<Tuple2<Grid, Trajectory>> gridRDD =
         traRDD.flatMap(
             t -> {
-              List<Grid> grids = dbPartition.calTrajectoryGridSet(t);
+              List<Grid> grids = dbPartition.calTrajectoryGridSet(t, traEnv);
               ArrayList<Tuple2<Grid, Trajectory>> list = new ArrayList<>();
               for (Grid grid : grids) {
                 list.add(new Tuple2<>(grid, t));
               }
               return list.iterator();
             });
-//    // 构建网格映射字典
-//    ConcurrentHashMap<Grid, List<Trajectory>> concurrentTraHashMap = new ConcurrentHashMap<>();
     JavaPairRDD<Grid, Iterable<Tuple2<Grid, Trajectory>>> gridIterableJavaPairRDD =
         gridRDD.groupBy(Tuple2::_1);
-//    gridIterableJavaPairRDD.foreach(
-//        partition -> {
-//          Grid key = partition._1;
-//          Iterable<Tuple2<Grid, Trajectory>> values = partition._2;
-//
-//          List<Trajectory> trajectoryList = new ArrayList<>();
-//          values.forEach(t -> trajectoryList.add(t._2));
-//
-//          concurrentTraHashMap.put(key, trajectoryList);
-//        });
-//    Broadcast<ConcurrentHashMap<Grid, List<Trajectory>>> mapBroadcast =
-//        context.broadcast(concurrentTraHashMap);
+
       // 构建分区R树
     JavaRDD<Tuple2<RTreeIndex<DBScanTraLine>, HashSet<DBScanTraLine>>> STRGridRDD =
         gridIterableJavaPairRDD.mapPartitions(
@@ -125,6 +108,7 @@ public class DBScanCluster implements Serializable {
     // 进行全局Cluster合并
     List<DBCluster> collectClusters = dbClusterRDD.collect();
     HashSet<DBCluster> globalClusters = new HashSet<>();
+    int clusterID = 1;
     for (DBCluster collectCluster : collectClusters) {
       boolean merged = false;
       for (DBCluster dbCluster : globalClusters) {
@@ -136,6 +120,7 @@ public class DBScanCluster implements Serializable {
         }
       }
       if (!merged) {
+        collectCluster.setClusterID(clusterID++);
         globalClusters.add(collectCluster); // 如果没有合并，则加入全局集合中
       }
     }
@@ -154,7 +139,7 @@ public class DBScanCluster implements Serializable {
       envelopeInternal.expandBy(GeoUtils.getDegreeFromKm(radius));
       List<DBScanTraLine> queryResult = rTreeIndex.query(envelopeInternal);
       List<DBScanTraLine> dfdResult = DFDDistance(queryResult, traLine.getTrajectory());
-      if (dfdResult.size() < minLines) traLine.setNoise(true);
+      if (checkMinLines(dfdResult) < minLines) traLine.setNoise(true);
       else {
         DBCluster dbCluster = new DBCluster();
         DBCluster expandCluster = expandCluster(traLine, dbCluster, dfdResult, rTreeIndex);
@@ -162,6 +147,13 @@ public class DBScanCluster implements Serializable {
       }
     }
     return clusters;
+  }
+  public int checkMinLines(List<DBScanTraLine> dbScanTraLines){
+    HashSet<String> hashSet = new HashSet<>();
+    for (DBScanTraLine scanTraLine : dbScanTraLines) {
+      hashSet.add(scanTraLine.getTrajectory().getObjectID());
+    }
+    return hashSet.size();
   }
 
   public List<DBScanTraLine> DFDDistance(List<DBScanTraLine> trajectories, Trajectory center) {
@@ -182,21 +174,38 @@ public class DBScanCluster implements Serializable {
       RTreeIndex<DBScanTraLine> rTreeIndex) {
 
     dbCluster.addDBScanTraLine(traLine);
-    for (DBScanTraLine scanTraLine : dfdResult) {
+    HashSet<DBScanTraLine> set = new HashSet<>(dfdResult);
+    ListNode<DBScanTraLine> head = new ListNode<>(null);
+    ListNode<DBScanTraLine> tail = head;
+    for (DBScanTraLine line : dfdResult) {
+      tail.next = new ListNode<>(line);
+      tail = tail.next;
+    }
+    ListNode<DBScanTraLine> res = head.next;
+    while (res != null){
+      DBScanTraLine scanTraLine = res.val;
       if (!scanTraLine.isVisited()) {
         scanTraLine.setVisited(true);
         Envelope envelopeInternal =
-            scanTraLine.getTrajectory().getLineString().getEnvelopeInternal();
+                scanTraLine.getTrajectory().getLineString().getEnvelopeInternal();
         envelopeInternal.expandBy(GeoUtils.getDegreeFromKm(radius));
         List<DBScanTraLine> query = rTreeIndex.query(envelopeInternal);
         List<DBScanTraLine> dfdList = DFDDistance(query, scanTraLine.getTrajectory());
-        if (dfdList.size() >= minLines) {
-          dfdResult.addAll(dfdList);
+        if (checkMinLines(dfdResult) >= minLines) {
+          for (DBScanTraLine line : dfdList) {
+            if(!set.contains(line)){
+              set.add(line);
+              tail.next = new ListNode<>(line);
+              tail = tail.next;
+            }
+          }
           dbCluster.addDBScanTraLine(scanTraLine);
         } else scanTraLine.setNoise(true);
       }
+      res = res.next;
     }
-    dbCluster.setTrajSet(dfdResult);
+
+    dbCluster.setTrajSet(set);
     return dbCluster;
   }
 }

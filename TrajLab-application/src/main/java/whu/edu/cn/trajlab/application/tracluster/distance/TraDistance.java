@@ -2,6 +2,11 @@ package whu.edu.cn.trajlab.application.tracluster.distance;
 
 import org.locationtech.jts.geom.*;
 import org.locationtech.jts.math.Vector2D;
+import org.locationtech.jts.operation.distance.DistanceOp;
+import whu.edu.cn.trajlab.base.util.GeoUtils;
+
+import static whu.edu.cn.trajlab.application.tracluster.constant.distanceContants.EPSILON;
+
 
 /**
  * @author xuqi
@@ -43,11 +48,11 @@ public class TraDistance {
 
     this.lineString1 =
             new Vector2D(
-                    Math.abs(l1End.getX() - l1Start.getX()), Math.abs(l1End.getY() - l1Start.getY()));
+                    l1End.getX() - l1Start.getX(), l1End.getY() - l1Start.getY());
     this.lineString2 =
             new Vector2D(
-                    Math.abs(l2End.getX() - l2Start.getX()), Math.abs(l2End.getY() - l2Start.getY()));
-    this.angDis = calAngleDistance();
+                    l2End.getX() - l2Start.getX(), l2End.getY() - l2Start.getY());
+    this.angDis = GeoUtils.getMFromDegree(calAngleDistance());
   }
 
   public Vector2D getLine1() {
@@ -79,25 +84,30 @@ public class TraDistance {
   public double calVerticalDistance(LineString line1, LineString line2) {
     Coordinate sPointCoordinate = line1.getCoordinate();
     Point sPoint = geometryFactory.createPoint(sPointCoordinate);
-    double dis1 = sPoint.distance(line2);
+
+    double dis1 = getDistanceMPointToLine(sPoint, line2);
     Coordinate ePointCoordinate = line1.getCoordinateN(line1.getNumPoints() - 1);
     Point ePoint = geometryFactory.createPoint(ePointCoordinate);
 
-    double dis2 = ePoint.distance(line2);
-
-    return (Math.pow(dis1, 2) + Math.pow(dis2, 2)) / (dis1 + dis2);
+    double dis2 = getDistanceMPointToLine(ePoint, line2);
+    return (dis1 * dis1 + dis2 * dis2) / (dis1 + dis2 + EPSILON);
+  }
+  public double getDistanceMPointToLine(Point point, LineString lineString){
+    // 计算最短距离;
+    DistanceOp distanceOp = new DistanceOp(point, lineString);
+    return GeoUtils.getMFromDegree(distanceOp.distance());
   }
 
   public double calAngleDistance() {
-    // 计算叉乘
-    double crossProduct = lineString1.getX() * lineString2.getY() - lineString2.getX() * lineString1.getY();
-
+    //计算点集
+    double crossProduct = lineString1.getX() * lineString2.getX() + lineString1.getY() * lineString2.getY();
     // 计算向量AB和向量CD的模长
     double lengthAB = Math.sqrt(lineString1.getX() * lineString1.getX() + lineString1.getY() * lineString1.getY());
     double lengthCD = Math.sqrt(lineString2.getX() * lineString2.getX() + lineString2.getY() * lineString2.getY());
 
     // 计算夹角的sin值
-    double sinValue = Math.abs(crossProduct / (lengthAB * lengthCD));
+    double cosValue = crossProduct / (lengthAB * lengthCD + EPSILON);
+    double sinValue = Math.sqrt(1 - Math.pow(cosValue, 2));
     return Math.min(lengthAB, lengthCD) * sinValue;
   }
 }

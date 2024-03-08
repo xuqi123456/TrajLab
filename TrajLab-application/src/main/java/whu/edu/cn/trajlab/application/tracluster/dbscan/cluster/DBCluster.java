@@ -14,16 +14,20 @@ import java.util.List;
  * @date 2024/03/02
  */
 public class DBCluster implements Serializable {
+    private int clusterID;
     private Envelope clusterEnv;
     private Point center;
     private HashSet<DBScanTraLine> trajCoreSet;
     private HashSet<DBScanTraLine> trajSet;
 
     public DBCluster() {
+        trajCoreSet = new HashSet<>();
+        trajSet = new HashSet<>();
     }
 
 
-    public DBCluster(Envelope clusterEnv, Point center, HashSet<DBScanTraLine> trajCoreSet, HashSet<DBScanTraLine> trajSet) {
+    public DBCluster(int clusterID, Envelope clusterEnv, Point center, HashSet<DBScanTraLine> trajCoreSet, HashSet<DBScanTraLine> trajSet) {
+        this.clusterID = clusterID;
         this.clusterEnv = clusterEnv;
         this.center = center;
         this.trajCoreSet = trajCoreSet;
@@ -50,7 +54,7 @@ public class DBCluster implements Serializable {
         clusterEnv1.expandToInclude(cluster2.getClusterEnv());
         Geometry envelopeGeometry = GeoUtils.createEnvelopeGeometry(clusterEnv1);
         Point centroid = envelopeGeometry.getCentroid();
-        return new DBCluster(clusterEnv1, centroid, trajCoreSet1, trajSet1);
+        return new DBCluster(cluster2.getClusterID(), clusterEnv1, centroid, trajCoreSet1, trajSet1);
     }
 
 
@@ -70,11 +74,16 @@ public class DBCluster implements Serializable {
         return trajCoreSet;
     }
 
+    public void setClusterID(int clusterID) {
+        this.clusterID = clusterID;
+    }
 
-    public void setTrajSet(List<DBScanTraLine> trajSet) {
-        HashSet<DBScanTraLine> traLines = new HashSet<>();
-        traLines.addAll(trajSet);
-        this.trajSet = traLines;
+    public int getClusterID() {
+        return clusterID;
+    }
+
+    public void setTrajSet(HashSet<DBScanTraLine> trajSet) {
+        this.trajSet = trajSet;
     }
 
     public void addDBScanTraLine(DBScanTraLine traLine){

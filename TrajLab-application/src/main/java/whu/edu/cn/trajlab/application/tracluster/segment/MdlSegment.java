@@ -16,12 +16,18 @@ import java.util.Objects;
  */
 public class MdlSegment implements Serializable {
     private double minLns = 0;
-
-    public MdlSegment(double minLns) {
-        this.minLns = minLns;
-    }
+    private double radius = 1;
 
     public MdlSegment() {
+    }
+
+    public MdlSegment(double minLns, double radius) {
+        this.minLns = minLns;
+        this.radius = radius;
+    }
+
+    public MdlSegment(double radius) {
+        this.radius = radius;
     }
 
     public double getMinLns() {
@@ -33,7 +39,7 @@ public class MdlSegment implements Serializable {
         List<Trajectory> res = new ArrayList<>();
         List<Integer> segIndex = new ArrayList<>();
         int startIndex = 0;
-        int length = 1;
+        int length = 2;
         //记录特征点的位置
         segIndex.add(0);
         MDL mdl = new MDL(tmpPointList);
@@ -41,10 +47,10 @@ public class MdlSegment implements Serializable {
             int currentIndex = startIndex + length;
             double cosPair = mdl.calMDLPair(startIndex, currentIndex);
             double cosNoPair = mdl.calMDLNoPair(startIndex, currentIndex);
-            if(cosPair > cosNoPair){
+            if(cosPair > cosNoPair || mdl.calDistanceCompareRadius(currentIndex, radius)){
                 segIndex.add(currentIndex - 1);
                 startIndex = currentIndex - 1;
-                length = 1;
+                length = 2;
             }else length++;
         }
         segIndex.add(tmpPointList.size() - 1);
@@ -66,6 +72,8 @@ public class MdlSegment implements Serializable {
         }
         return res;
     }
+
+
 
     public JavaRDD<Trajectory> segment(JavaRDD<Trajectory> rawTrajectoryRDD) {
         return rawTrajectoryRDD.flatMap(item -> segmentFunction(item).iterator()).filter(Objects::nonNull);

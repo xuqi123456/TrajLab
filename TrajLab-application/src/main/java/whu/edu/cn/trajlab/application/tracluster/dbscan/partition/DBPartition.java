@@ -3,9 +3,11 @@ package whu.edu.cn.trajlab.application.tracluster.dbscan.partition;
 import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.LineString;
+import whu.edu.cn.trajlab.base.mbr.MinimumBoundingBox;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.base.util.GeoUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ import java.util.List;
  * @author xuqi
  * @date 2024/03/01
  */
-public class DBPartition {
+public class DBPartition implements Serializable {
   private final double minLen;
   private final Envelope envelope;
   private long xLen;
@@ -50,7 +52,7 @@ public class DBPartition {
     return grids;
   }
 
-  public List<Grid> calTrajectoryGridSet(Trajectory trajectory) {
+  public List<Grid> calTrajectoryGridSet(Trajectory trajectory, MinimumBoundingBox traEnv) {
     LineString trajLine = trajectory.getLineString();
     Envelope envelopeInternal = trajLine.getEnvelopeInternal();
     List<Grid> gridSet = calEnvelopeGridSet(envelopeInternal);
@@ -58,10 +60,10 @@ public class DBPartition {
     for (Grid grid : gridSet) {
       Envelope gridEnvelope =
           new Envelope(
-              grid.getX() * minLen,
-              (grid.getX() + 1) * minLen,
-              grid.getY() * minLen,
-              (grid.getY() + 1) * minLen);
+              grid.getX() * minLen + traEnv.getMinX(),
+              (grid.getX() + 1) * minLen + traEnv.getMinX(),
+              grid.getY() * minLen + traEnv.getMinY(),
+              (grid.getY() + 1) * minLen + traEnv.getMinY());
       Geometry envelopeGeometry = GeoUtils.createEnvelopeGeometry(gridEnvelope);
       if(trajLine.intersects(envelopeGeometry)){
         grids.add(grid);

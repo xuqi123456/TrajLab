@@ -1,5 +1,6 @@
 package whu.edu.cn.trajlab.db.database.meta;
 
+import scala.Tuple4;
 import whu.edu.cn.trajlab.base.util.DateUtils;
 import whu.edu.cn.trajlab.db.constant.SetConstants;
 import whu.edu.cn.trajlab.db.datatypes.TimeLine;
@@ -10,8 +11,9 @@ import org.slf4j.LoggerFactory;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-
 
 /**
  * @author xuqi
@@ -25,11 +27,11 @@ public class SetMeta {
   private TimeLine timeLine;
   private int dataCount;
 
-    public SetMeta(JavaRDD<Trajectory> trajectoryJavaRDD) {
-        this.buildSetMetaFromRDD(trajectoryJavaRDD);
-    }
+  public SetMeta(JavaRDD<Trajectory> trajectoryJavaRDD) {
+    this.buildSetMetaFromRDD(trajectoryJavaRDD);
+  }
 
-    public SetMeta(
+  public SetMeta(
       ZonedDateTime start_time,
       int srid,
       MinimumBoundingBox boundingBox,
@@ -47,7 +49,6 @@ public class SetMeta {
     this.timeLine = timeLine;
     this.dataCount = dataCount;
   }
-
 
   public static Logger getLogger() {
     return logger;
@@ -80,83 +81,68 @@ public class SetMeta {
             t.next().getTrajectoryFeatures();
           }
         });
-    // 创建AtomicReference对象，初始值为全局box对象
-    AtomicReference<MinimumBoundingBox> boxRef = new AtomicReference<>(null);
-    AtomicReference<ZonedDateTime> start_timeRef = new AtomicReference<>(null);
-    AtomicReference<ZonedDateTime> end_timeRef = new AtomicReference<>(null);
-    AtomicReference<Integer> dataCountRef = new AtomicReference<>(0);
 
-    // 对RDD进行foreachPartition操作
-    trajectoryJavaRDD.foreachPartition(
-        partitionItr -> {
-          // 创建一个临时的局部box对象
-          MinimumBoundingBox localBox = null;
-          ZonedDateTime start_time = null;
-          ZonedDateTime end_time = null;
-          int count = 0;
-          while (partitionItr.hasNext()) {
-            Trajectory t = partitionItr.next();
-            if (localBox == null) {
-              localBox = t.getTrajectoryFeatures().getMbr();
-              start_time = t.getTrajectoryFeatures().getStartTime();
-              end_time = t.getTrajectoryFeatures().getEndTime();
-              count = t.getTrajectoryFeatures().getPointNum();
-            } else {
-              localBox = localBox.union(t.getTrajectoryFeatures().getMbr());
-              start_time =
-                  start_time.compareTo(t.getTrajectoryFeatures().getStartTime()) <= 0
-                      ? start_time
-                      : t.getTrajectoryFeatures().getStartTime();
-              end_time =
-                  end_time.compareTo(t.getTrajectoryFeatures().getEndTime()) >= 0
-                      ? end_time
-                      : t.getTrajectoryFeatures().getEndTime();
-              count += t.getTrajectoryFeatures().getPointNum();
-            }
-          }
-          // 将局部box对象合并到全局box对象中
-          MinimumBoundingBox finalLocalBox = localBox;
-          ZonedDateTime finalStartTime = start_time;
-          ZonedDateTime finalEndTime = end_time;
-          int finalCount = count;
-          boxRef.getAndUpdate(
-              currentBox -> {
-                if (currentBox == null) return finalLocalBox;
-                else {
-                  return currentBox.union(finalLocalBox);
+    JavaRDD<Tuple4<MinimumBoundingBox, ZonedDateTime, ZonedDateTime, Integer>> result =
+        trajectoryJavaRDD.mapPartitions(
+            partitionItr -> {
+              List<Tuple4<MinimumBoundingBox, ZonedDateTime, ZonedDateTime, Integer>> localBoxes =
+                  new ArrayList<>();
+              if (partitionItr.hasNext()) {
+                MinimumBoundingBox localBox = null;
+                ZonedDateTime localStartTime = null;
+                ZonedDateTime localEndTime = null;
+                Integer localCount = 0;
+                while (partitionItr.hasNext()) {
+                  Trajectory t = partitionItr.next();
+                  if (localBox == null) {
+                    localBox = t.getTrajectoryFeatures().getMbr();
+                    localStartTime = t.getTrajectoryFeatures().getStartTime();
+                    localEndTime = t.getTrajectoryFeatures().getEndTime();
+                    localCount = t.getTrajectoryFeatures().getPointNum();
+                  } else {
+                    localBox = localBox.union(t.getTrajectoryFeatures().getMbr());
+                    localStartTime =
+                        localStartTime.compareTo(t.getTrajectoryFeatures().getStartTime()) <= 0
+                            ? localStartTime
+                            : t.getTrajectoryFeatures().getStartTime();
+                    localEndTime =
+                        localEndTime.compareTo(t.getTrajectoryFeatures().getEndTime()) >= 0
+                            ? localEndTime
+                            : t.getTrajectoryFeatures().getEndTime();
+                    localCount += t.getTrajectoryFeatures().getPointNum();
+                  }
                 }
-              });
-          start_timeRef.getAndUpdate(
-              s -> {
-                if (s == null) {
-                  return finalStartTime;
-                } else {
-                  return s.compareTo(finalStartTime) <= 0 ? s : finalStartTime;
-                }
-              });
-          end_timeRef.getAndUpdate(
-              s -> {
-                if (s == null) {
-                  return finalEndTime;
-                } else {
-                  return s.compareTo(finalEndTime) >= 0 ? s : finalEndTime;
-                }
-              });
-          dataCountRef.getAndUpdate(d -> d + finalCount);
-        });
-    this.boundingBox = boxRef.get();
-    this.timeLine = new TimeLine(start_timeRef.get(), end_timeRef.get());
-    this.dataCount = dataCountRef.get();
+                localBoxes.add(new Tuple4<>(localBox, localStartTime, localEndTime, localCount));
+              }
+              return localBoxes.iterator();
+            });
+    Tuple4<MinimumBoundingBox, ZonedDateTime, ZonedDateTime, Integer> reduce =
+        result.reduce(
+            (box1, box2) -> {
+              return new Tuple4<>(
+                  box1._1().union(box2._1()),
+                  box1._2().isBefore(box2._2()) ? box1._2() : box2._2(),
+                  box1._3().isAfter(box2._3()) ? box1._3() : box2._3(),
+                  box1._4() + box2._4());
+            });
+    this.boundingBox = reduce._1();
+    this.timeLine = new TimeLine(reduce._2(), reduce._3());
+    this.dataCount = reduce._4();
   }
 
-    @Override
-    public String toString() {
-        return "SetMeta{" +
-                "start_time=" + start_time +
-                ", srid=" + srid +
-                ", boundingBox=" + boundingBox +
-                ", timeLine=" + timeLine +
-                ", dataCount=" + dataCount +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "SetMeta{"
+        + "start_time="
+        + start_time
+        + ", srid="
+        + srid
+        + ", boundingBox="
+        + boundingBox
+        + ", timeLine="
+        + timeLine
+        + ", dataCount="
+        + dataCount
+        + '}';
+  }
 }

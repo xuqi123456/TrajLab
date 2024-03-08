@@ -1,13 +1,9 @@
 package whu.edu.cn.trajlab.base.util;
 
-import org.geotools.geometry.jts.JTSFactoryFinder;
 import org.geotools.referencing.GeodeticCalculator;
-import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.*;
 import org.locationtech.jts.operation.distance.DistanceOp;
 import whu.edu.cn.trajlab.base.mbr.MinimumBoundingBox;
-import org.locationtech.jts.geom.Coordinate;
-import org.locationtech.jts.geom.Envelope;
-import org.locationtech.jts.geom.Geometry;
 import org.locationtech.spatial4j.context.SpatialContext;
 import org.locationtech.spatial4j.distance.DistanceCalculator;
 import org.locationtech.spatial4j.distance.DistanceUtils;
@@ -158,6 +154,9 @@ public class GeoUtils implements Serializable {
 
     public static double getKmFromDegree(double degree) {
         return degree * DistanceUtils.DEG_TO_KM;
+    }
+    public static double getMFromDegree(double degree) {
+        return degree * DistanceUtils.DEG_TO_KM * 1000;
     }
 
     public static double getDegreeFromKm(double km) {

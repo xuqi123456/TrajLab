@@ -1,27 +1,22 @@
-package whu.edu.cn.trajlab.example.application.segment.heatmap;
+package whu.edu.cn.trajlab.example.application.heatmap;
 
 import org.apache.log4j.Logger;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.sql.SparkSession;
 import org.locationtech.jts.geom.Point;
-import scala.Tuple2;
 import whu.edu.cn.trajlab.application.heatmap.GridRDD.TileGridDataRDD;
 import whu.edu.cn.trajlab.application.heatmap.SaveAsImage;
 import whu.edu.cn.trajlab.application.heatmap.SpatialHeatMap;
 import whu.edu.cn.trajlab.application.heatmap.aggenum.TileAggregateType;
 import whu.edu.cn.trajlab.application.heatmap.function.MapTrajectory;
-import whu.edu.cn.trajlab.application.heatmap.tile.Pixel;
 import whu.edu.cn.trajlab.application.heatmap.tile.TileResult;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.core.operator.load.ILoader;
 import whu.edu.cn.trajlab.core.util.IOUtils;
-import whu.edu.cn.trajlab.example.application.segment.MdlSegmentTest;
 import whu.edu.cn.trajlab.example.conf.ExampleConfig;
 import whu.edu.cn.trajlab.example.transform.TrajToGeojson;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
 
-import java.time.Duration;
-import java.util.List;
 import java.util.Objects;
 
 /**
