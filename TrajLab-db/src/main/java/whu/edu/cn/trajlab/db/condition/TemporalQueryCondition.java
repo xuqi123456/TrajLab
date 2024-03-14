@@ -4,6 +4,7 @@ import whu.edu.cn.trajlab.db.datatypes.TimeLine;
 import whu.edu.cn.trajlab.db.enums.QueryType;
 import whu.edu.cn.trajlab.db.enums.TemporalQueryType;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @author xuqi
  * @date 2023/12/01
  */
-public class TemporalQueryCondition extends AbstractQueryCondition{
+public class TemporalQueryCondition extends AbstractQueryCondition implements Serializable {
 
     private List<TimeLine> queryWindows;
     private final TemporalQueryType temporalQueryType;

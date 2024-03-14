@@ -42,10 +42,10 @@ public class ByteArray implements Serializable, Comparable<ByteArray> {
         return bytes;
     }
 
-    @Override
-    public String toString() {
-        return Bytes.toHex(bytes);
-    }
+//    @Override
+//    public String toString() {
+//        return Bytes.toHex(bytes);
+//    }
 
     @Override
     public int compareTo(ByteArray o) {
@@ -94,5 +94,12 @@ public class ByteArray implements Serializable, Comparable<ByteArray> {
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.put(bytes);
         return buffer;
+    }
+
+    @Override
+    public String toString() {
+        return "ByteArray{" +
+                "bytes=" + Bytes.toString(bytes) +
+                '}';
     }
 }

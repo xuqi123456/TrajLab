@@ -25,7 +25,9 @@ import java.util.List;
 
 import static whu.edu.cn.trajlab.db.constant.CodingConstants.TIME_ZONE;
 import static whu.edu.cn.trajlab.example.load.HBaseDataLoad.getLoadHBase;
+import static whu.edu.cn.trajlab.example.query.basic.IDQueryTest.moid;
 import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.DATASET_NAME;
+import static whu.edu.cn.trajlab.example.query.basic.TemporalQueryTest.testTimeLine1;
 
 /**
  * @author xuqi
@@ -34,21 +36,11 @@ import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.DATASET_NA
 public class IDTemporalQueryTest extends TestCase {
     public static TemporalQueryCondition temporalContainCondition;
     public static TemporalQueryCondition temporalIntersectCondition;
-    public static IDQueryCondition idQueryCondition = new IDQueryCondition("001");
-    public static TimeLine testTimeLine1;
-    public static TimeLine testTimeLine2;
+    public static IDQueryCondition idQueryCondition = new IDQueryCondition(moid);
 
     static List<TimeLine> timeLineList = new ArrayList<>();
     static {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(TIME_ZONE);
-        ZonedDateTime start1 = ZonedDateTime.parse("2015-12-25 06:00:00", dateTimeFormatter);
-        ZonedDateTime end1 = ZonedDateTime.parse("2015-12-25 07:00:00", dateTimeFormatter);
-        ZonedDateTime start2 = ZonedDateTime.parse("2015-12-25 15:00:00", dateTimeFormatter);
-        ZonedDateTime end2 = ZonedDateTime.parse("2015-12-25 16:00:00", dateTimeFormatter);
-        testTimeLine1 = new TimeLine(start1, end1);
-        testTimeLine2 = new TimeLine(start2, end2);
         timeLineList.add(testTimeLine1);
-        timeLineList.add(testTimeLine2);
         temporalIntersectCondition = new TemporalQueryCondition(timeLineList, TemporalQueryType.INTERSECT);
         temporalContainCondition = new TemporalQueryCondition(timeLineList, TemporalQueryType.CONTAIN);
     }
@@ -73,8 +65,8 @@ public class IDTemporalQueryTest extends TestCase {
                 ZonedDateTime endTime = result.getTrajectoryFeatures().getEndTime();
                 System.out.println(new TimeLine(startTime, endTime));
             }
-            assertEquals(
-                    13, results.size());
+            int intersect = testGetAnswer(false);
+            assertEquals(intersect, results.size());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -89,7 +81,8 @@ public class IDTemporalQueryTest extends TestCase {
         for (Trajectory trajectory : trajectories) {
             System.out.println(trajectory);
         }
-        assertEquals(13, trajectories.size());
+        int intersect = testGetAnswer(false);
+        assertEquals(intersect, trajectories.size());
     }
 
     public void testContainQuery() throws IOException {
@@ -102,12 +95,12 @@ public class IDTemporalQueryTest extends TestCase {
         for (Trajectory trajectory : trajectories) {
             System.out.println(trajectory);
         }
-        assertEquals(10, trajectories.size());
+        int contain = testGetAnswer(true);
+        assertEquals(contain, trajectories.size());
     }
 
-    public void testGetAnswer() throws IOException {
-        JavaRDD<Trajectory> loadHBase = getLoadHBase();
-        List<Trajectory> trips = loadHBase.collect();
+    public int testGetAnswer(boolean isContained) throws IOException {
+        List<Trajectory> trips = getLoadHBase();
         int i = 0;
         int j = 0;
         for (Trajectory trajectory : trips) {
@@ -115,17 +108,17 @@ public class IDTemporalQueryTest extends TestCase {
             ZonedDateTime endTime = trajectory.getTrajectoryFeatures().getEndTime();
             TimeLine trajTimeLine = new TimeLine(startTime, endTime);
             for (TimeLine queryTimeLine : timeLineList) {
-                if (queryTimeLine.contain(trajTimeLine)) {
-                    System.out.println(new TimeLine(startTime, endTime));
+                if (queryTimeLine.contain(trajTimeLine) && trajectory.getObjectID().equals(moid)) {
                     i++;
                 }
-                if (queryTimeLine.intersect(trajTimeLine)) {
+                if (queryTimeLine.intersect(trajTimeLine) && trajectory.getObjectID().equals(moid)) {
                     j++;
                 }
             }
         }
-        System.out.println("CONTAIN: " + i);
-        System.out.println("INTERSECT: " + j);
+        if (isContained){
+            return i;
+        }else return j;
     }
 
     public void testDeleteDataSet() throws IOException {

@@ -11,6 +11,7 @@ import whu.edu.cn.trajlab.core.util.IOUtils;
 import whu.edu.cn.trajlab.example.conf.ExampleConfig;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -38,7 +39,7 @@ public class HBaseDataLoad extends TestCase {
             throw new RuntimeException(e);
         }
     }
-    public static JavaRDD<Trajectory> getLoadHBase() throws JsonParseException {
+    public static List<Trajectory> getLoadHBase() throws JsonParseException {
         String inPath = Objects.requireNonNull(
                 HBaseDataLoad.class.getResource("/ioconf/HBaseLoadConfig.json")).getPath();
         String fileStr = IOUtils.readLocalTextFile(inPath);
@@ -51,7 +52,7 @@ public class HBaseDataLoad extends TestCase {
             JavaRDD<Trajectory> trajRDD =
                     iLoader.loadTrajectory(sparkSession, exampleConfig.getLoadConfig());
             LOGGER.info("Successfully load data from HBase");
-            return trajRDD;
+            return trajRDD.collect();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

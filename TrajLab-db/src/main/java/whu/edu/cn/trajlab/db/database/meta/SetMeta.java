@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author xuqi
  * @date 2023/12/05
  */
-public class SetMeta {
+public class SetMeta implements Serializable {
   private static Logger logger = LoggerFactory.getLogger(SetMeta.class);
   private ZonedDateTime start_time = DateUtils.parseDate(SetConstants.start_time);
   private int srid = SetConstants.srid;
@@ -98,7 +99,6 @@ public class SetMeta {
                     localBox = t.getTrajectoryFeatures().getMbr();
                     localStartTime = t.getTrajectoryFeatures().getStartTime();
                     localEndTime = t.getTrajectoryFeatures().getEndTime();
-                    localCount = t.getTrajectoryFeatures().getPointNum();
                   } else {
                     localBox = localBox.union(t.getTrajectoryFeatures().getMbr());
                     localStartTime =
@@ -109,7 +109,7 @@ public class SetMeta {
                         localEndTime.compareTo(t.getTrajectoryFeatures().getEndTime()) >= 0
                             ? localEndTime
                             : t.getTrajectoryFeatures().getEndTime();
-                    localCount += t.getTrajectoryFeatures().getPointNum();
+                    localCount++;
                   }
                 }
                 localBoxes.add(new Tuple4<>(localBox, localStartTime, localEndTime, localCount));

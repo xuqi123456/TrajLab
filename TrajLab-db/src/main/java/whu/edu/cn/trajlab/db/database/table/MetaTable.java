@@ -127,7 +127,7 @@ public class MetaTable {
       // meta:data_count
       p.addColumn(
           Bytes.toBytes(DBConstants.META_TABLE_COLUMN_FAMILY),
-          SetConstants.DATA_START_TIME,
+          SetConstants.DATA_COUNT,
           SerializerUtils.serializeObject(setMeta.getDataCount()));
     }
     return p;

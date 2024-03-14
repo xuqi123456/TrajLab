@@ -8,11 +8,13 @@ import whu.edu.cn.trajlab.db.database.meta.IndexMeta;
 import whu.edu.cn.trajlab.core.enums.FileSplitterEnum;
 import whu.edu.cn.trajlab.db.enums.IndexType;
 import whu.edu.cn.trajlab.core.enums.StoreSchemaEnum;
+import whu.edu.cn.trajlab.db.index.id.IDIndexStrategy;
 import whu.edu.cn.trajlab.db.index.spatial.XZ2IndexStrategy;
 import whu.edu.cn.trajlab.db.index.spatialtemporal.TXZ2IndexStrategy;
 import whu.edu.cn.trajlab.db.index.spatialtemporal.XZ2TIndexStrategy;
 import whu.edu.cn.trajlab.db.index.time.IDTIndexStrategy;
 import scala.NotImplementedError;
+import whu.edu.cn.trajlab.db.index.time.TemporalIndexStrategy;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -115,6 +117,10 @@ public class HBaseStoreConfig implements IStoreConfig {
                 return new IndexMeta(isMainIndex, new XZ2TIndexStrategy(), dataSetName, "default");
             case OBJECT_ID_T:
                 return new IndexMeta(isMainIndex, new IDTIndexStrategy(), dataSetName, "default");
+            case Temporal:
+                return new IndexMeta(isMainIndex, new TemporalIndexStrategy(), dataSetName, "default");
+            case ID:
+                return new IndexMeta(isMainIndex, new IDIndexStrategy(), dataSetName, "default");
             default:
                 throw new NotImplementedError();
         }

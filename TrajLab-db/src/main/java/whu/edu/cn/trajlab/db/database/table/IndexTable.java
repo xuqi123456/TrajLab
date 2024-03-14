@@ -9,6 +9,7 @@ import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * @author xuqi
  * @date 2023/12/03
  */
-public class IndexTable {
+public class IndexTable implements Serializable {
 
     private Table table;
 

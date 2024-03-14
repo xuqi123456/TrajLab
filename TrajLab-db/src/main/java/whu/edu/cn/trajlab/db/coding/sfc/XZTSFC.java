@@ -327,8 +327,8 @@ public class XZTSFC implements Serializable {
    * @return 特定类型的时间查询范围涉及的时间桶。
    */
   public List<TimeBin> getTimeBinList(TimeLine timeQuery, boolean isContainQuery) {
-    short binIdStart = (short) timePeriod.getChronoUnit().between(Epoch, timeQuery.getTimeStart());
-    short binIDEnd = (short) timePeriod.getChronoUnit().between(Epoch, timeQuery.getTimeEnd());
+    int binIdStart = (int) timePeriod.getChronoUnit().between(Epoch, timeQuery.getTimeStart());
+    int binIDEnd = (int) timePeriod.getChronoUnit().between(Epoch, timeQuery.getTimeEnd());
     List<TimeBin> timeBins = new ArrayList<>();
     // 若为交叠查询，则需要从timeQuery.start所属的bin的前一个开始搜索。
     int i = isContainQuery ? binIdStart : binIdStart - 1;

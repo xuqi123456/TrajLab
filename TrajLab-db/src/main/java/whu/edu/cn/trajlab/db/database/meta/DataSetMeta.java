@@ -4,13 +4,14 @@ import whu.edu.cn.trajlab.db.enums.IndexType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * @author xuqi
  * @date 2023/12/03
  */
-public class DataSetMeta {
+public class DataSetMeta implements Serializable {
 
   private static Logger logger = LoggerFactory.getLogger(DataSetMeta.class);
 

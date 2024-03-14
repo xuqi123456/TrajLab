@@ -11,7 +11,7 @@ import static whu.edu.cn.trajlab.base.trajectory.Trajectory.Schema.*;
  */
 public class DBConstants {
     // Tables
-    public static final String META_TABLE_NAME = "trajspark_db_meta";
+    public static final String META_TABLE_NAME = "TrajLab_db_meta";
     public static final String META_TABLE_COLUMN_FAMILY = "meta";
     public static final String META_TABLE_INDEX_META_QUALIFIER = "index_meta";
     public static final String META_TABLE_CORE_INDEX_META_QUALIFIER = "main_table_index_meta";
