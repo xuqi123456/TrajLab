@@ -19,11 +19,9 @@ import whu.edu.cn.trajlab.query.query.basic.IDTemporalQuery;
 
 import java.io.IOException;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static whu.edu.cn.trajlab.db.constant.CodingConstants.TIME_ZONE;
 import static whu.edu.cn.trajlab.example.load.HBaseDataLoad.getLoadHBase;
 import static whu.edu.cn.trajlab.example.query.basic.IDQueryTest.moid;
 import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.DATASET_NAME;

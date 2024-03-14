@@ -15,7 +15,6 @@ import whu.edu.cn.trajlab.db.database.table.IndexTable;
 import whu.edu.cn.trajlab.db.datatypes.TimeLine;
 import whu.edu.cn.trajlab.example.store.HBaseDataStore;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
-import whu.edu.cn.trajlab.query.query.basic.SpatialQuery;
 import whu.edu.cn.trajlab.query.query.basic.SpatialTemporalQuery;
 
 import java.io.IOException;

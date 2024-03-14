@@ -3,19 +3,16 @@ package whu.edu.cn.trajlab.example.query.basic;
 import com.fasterxml.jackson.core.JsonParseException;
 import junit.framework.TestCase;
 import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.io.ParseException;
 import org.locationtech.jts.io.WKTReader;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
-import whu.edu.cn.trajlab.base.util.SparkUtils;
 import whu.edu.cn.trajlab.db.condition.SpatialQueryCondition;
 import whu.edu.cn.trajlab.db.database.Database;
 import whu.edu.cn.trajlab.db.database.table.IndexTable;
 import whu.edu.cn.trajlab.db.datatypes.ByteArray;
 import whu.edu.cn.trajlab.db.datatypes.TimeLine;
-import whu.edu.cn.trajlab.db.index.RowKeyRange;
 import whu.edu.cn.trajlab.example.store.HBaseDataStore;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
 import whu.edu.cn.trajlab.query.query.basic.SpatialQuery;
@@ -35,7 +32,7 @@ public class SpatialQueryTest extends TestCase {
   public static SpatialQueryCondition spatialIntersectQueryCondition;
   public static SpatialQueryCondition spatialContainedQueryCondition;
   public static SpatialQueryCondition spatialContainedMinQueryCondition;
-  static String QUERY_WKT_INTERSECT = "POLYGON ((116.32962772419637 39.972026172051926, 116.30270755784738 39.95837159882646, 116.2979676693152 39.941984580074575, 116.3236919401059 39.92376956848565, 116.35456902546804 39.92133821985189, 116.39416282850755 39.92224369651018, 116.4028739476417 39.94015883515999, 116.40010269765128 39.96383557395737, 116.37198885623383 39.972937650600954, 116.32962772419637 39.972026172051926))";
+  public static String QUERY_WKT_INTERSECT = "POLYGON ((116.32962772419637 39.972026172051926, 116.30270755784738 39.95837159882646, 116.2979676693152 39.941984580074575, 116.3236919401059 39.92376956848565, 116.35456902546804 39.92133821985189, 116.39416282850755 39.92224369651018, 116.4028739476417 39.94015883515999, 116.40010269765128 39.96383557395737, 116.37198885623383 39.972937650600954, 116.32962772419637 39.972026172051926))";
   static String QUERY_WKT_CONTAIN = "POLYGON ((116.13739069245264 40.15458565769407, 116.13739069245264 39.81560110525632, 116.54329729384301 39.81560110525632, 116.54329729384301 40.15458565769407, 116.13739069245264 40.15458565769407))";
   static String QUERY_WKT_CONTAINMin = "POLYGON ((116.29147294505526 39.97376857162786, 116.29147294505526 39.88293578040475, 116.38928044070065 39.88293578040475, 116.38928044070065 39.97376857162786, 116.29147294505526 39.97376857162786))";
 

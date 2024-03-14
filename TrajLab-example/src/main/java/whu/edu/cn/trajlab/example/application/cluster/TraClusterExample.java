@@ -15,7 +15,6 @@ import whu.edu.cn.trajlab.base.util.SparkUtils;
 import whu.edu.cn.trajlab.core.operator.load.ILoader;
 import whu.edu.cn.trajlab.core.operator.transform.sink.Traj2GeoJson;
 import whu.edu.cn.trajlab.core.util.IOUtils;
-import whu.edu.cn.trajlab.example.application.segment.MdlSegmentTest;
 import whu.edu.cn.trajlab.example.conf.ExampleConfig;
 import whu.edu.cn.trajlab.example.transform.TrajToGeojson;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
@@ -66,7 +65,7 @@ public class TraClusterExample {
       IOUtils.writeStringToFile(outPath1, jsonObjectS.toString());
 
       DBScanCluster dbScanCluster = new DBScanCluster(3, 5);
-      List<DBCluster> dbClusters = dbScanCluster.doCluster(sparkSession, segment);
+      List<DBCluster> dbClusters = dbScanCluster.doCluster(segment);
 
       for (DBCluster dbCluster : dbClusters) {
         HashSet<DBScanTraLine> trajSet = dbCluster.getTrajSet();
