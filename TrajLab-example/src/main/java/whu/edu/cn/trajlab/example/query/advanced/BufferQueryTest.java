@@ -3,15 +3,12 @@ package whu.edu.cn.trajlab.example.query.advanced;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.sql.SparkSession;
 import org.junit.Test;
-import whu.edu.cn.trajlab.base.point.TrajPoint;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.db.condition.BufferQueryConditon;
-import whu.edu.cn.trajlab.db.condition.KNNQueryCondition;
 import whu.edu.cn.trajlab.db.database.Database;
 import whu.edu.cn.trajlab.example.store.HBaseDataStore;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
 import whu.edu.cn.trajlab.query.query.advanced.BufferQuery;
-import whu.edu.cn.trajlab.query.query.advanced.KNNQuery;
 
 import java.io.IOException;
 import java.util.List;

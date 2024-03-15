@@ -41,7 +41,11 @@ public class BufferQuery extends AbstractQuery {
   @Override
   public List<Trajectory> executeQuery() throws IOException {
     List<RowKeyRange> indexRanges = getSplitRanges(abstractQueryCondition);
-    return executeQuery(indexRanges);
+    List<Trajectory> trajectories = executeQuery(indexRanges);
+    BufferQueryConditon bufferQueryConditon = (BufferQueryConditon) abstractQueryCondition;
+    Trajectory centralTrajectory = bufferQueryConditon.getCentralTrajectory();
+    trajectories.remove(centralTrajectory);
+    return trajectories;
   }
   @Override
   public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) throws IOException {
@@ -74,17 +78,21 @@ public class BufferQuery extends AbstractQuery {
     JavaSparkContext context = SparkUtils.getJavaSparkContext(ss);
     JavaRDD<RowKeyRange> rowKeyRangeJavaRDD = context.parallelize(indexRanges);
 
-    return rowKeyRangeJavaRDD
-        .groupBy(RowKeyRange::getShardKey)
-        .flatMap(
-            iteratorPair -> {
-              // 对每个分区中的元素进行转换操作
-              List<RowKeyRange> result = new ArrayList<>();
-              for (RowKeyRange rowKeyRange : iteratorPair._2) {
-                result.add(rowKeyRange);
-              }
-              return executeQuery(result).iterator();
-            });
+    JavaRDD<Trajectory> trajRDD = rowKeyRangeJavaRDD
+            .groupBy(RowKeyRange::getShardKey)
+            .flatMap(
+                    iteratorPair -> {
+                      // 对每个分区中的元素进行转换操作
+                      List<RowKeyRange> result = new ArrayList<>();
+                      for (RowKeyRange rowKeyRange : iteratorPair._2) {
+                        result.add(rowKeyRange);
+                      }
+                      return executeQuery(result).iterator();
+                    });
+    BufferQueryConditon bufferQueryConditon = (BufferQueryConditon) abstractQueryCondition;
+    Trajectory centralTrajectory = bufferQueryConditon.getCentralTrajectory();
+
+    return trajRDD.filter(t -> !t.equals(centralTrajectory));
   }
 
   public List<RowKeyRange> getSplitRanges(AbstractQueryCondition abQc1) throws IOException {

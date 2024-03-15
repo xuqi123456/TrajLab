@@ -174,7 +174,9 @@ public class KNNQuery extends AbstractQuery {
                             stage,
                             collect.size());
                 }
-                return heapToResultList(pq);
+                List<Trajectory> trajectories = heapToResultList(pq);
+                trajectories.remove(centralTrajectory);
+                return trajectories;
             }
             default:
                 throw new UnsupportedOperationException();
@@ -383,7 +385,9 @@ public class KNNQuery extends AbstractQuery {
                             stage,
                             collect.size());
                 }
-                return context.parallelize(heapToResultList(pq));
+                List<Trajectory> trajectories = heapToResultList(pq);
+                trajectories.remove(centralTrajectory);
+                return context.parallelize(trajectories);
             }
             default:
                 throw new UnsupportedOperationException();
