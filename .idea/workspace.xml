@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/KNNQueryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/BufferQueryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/trajectory/TrajectoryWithDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/trajectory/TrajectoryWithDistance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/meta/SetMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/meta/SetMeta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/RowKeyRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/index/RowKeyRange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/basic/SpatialQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/basic/SpatialQueryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/HBaseStoreConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/HBaseStoreConfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/constants/QueryConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/constants/QueryConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/STQueryEndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/STQueryEndPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/SimilarQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/SimilarQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/TrajectoryKNNQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/KNNQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/KNNQueryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/BufferQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/BufferQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,34 +77,18 @@
       <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources\ioconf" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KNNQueryTest.getTrajKNNQuery">
-    <configuration name="HBaseDataStore.testDeleteDataSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.KNNQueryTest.getPointKNNQuery">
+    <configuration name="BufferQueryTest.getTraBufferQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.store.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.store" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.store.HBaseDataStore" />
-      <option name="METHOD_NAME" value="testDeleteDataSet" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HBaseDataStore.testStoreHBase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrajLab-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.store.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.store" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.store.HBaseDataStore" />
-      <option name="METHOD_NAME" value="testStoreHBase" />
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.BufferQueryTest" />
+      <option name="METHOD_NAME" value="getTraBufferQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -128,6 +105,22 @@
       <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
       <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.KNNQueryTest" />
       <option name="METHOD_NAME" value="getPointKNNQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KNNQueryTest.getPointKNNRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.KNNQueryTest" />
+      <option name="METHOD_NAME" value="getPointKNNRDDQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -167,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KNNQueryTest.getPointKNNQuery" />
+        <item itemvalue="JUnit.KNNQueryTest.getPointKNNRDDQuery" />
+        <item itemvalue="JUnit.BufferQueryTest.getTraBufferQuery" />
         <item itemvalue="JUnit.KNNQueryTest.getTrajKNNQuery" />
         <item itemvalue="JUnit.KNNQueryTest.getTrajKNNQueryWithTime" />
-        <item itemvalue="JUnit.HBaseDataStore.testStoreHBase" />
-        <item itemvalue="JUnit.HBaseDataStore.testDeleteDataSet" />
-        <item itemvalue="JUnit.KNNQueryTest.getPointKNNQuery" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +189,7 @@
       <workItem from="1710249542741" duration="43454000" />
       <workItem from="1710401705011" duration="8798000" />
       <workItem from="1710425712795" duration="19518000" />
-      <workItem from="1710507541090" duration="1073000" />
+      <workItem from="1710507541090" duration="5334000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
@@ -310,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710410748372</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix knn query bugs">
+      <created>1710509147172</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1710509147172</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +344,7 @@
     <MESSAGE value="add heatmap function" />
     <MESSAGE value="fix store and ST-query bugs" />
     <MESSAGE value="add Basic Query Unified Interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Basic Query Unified Interface" />
+    <MESSAGE value="fix knn query bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix knn query bugs" />
   </component>
 </project>

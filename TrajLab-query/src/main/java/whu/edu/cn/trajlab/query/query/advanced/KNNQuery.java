@@ -107,6 +107,80 @@ public class KNNQuery extends AbstractQuery {
     }
 
     @Override
+    public List<Trajectory> executeQuery() throws IOException {
+        setupTargetIndexTable();
+        KNNQueryCondition kqc = (KNNQueryCondition) abstractQueryCondition;
+        int k = kqc.getK();
+        int resultSearch = 0;
+        int searchNothing = 0;
+        PriorityQueue<TrajectoryWithDistance> pq =
+                new PriorityQueue<>(
+                        k,
+                        (o1, o2) -> {
+                            double dist1 = o1.getDistance();
+                            double dist2 = o2.getDistance();
+                            return Double.compare(dist2, dist1);
+                        });
+        HashSet<RowKeyRange> set = new HashSet<>();
+        switch (kqc.getKnnQueryType()) {
+            case Point: {
+                BasePoint centralPoint = kqc.getCentralPoint();
+                while ((pq.size() < k && searchNothing < MAX_QUERY_NOTHING_TIME) || ( resultSearch != 0)) {
+                    Geometry buffer = centralPoint.buffer(GeoUtils.getDegreeFromKm(curSearchDist));
+
+                    AbstractQueryCondition stQc = generateSTQueryCondition(buffer);
+                    Tuple2<List<RowKeyRange>, HashSet<RowKeyRange>> ranges = getSplitRanges(stQc, set);
+                    List<RowKeyRange> splitRanges = ranges._1;
+                    set = ranges._2;
+
+                    List<Trajectory> collect = executeQuery(splitRanges);
+                    resultSearch = collect.size();
+                    if(resultSearch == 0) searchNothing++;
+                    addToHeap(collect, pq, kqc);
+                    if (!pq.isEmpty()) {
+                        maxDistance = pq.peek().getDistance();
+                    }
+                    getSearchRadiusKM(resultSearch, kqc.getK(), curSearchDist);
+                    stage++;
+                    logger.info(
+                            "Start search radius {} at stage {}, got {} numbers count.",
+                            curSearchDist,
+                            stage,
+                            collect.size());
+                }
+                return heapToResultList(pq);
+            }
+            case Trajectory: {
+                Trajectory centralTrajectory = kqc.getCentralTrajectory();
+                while ((pq.size() < k && searchNothing < MAX_QUERY_NOTHING_TIME) || (resultSearch != 0)) {
+                    Geometry buffer = centralTrajectory.buffer(GeoUtils.getDegreeFromKm(curSearchDist));
+                    AbstractQueryCondition stQc = generateSTQueryCondition(buffer);
+                    Tuple2<List<RowKeyRange>, HashSet<RowKeyRange>> ranges = getSplitRanges(stQc, set);
+                    List<RowKeyRange> splitRanges = ranges._1;
+                    set = ranges._2;
+                    List<Trajectory> collect = executeQuery(splitRanges);
+
+                    resultSearch = collect.size();
+                    if(resultSearch == 0) searchNothing++;
+                    addToHeap(collect, pq, kqc);
+                    if (!pq.isEmpty()) {
+                        maxDistance = pq.peek().getDistance();
+                    }
+                    getSearchRadiusKM(resultSearch, kqc.getK(), curSearchDist);
+                    stage++;
+                    logger.info(
+                            "Start search radius {} at stage {}, got {} numbers count.",
+                            curSearchDist,
+                            stage,
+                            collect.size());
+                }
+                return heapToResultList(pq);
+            }
+            default:
+                throw new UnsupportedOperationException();
+        }
+    }
+    @Override
     public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) throws IOException {
         setupTargetIndexTable();
         List<QueryCondition.Range> ranges = rowKeyRangeToProtoRange(rowKeyRanges);

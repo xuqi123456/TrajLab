@@ -39,6 +39,11 @@ public class BufferQuery extends AbstractQuery {
   }
 
   @Override
+  public List<Trajectory> executeQuery() throws IOException {
+    List<RowKeyRange> indexRanges = getSplitRanges(abstractQueryCondition);
+    return executeQuery(indexRanges);
+  }
+  @Override
   public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) throws IOException {
     setupTargetIndexTable();
     List<QueryCondition.Range> ranges = rowKeyRangeToProtoRange(rowKeyRanges);
@@ -111,8 +116,8 @@ public class BufferQuery extends AbstractQuery {
     }
     // case 2: 无空间表，找TXZ2索引
     else {
-      if (map.containsKey(IndexType.TXZ2)) {
-        return IndexMeta.getBestIndexMeta(map.get(IndexType.TXZ2));
+      if (map.containsKey(IndexType.XZ2T)) {
+        return IndexMeta.getBestIndexMeta(map.get(IndexType.XZ2T));
       }
     }
     return null;

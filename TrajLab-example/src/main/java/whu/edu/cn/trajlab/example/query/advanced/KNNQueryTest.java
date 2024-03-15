@@ -27,6 +27,7 @@ import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.*;
 public class KNNQueryTest {
     public static TimeLine testTimeLine1;
     static List<TimeLine> timeLineList = new ArrayList<>();
+
     static {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(TIME_ZONE);
         ZonedDateTime start1 = ZonedDateTime.parse("2008-10-25 06:00:00", dateTimeFormatter);
@@ -34,8 +35,27 @@ public class KNNQueryTest {
         testTimeLine1 = new TimeLine(start1, end1);
         timeLineList.add(testTimeLine1);
     }
+
     @Test
     public void getPointKNNQuery() throws IOException {
+        long start = System.currentTimeMillis();
+        Database instance = Database.getInstance();
+        List<Trajectory> loadHBase = getLoadHBase();
+        TrajPoint trajPoint = loadHBase.get(22).getPointList().get(0);
+        KNNQueryCondition knnQueryCondition = new KNNQueryCondition(18, trajPoint);
+        KNNQuery knnQuery = new KNNQuery(instance.getDataSet(DATASET_NAME), knnQueryCondition);
+
+        List<Trajectory> results = knnQuery.executeQuery();
+        System.out.println(results.size());
+        for (Trajectory result : results) {
+            System.out.println(result);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("cost : " + (end - start) + "ms");
+    }
+
+    @Test
+    public void getPointKNNRDDQuery() throws IOException {
         long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
@@ -48,6 +68,7 @@ public class KNNQueryTest {
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
             JavaRDD<Trajectory> rddQuery = knnQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
+            System.out.println(results.size());
             for (Trajectory result : results) {
                 System.out.println(result);
             }
@@ -59,7 +80,7 @@ public class KNNQueryTest {
     }
 
     @Test
-    public void getPointKNNQueryWithTime() throws IOException {
+    public void getPointKNNRDDQueryWithTime() throws IOException {
         long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
@@ -73,6 +94,7 @@ public class KNNQueryTest {
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
             JavaRDD<Trajectory> rddQuery = knnQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
+            System.out.println(results.size());
             for (Trajectory result : results) {
                 System.out.println(result);
             }
@@ -84,7 +106,7 @@ public class KNNQueryTest {
     }
 
     @Test
-    public void getTrajKNNQuery() throws IOException {
+    public void getTrajKNNRDDQuery() throws IOException {
         long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
@@ -98,6 +120,7 @@ public class KNNQueryTest {
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
             JavaRDD<Trajectory> rddQuery = knnQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
+            System.out.println(results.size());
             for (Trajectory result : results) {
                 System.out.println(result);
             }
@@ -109,7 +132,7 @@ public class KNNQueryTest {
     }
 
     @Test
-    public void getTrajKNNQueryWithTime() throws IOException {
+    public void getTrajKNNRDDQueryWithTime() throws IOException {
         long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
@@ -123,6 +146,7 @@ public class KNNQueryTest {
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
             JavaRDD<Trajectory> rddQuery = knnQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
+            System.out.println(results.size());
             for (Trajectory result : results) {
                 System.out.println(result);
             }
