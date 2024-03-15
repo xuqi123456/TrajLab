@@ -357,8 +357,9 @@ public class STQueryEndPoint extends QueryCondition.QueryService
   }
 
   protected boolean timeFilter(
-      Result result, QueryCondition.TemporalQueryWindow temporalQueryWindow) {
-    if (temporalQueryWindow == null) return true;
+      Result result, QueryCondition.KNNQueryRequest knnQueryRequest) {
+    if (!knnQueryRequest.hasTemporalQueryWindow()) return true;
+    QueryCondition.TemporalQueryWindow temporalQueryWindow = knnQueryRequest.getTemporalQueryWindow();
     TimeLine trajTimeLine = TrajectorySerdeUtils.getTrajectoryTimeLine(result);
     TimeLine queryTimeLine =
         new TimeLine(
@@ -366,11 +367,23 @@ public class STQueryEndPoint extends QueryCondition.QueryService
             BasicDateUtils.timeToZonedTime(temporalQueryWindow.getEndMs()));
     return queryTimeLine.intersect(trajTimeLine);
   }
+  protected boolean timeFilter(
+          Result result, QueryCondition.SimilarQueryRequest similarQueryRequest) {
+    if (!similarQueryRequest.hasTemporalQueryWindow()) return true;
+    QueryCondition.TemporalQueryWindow temporalQueryWindow = similarQueryRequest.getTemporalQueryWindow();
+    TimeLine trajTimeLine = TrajectorySerdeUtils.getTrajectoryTimeLine(result);
+    TimeLine queryTimeLine =
+            new TimeLine(
+                    BasicDateUtils.timeToZonedTime(temporalQueryWindow.getStartMs()),
+                    BasicDateUtils.timeToZonedTime(temporalQueryWindow.getEndMs()));
+    return queryTimeLine.intersect(trajTimeLine);
+  }
 
   protected boolean knnFilter(Result result, QueryCondition.KNNQueryRequest knnQueryRequest)
       throws IOException {
     MinimumBoundingBox mbr = TrajectorySerdeUtils.getTrajectoryMBR(result);
-    Polygon mbrPolygon = mbr.toPolygon(4326);
+    Geometry mbrPolygon = GeoUtils.createEnvelopeGeometry(mbr);
+//    Polygon mbrPolygon = mbr.toPolygon(4326);
     double maxDis = knnQueryRequest.getDistance();
     if (knnQueryRequest.hasPoint()) {
       // 使用DistanceOp计算最短距离
@@ -378,9 +391,8 @@ public class STQueryEndPoint extends QueryCondition.QueryService
           (BasePoint)
               SerializerUtils.deserializeObject(
                   knnQueryRequest.getPoint().toByteArray(), BasePoint.class);
-
       double distance = GeoUtils.nearDistanceOp(point, mbrPolygon);
-      return distance <= maxDis && timeFilter(result, knnQueryRequest.getTemporalQueryWindow());
+      return distance <= maxDis && timeFilter(result, knnQueryRequest);
     } else {
       Trajectory trajectory =
           (Trajectory)
@@ -391,7 +403,7 @@ public class STQueryEndPoint extends QueryCondition.QueryService
         double pointDis = GeoUtils.nearDistanceOp(trajPoint, mbrPolygon);
         distance = Math.min(distance, pointDis);
       }
-      return distance <= maxDis && timeFilter(result, knnQueryRequest.getTemporalQueryWindow());
+      return distance <= maxDis && timeFilter(result, knnQueryRequest);
     }
   }
 
@@ -415,7 +427,7 @@ public class STQueryEndPoint extends QueryCondition.QueryService
 
     return GeoUtils.getDegreeFromKm(distance1) <= maxDis
         && GeoUtils.getDegreeFromKm(distance2) <= maxDis
-        && timeFilter(result, similarQueryRequest.getTemporalQueryWindow());
+        && timeFilter(result, similarQueryRequest);
   }
 
   protected boolean accFilter(

@@ -28,7 +28,7 @@ import static whu.edu.cn.trajlab.example.load.HBaseDataLoad.getLoadHBase;
  * @date 2024/01/23
  */
 public class SpatialQueryTest extends TestCase {
-  static String DATASET_NAME = "TRAJECTORY_TEST";
+  public static String DATASET_NAME = "TRAJECTORY_TEST";
   public static SpatialQueryCondition spatialIntersectQueryCondition;
   public static SpatialQueryCondition spatialContainedQueryCondition;
   public static SpatialQueryCondition spatialContainedMinQueryCondition;

@@ -149,6 +149,9 @@ public class SimilarQuery extends AbstractQuery {
     }
     // case 2: 有时间约束，找TXZ2索引
     else {
+      if (map.containsKey(IndexType.XZ2T)) {
+        return IndexMeta.getBestIndexMeta(map.get(IndexType.XZ2T));
+      }
       if (map.containsKey(IndexType.TXZ2)) {
         return IndexMeta.getBestIndexMeta(map.get(IndexType.TXZ2));
       }

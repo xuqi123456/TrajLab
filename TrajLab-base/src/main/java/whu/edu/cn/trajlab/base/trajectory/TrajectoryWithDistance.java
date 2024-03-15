@@ -5,6 +5,8 @@ import whu.edu.cn.trajlab.base.point.TrajPoint;
 import whu.edu.cn.trajlab.base.util.DiscreteFrechetDistance;
 import whu.edu.cn.trajlab.base.util.GeoUtils;
 
+import java.util.Objects;
+
 /**
  * @author xuqi
  * @date 2024/01/25
@@ -52,20 +54,15 @@ public class TrajectoryWithDistance {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-    if (obj instanceof TrajectoryWithDistance) {
-      TrajectoryWithDistance trajectory = (TrajectoryWithDistance) obj;
-      if (!trajectory.equals(this.trajectory)) {
-        return false;
-      }
-      if (Math.abs(distance - trajectory.distance) > 1e-8) {
-        return false;
-      }
-      return true;
-    }
-    return false;
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    TrajectoryWithDistance that = (TrajectoryWithDistance) o;
+    return Objects.equals(trajectory, that.trajectory);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(trajectory);
   }
 }

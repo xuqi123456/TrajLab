@@ -99,6 +99,7 @@ public class SetMeta implements Serializable {
                     localBox = t.getTrajectoryFeatures().getMbr();
                     localStartTime = t.getTrajectoryFeatures().getStartTime();
                     localEndTime = t.getTrajectoryFeatures().getEndTime();
+                    localCount++;
                   } else {
                     localBox = localBox.union(t.getTrajectoryFeatures().getMbr());
                     localStartTime =

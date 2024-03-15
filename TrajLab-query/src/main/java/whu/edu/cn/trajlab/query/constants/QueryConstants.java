@@ -6,4 +6,5 @@ package whu.edu.cn.trajlab.query.constants;
  */
 public class QueryConstants {
     public static final double BASIC_BUFFER_DISTANCE = 1.0;
+    public static final int MAX_QUERY_NOTHING_TIME = 5;
 }
