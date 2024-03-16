@@ -18,7 +18,11 @@ public enum IndexType implements Serializable {
     // Concatenate spatial index before temporal index
     XZ2T(4),
     // Index value will be car ids
-    OBJECT_ID_T(5);
+    OBJECT_ID_T(5),
+    KNN(6),
+    BUFFER(7),
+    SIMILAR(8),
+    ACCOMPANY(9);
 
     int id;
 
