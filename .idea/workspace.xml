@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/SimilarQueryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/AccompanyQueryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/BufferQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/BufferQueryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/BufferQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/BufferQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/KNNQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/KNNQueryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/SimilarQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/advanced/SimilarQueryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/STQueryEndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/coprocessor/STQueryEndPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/AccompanyQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/AccompanyQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/SimilarQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/SimilarQuery.java" afterDir="false" />
     </list>
@@ -78,8 +81,8 @@
       <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources\ioconf" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SimilarQueryTest.getPointSimRDDQueryWithTime">
-    <configuration name="KNNQueryTest.getPointKNNQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AccompanyQueryTest.getTrajAccQuery">
+    <configuration name="AccompanyQueryTest.getPointAccQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
@@ -88,14 +91,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.KNNQueryTest" />
-      <option name="METHOD_NAME" value="getPointKNNQuery" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.AccompanyQueryTest" />
+      <option name="METHOD_NAME" value="getPointAccQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KNNQueryTest.getPointKNNRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccompanyQueryTest.getTrajAccQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
@@ -104,14 +107,46 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.KNNQueryTest" />
-      <option name="METHOD_NAME" value="getPointKNNRDDQuery" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.AccompanyQueryTest" />
+      <option name="METHOD_NAME" value="getTrajAccQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SimilarQueryTest.getPointSimQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccompanyQueryTest.getTrajAccRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.AccompanyQueryTest" />
+      <option name="METHOD_NAME" value="getTrajAccRDDQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="STQueryTest.testExecuteRDDIntersectQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.basic" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.basic.STQueryTest" />
+      <option name="METHOD_NAME" value="testExecuteRDDIntersectQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimilarQueryTest.getTrajSimRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
@@ -121,39 +156,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
       <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.SimilarQueryTest" />
-      <option name="METHOD_NAME" value="getPointSimQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimilarQueryTest.getPointSimRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrajLab-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.SimilarQueryTest" />
-      <option name="METHOD_NAME" value="getPointSimRDDQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimilarQueryTest.getPointSimRDDQueryWithTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrajLab-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.SimilarQueryTest" />
-      <option name="METHOD_NAME" value="getPointSimRDDQueryWithTime" />
+      <option name="METHOD_NAME" value="getTrajSimRDDQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SimilarQueryTest.getPointSimRDDQueryWithTime" />
-        <item itemvalue="JUnit.SimilarQueryTest.getPointSimRDDQuery" />
-        <item itemvalue="JUnit.SimilarQueryTest.getPointSimQuery" />
-        <item itemvalue="JUnit.KNNQueryTest.getPointKNNQuery" />
-        <item itemvalue="JUnit.KNNQueryTest.getPointKNNRDDQuery" />
+        <item itemvalue="JUnit.AccompanyQueryTest.getTrajAccQuery" />
+        <item itemvalue="JUnit.AccompanyQueryTest.getTrajAccRDDQuery" />
+        <item itemvalue="JUnit.STQueryTest.testExecuteRDDIntersectQuery" />
+        <item itemvalue="JUnit.SimilarQueryTest.getTrajSimRDDQuery" />
+        <item itemvalue="JUnit.AccompanyQueryTest.getPointAccQuery" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +193,7 @@
       <workItem from="1710249542741" duration="43454000" />
       <workItem from="1710401705011" duration="8798000" />
       <workItem from="1710425712795" duration="19518000" />
-      <workItem from="1710507541090" duration="9129000" />
+      <workItem from="1710507541090" duration="18016000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
@@ -318,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710513353305</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix query contain itself and similar query bugs">
+      <created>1710525159430</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1710525159430</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +364,7 @@
     <MESSAGE value="add Basic Query Unified Interface" />
     <MESSAGE value="fix knn query bugs" />
     <MESSAGE value="add buffer query example" />
-    <option name="LAST_COMMIT_MESSAGE" value="add buffer query example" />
+    <MESSAGE value="fix query contain itself and similar query bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix query contain itself and similar query bugs" />
   </component>
 </project>

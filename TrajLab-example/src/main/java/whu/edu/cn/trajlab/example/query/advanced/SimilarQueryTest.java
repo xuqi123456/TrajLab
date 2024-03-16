@@ -36,14 +36,13 @@ public class SimilarQueryTest {
     }
 
     @Test
-    public void getPointSimQuery() throws IOException {
-        long start = System.currentTimeMillis();
+    public void getTrajSimQuery() throws IOException {
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         Trajectory cenTrajectory = loadHBase.get(22);
         SimilarQueryCondition sqc = new SimilarQueryCondition(cenTrajectory, 10);
         SimilarQuery similarQuery = new SimilarQuery(instance.getDataSet(DATASET_NAME), sqc);
-
+        long start = System.currentTimeMillis();
         List<Trajectory> results = similarQuery.executeQuery();
         System.out.println(results.size());
         for (Trajectory result : results) {
@@ -54,8 +53,7 @@ public class SimilarQueryTest {
     }
 
     @Test
-    public void getPointSimRDDQuery() throws IOException {
-        long start = System.currentTimeMillis();
+    public void getTrajSimRDDQuery() throws IOException {
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         Trajectory cenTrajectory = loadHBase.get(22);
@@ -65,6 +63,7 @@ public class SimilarQueryTest {
         boolean isLocal = true;
         try (SparkSession sparkSession =
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
+            long start = System.currentTimeMillis();
             JavaRDD<Trajectory> rddQuery = similarQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
             System.out.println(results.size());
@@ -79,8 +78,7 @@ public class SimilarQueryTest {
     }
 
     @Test
-    public void getPointSimRDDQueryWithTime() throws IOException {
-        long start = System.currentTimeMillis();
+    public void getTrajSimRDDQueryWithTime() throws IOException {
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         Trajectory cenTrajectory = loadHBase.get(22);
@@ -92,6 +90,7 @@ public class SimilarQueryTest {
         boolean isLocal = true;
         try (SparkSession sparkSession =
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
+            long start = System.currentTimeMillis();
             JavaRDD<Trajectory> rddQuery = similarQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
             System.out.println(results.size());

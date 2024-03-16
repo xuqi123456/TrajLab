@@ -19,7 +19,6 @@ import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.DATASET_NA
 public class BufferQueryTest {
     @Test
     public void getTraRDDBufferQuery() throws IOException {
-        long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         Trajectory cenTrajectory = loadHBase.get(22);
@@ -29,6 +28,7 @@ public class BufferQueryTest {
         boolean isLocal = true;
         try (SparkSession sparkSession =
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
+            long start = System.currentTimeMillis();
             JavaRDD<Trajectory> rddQuery = bufferQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
             System.out.println(results.size());
@@ -43,12 +43,12 @@ public class BufferQueryTest {
     }
     @Test
     public void getTraBufferQuery() throws IOException {
-        long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         Trajectory cenTrajectory = loadHBase.get(22);
         BufferQueryConditon bqc = new BufferQueryConditon(cenTrajectory, 0.2);
         BufferQuery bufferQuery = new BufferQuery(instance.getDataSet(DATASET_NAME), bqc);
+        long start = System.currentTimeMillis();
         List<Trajectory> results = bufferQuery.executeQuery();
             System.out.println(results.size());
             for (Trajectory result : results) {

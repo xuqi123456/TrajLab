@@ -70,7 +70,6 @@ public class SimilarQuery extends AbstractQuery {
 
 
         List<Trajectory> trajectories = executeQuery(splitRanges);
-        trajectories.remove(centralTrajectory);
         logger.info("Start SimilarQuery at {} SimDisThreshold", sqc.getSimDisThreshold());
         return trajectories;
     }
@@ -149,7 +148,7 @@ public class SimilarQuery extends AbstractQuery {
                                 });
         logger.info("Start SimilarQuery at {} SimDisThreshold", sqc.getSimDisThreshold());
 
-        return trajRDD.filter(t -> !t.equals(centralTrajectory));
+        return trajRDD;
     }
 
     public AbstractQueryCondition generateSTQueryCondition(Geometry geom) throws IOException {

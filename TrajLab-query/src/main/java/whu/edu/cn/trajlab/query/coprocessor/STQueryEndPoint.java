@@ -398,6 +398,8 @@ public class STQueryEndPoint extends QueryCondition.QueryService
           (Trajectory)
               SerializerUtils.deserializeObject(
                   knnQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
+      Trajectory trajectoryFromResult = TrajectorySerdeUtils.getTrajectoryFromResult(result);
+      if(trajectoryFromResult.equals(trajectory)) return false;
       double distance = Double.MAX_VALUE;
       for (TrajPoint trajPoint : trajectory.getPointList()) {
         double pointDis = GeoUtils.nearDistanceOp(trajPoint, mbrPolygon);
@@ -415,6 +417,8 @@ public class STQueryEndPoint extends QueryCondition.QueryService
         (Trajectory)
             SerializerUtils.deserializeObject(
                 similarQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
+    Trajectory trajectoryFromResult = TrajectorySerdeUtils.getTrajectoryFromResult(result);
+    if(trajectoryFromResult.equals(centralTrajectory)) return false;
     Envelope envelopeInternal = centralTrajectory.getLineString().getEnvelopeInternal();
     envelopeInternal.expandBy(maxDis);
     TrajPoint startPoint = centralTrajectory.getTrajectoryFeatures().getStartPoint();
@@ -441,6 +445,8 @@ public class STQueryEndPoint extends QueryCondition.QueryService
         (Trajectory)
             SerializerUtils.deserializeObject(
                 accompanyQueryRequest.getTrajectory().toByteArray(), Trajectory.class);
+    Trajectory trajectoryFromResult = TrajectorySerdeUtils.getTrajectoryFromResult(result);
+    if (trajectoryFromResult.equals(centralTrajectory)) return false;
     int startPointCount = accompanyQueryRequest.getStartPoint();
     int k = accompanyQueryRequest.getK();
     //空间缓冲区

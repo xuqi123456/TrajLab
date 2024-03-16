@@ -38,13 +38,12 @@ public class KNNQueryTest {
 
     @Test
     public void getPointKNNQuery() throws IOException {
-        long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         TrajPoint trajPoint = loadHBase.get(22).getPointList().get(0);
         KNNQueryCondition knnQueryCondition = new KNNQueryCondition(18, trajPoint);
         KNNQuery knnQuery = new KNNQuery(instance.getDataSet(DATASET_NAME), knnQueryCondition);
-
+        long start = System.currentTimeMillis();
         List<Trajectory> results = knnQuery.executeQuery();
         System.out.println(results.size());
         for (Trajectory result : results) {
@@ -56,7 +55,6 @@ public class KNNQueryTest {
 
     @Test
     public void getPointKNNRDDQuery() throws IOException {
-        long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         TrajPoint trajPoint = loadHBase.get(22).getPointList().get(0);
@@ -66,6 +64,7 @@ public class KNNQueryTest {
         boolean isLocal = true;
         try (SparkSession sparkSession =
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
+            long start = System.currentTimeMillis();
             JavaRDD<Trajectory> rddQuery = knnQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
             System.out.println(results.size());
@@ -81,7 +80,6 @@ public class KNNQueryTest {
 
     @Test
     public void getPointKNNRDDQueryWithTime() throws IOException {
-        long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         TrajPoint trajPoint = loadHBase.get(22).getPointList().get(0);
@@ -92,6 +90,7 @@ public class KNNQueryTest {
         boolean isLocal = true;
         try (SparkSession sparkSession =
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
+            long start = System.currentTimeMillis();
             JavaRDD<Trajectory> rddQuery = knnQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
             System.out.println(results.size());
@@ -107,7 +106,6 @@ public class KNNQueryTest {
 
     @Test
     public void getTrajKNNRDDQuery() throws IOException {
-        long start = System.currentTimeMillis();
         Database instance = Database.getInstance();
         List<Trajectory> loadHBase = getLoadHBase();
         Trajectory cenTrajectory = loadHBase.get(22);
@@ -118,6 +116,7 @@ public class KNNQueryTest {
         boolean isLocal = true;
         try (SparkSession sparkSession =
                      SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
+            long start = System.currentTimeMillis();
             JavaRDD<Trajectory> rddQuery = knnQuery.getRDDQuery(sparkSession);
             List<Trajectory> results = rddQuery.collect();
             System.out.println(results.size());
