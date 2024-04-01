@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/constant/distanceContants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/application/cluster/TraClusterExample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/cluster/DBCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/cluster/DBCluster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/cluster/DBScanCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/cluster/DBScanCluster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/partition/DBPartition.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/dbscan/partition/DBPartition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/distance/MDL.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/distance/MDL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/distance/TraDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/distance/TraDistance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/segment/MdlSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/segment/MdlSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/GeoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-base/src/main/java/whu/edu/cn/trajlab/base/util/GeoUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/meta/SetMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/meta/SetMeta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/application/segment/MdlSegmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/application/segment/MdlSegmentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/application/segment/heatmap/SpatialHeatmapExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/application/heatmap/SpatialHeatmapExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/LoadConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/LoadConfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +24,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -59,21 +51,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/bigdata/TrajLab/TrajLab-analysis/src/main/java",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/bigdata/TrajLab/TrajLab-analysis/src/main/java&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\bigdata\TrajLab\TrajLab-analysis\src\main\java" />
@@ -86,20 +78,7 @@
       <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources\ioconf" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TraClusterExample">
-    <configuration name="SpatialHeatmapExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.application.segment.heatmap.SpatialHeatmapExample" />
-      <module name="TrajLab-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.application.segment.heatmap.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TrajToGeojson.TrajToGeoJsonFromText">
     <configuration name="TraClusterExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.application.cluster.TraClusterExample" />
       <module name="TrajLab-example" />
@@ -126,6 +105,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="KMLToTraj.TrajToKMLFromConf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.KMLToTraj" />
+      <option name="METHOD_NAME" value="TrajToKMLFromConf" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MdlSegmentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
@@ -141,17 +136,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MdlSegmentTest.TrajSegment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrajToGeojson.TrajToGeoJsonFromText" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.application.segment.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.application.segment" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.application.segment.MdlSegmentTest" />
-      <option name="METHOD_NAME" value="TrajSegment" />
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.TrajToGeojson" />
+      <option name="METHOD_NAME" value="TrajToGeoJsonFromText" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TrajToGeojson.TrajToGeoJsonFromText" />
+        <item itemvalue="JUnit.KMLToTraj.TrajToKMLFromConf" />
         <item itemvalue="Application.TraClusterExample" />
         <item itemvalue="JUnit.MdlSegmentTest" />
         <item itemvalue="Application.test4" />
-        <item itemvalue="JUnit.MdlSegmentTest.TrajSegment" />
-        <item itemvalue="Application.SpatialHeatmapExample" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +178,8 @@
       <workItem from="1705673979368" duration="128824000" />
       <workItem from="1708158635558" duration="61526000" />
       <workItem from="1709398095718" duration="34560000" />
-      <workItem from="1709544541491" duration="85241000" />
+      <workItem from="1709544541491" duration="93347000" />
+      <workItem from="1711118105734" duration="22816000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
@@ -283,7 +279,21 @@
       <option name="project" value="LOCAL" />
       <updated>1709717491389</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix MLD segment and cluster bugs">
+      <created>1709917447343</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709917447343</updated>
+    </task>
+    <task id="LOCAL-00016" summary="wordspace and pom">
+      <created>1711961113290</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1711961113290</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +325,8 @@
     <MESSAGE value="fix tuple2 dependency" />
     <MESSAGE value="add geofence" />
     <MESSAGE value="add heatmap function" />
-    <option name="LAST_COMMIT_MESSAGE" value="add heatmap function" />
+    <MESSAGE value="fix MLD segment and cluster bugs" />
+    <MESSAGE value="wordspace and pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="wordspace and pom" />
   </component>
 </project>
