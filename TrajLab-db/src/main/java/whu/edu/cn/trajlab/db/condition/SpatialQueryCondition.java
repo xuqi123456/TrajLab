@@ -5,11 +5,13 @@ import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.io.WKTWriter;
 
+import java.io.Serializable;
+
 /**
  * @author xuqi
  * @date 2023/12/01
  */
-public class SpatialQueryCondition extends AbstractQueryCondition{
+public class SpatialQueryCondition extends AbstractQueryCondition implements Serializable {
     /**
      * Spatial query window geometry, may be geometry collection
      */

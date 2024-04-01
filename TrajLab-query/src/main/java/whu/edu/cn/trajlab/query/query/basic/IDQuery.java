@@ -3,6 +3,9 @@ package whu.edu.cn.trajlab.query.query.basic;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.CompareFilter;
+import org.apache.hadoop.hbase.filter.RowFilter;
+import org.apache.hadoop.hbase.filter.SubstringComparator;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import whu.edu.cn.trajlab.base.util.SparkUtils;
@@ -19,6 +22,7 @@ import org.apache.spark.api.java.JavaRDD;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -60,6 +64,7 @@ public class IDQuery extends AbstractQuery {
         });
     }
 
+    @Override
     public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) throws IOException {
         ArrayList<Result> list = new ArrayList<>();
         ArrayList<Trajectory> trajectories = new ArrayList<>();
@@ -69,6 +74,7 @@ public class IDQuery extends AbstractQuery {
             for (Result result : results) {
                 list.add(instance.getMainIndexedResult(result, targetIndexTable));
             }
+            System.out.println(list.size());
         } else {
             Scan scan = buildCoreScan(rowKeyRanges.get(0));
             ResultScanner results = instance.getScan(targetIndexTable.getTable(), scan);
@@ -84,8 +90,10 @@ public class IDQuery extends AbstractQuery {
 
     protected Scan buildScan(RowKeyRange rowKeyRange) {
         Scan scan = new Scan();
-        scan.withStartRow(rowKeyRange.getStartKey().getBytes(), true);
-        scan.withStopRow(rowKeyRange.getEndKey().getBytes(), false);
+        String prefix  = new String(rowKeyRange.getStartKey().getBytes(), StandardCharsets.UTF_8);
+        RowFilter rowFilter = new RowFilter(CompareFilter.CompareOp.EQUAL,
+                new SubstringComparator(prefix));
+        scan.setFilter(rowFilter);
         scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.OBJECT_ID_QUALIFIER);
         scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.TRAJECTORY_ID_QUALIFIER);
         scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.PTR_QUALIFIER);
@@ -94,8 +102,10 @@ public class IDQuery extends AbstractQuery {
 
     protected Scan buildCoreScan(RowKeyRange rowKeyRange) {
         Scan scan = new Scan();
-        scan.withStartRow(rowKeyRange.getStartKey().getBytes(), true);
-        scan.withStopRow(rowKeyRange.getEndKey().getBytes(), false);
+        String prefix  = new String(rowKeyRange.getStartKey().getBytes(), StandardCharsets.UTF_8);
+        RowFilter rowFilter = new RowFilter(CompareFilter.CompareOp.EQUAL,
+                new SubstringComparator(prefix));
+        scan.setFilter(rowFilter);
         scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.OBJECT_ID_QUALIFIER);
         scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.TRAJECTORY_ID_QUALIFIER);
         scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.TRAJ_POINTS_QUALIFIER);

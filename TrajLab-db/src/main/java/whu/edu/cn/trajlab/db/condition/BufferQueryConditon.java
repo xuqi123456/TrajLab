@@ -7,12 +7,13 @@ import whu.edu.cn.trajlab.base.util.SerializerUtils;
 import whu.edu.cn.trajlab.db.enums.QueryType;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author xuqi
  * @date 2024/02/17
  */
-public class BufferQueryConditon extends AbstractQueryCondition{
+public class BufferQueryConditon extends AbstractQueryCondition implements Serializable {
     private final Trajectory centralTrajectory;
     private final double DisThreshold;
 

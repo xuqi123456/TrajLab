@@ -65,7 +65,7 @@ public class DBScanCluster implements Serializable {
     return finalBox;
   }
 
-  public List<DBCluster> doCluster(SparkSession ss, JavaRDD<Trajectory> traRDD) {
+  public List<DBCluster> doCluster(JavaRDD<Trajectory> traRDD) {
     MinimumBoundingBox traEnv = getTraEnv(traRDD);
     DBPartition dbPartition = new DBPartition(radius, traEnv);
     // 将轨迹映射到网格

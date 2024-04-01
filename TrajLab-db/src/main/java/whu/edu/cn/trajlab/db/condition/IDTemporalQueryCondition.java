@@ -4,13 +4,14 @@ import whu.edu.cn.trajlab.db.datatypes.TimeLine;
 import whu.edu.cn.trajlab.db.enums.QueryType;
 import whu.edu.cn.trajlab.db.enums.TemporalQueryType;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author xuqi
  * @date 2023/12/10
  */
-public class IDTemporalQueryCondition extends AbstractQueryCondition {
+public class IDTemporalQueryCondition extends AbstractQueryCondition implements Serializable {
 
   private TemporalQueryCondition temporalQueryCondition;
   private IDQueryCondition idQueryCondition;

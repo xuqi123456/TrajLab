@@ -5,14 +5,12 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.sql.SparkSession;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.db.condition.DataSetQueryCondition;
-import whu.edu.cn.trajlab.db.condition.IDQueryCondition;
 import whu.edu.cn.trajlab.db.database.DataSet;
 import whu.edu.cn.trajlab.db.database.Database;
 import whu.edu.cn.trajlab.db.database.meta.DataSetMeta;
 import whu.edu.cn.trajlab.example.store.HBaseDataStore;
 import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
 import whu.edu.cn.trajlab.query.query.basic.DataSetQuery;
-import whu.edu.cn.trajlab.query.query.basic.IDQuery;
 
 import java.io.IOException;
 import java.util.List;

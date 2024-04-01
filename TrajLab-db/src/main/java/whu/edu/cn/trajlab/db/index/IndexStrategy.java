@@ -121,7 +121,11 @@ public abstract class IndexStrategy implements Serializable {
     }
 
     public short getShardByOid(String oid) {
-        return (short) Math.abs(oid.hashCode() % shardNum);
+        ByteBuffer byteBuffer = ByteBuffer.allocate(CodingConstants.MAX_OID_LENGTH);
+        byte[] objectIDBytes = getObjectIDBytes(oid);
+        byteBuffer.put(objectIDBytes);
+        ByteArray byteArray = new ByteArray(byteBuffer);
+        return (short) Math.abs((byteArray.hashCode() / DEFAULT_range_NUM % shardNum));
     }
 
     @Override

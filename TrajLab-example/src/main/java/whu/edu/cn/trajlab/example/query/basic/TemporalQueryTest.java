@@ -38,14 +38,10 @@ public class TemporalQueryTest extends TestCase {
     static List<TimeLine> timeLineList = new ArrayList<>();
     static {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(TIME_ZONE);
-        ZonedDateTime start1 = ZonedDateTime.parse("2015-12-25 06:00:00", dateTimeFormatter);
-        ZonedDateTime end1 = ZonedDateTime.parse("2015-12-25 07:00:00", dateTimeFormatter);
-        ZonedDateTime start2 = ZonedDateTime.parse("2015-12-25 15:00:00", dateTimeFormatter);
-        ZonedDateTime end2 = ZonedDateTime.parse("2015-12-25 16:00:00", dateTimeFormatter);
+        ZonedDateTime start1 = ZonedDateTime.parse("2008-10-25 06:00:00", dateTimeFormatter);
+        ZonedDateTime end1 = ZonedDateTime.parse("2008-11-04 11:00:00", dateTimeFormatter);
         testTimeLine1 = new TimeLine(start1, end1);
-        testTimeLine2 = new TimeLine(start2, end2);
         timeLineList.add(testTimeLine1);
-        timeLineList.add(testTimeLine2);
         temporalIntersectCondition = new TemporalQueryCondition(timeLineList, TemporalQueryType.INTERSECT);
         temporalContainCondition = new TemporalQueryCondition(timeLineList, TemporalQueryType.CONTAIN);
     }
@@ -69,8 +65,9 @@ public class TemporalQueryTest extends TestCase {
                 ZonedDateTime endTime = result.getTrajectoryFeatures().getEndTime();
                 System.out.println(new TimeLine(startTime, endTime));
             }
+            int intersect = testGetAnswer(false);
             assertEquals(
-                    13, results.size());
+                    intersect, results.size());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -84,7 +81,8 @@ public class TemporalQueryTest extends TestCase {
         for (Trajectory trajectory : trajectories) {
             System.out.println(trajectory);
         }
-        assertEquals(13, trajectories.size());
+        int intersect = testGetAnswer(false);
+        assertEquals(intersect, trajectories.size());
     }
 
     public void testContainQuery() throws IOException {
@@ -96,12 +94,12 @@ public class TemporalQueryTest extends TestCase {
         for (Trajectory trajectory : trajectories) {
             System.out.println(trajectory);
         }
-        assertEquals(10, trajectories.size());
+        int contain = testGetAnswer(true);
+        assertEquals(contain, trajectories.size());
     }
 
-    public void testGetAnswer() throws IOException {
-        JavaRDD<Trajectory> loadHBase = getLoadHBase();
-        List<Trajectory> trips = loadHBase.collect();
+    public int testGetAnswer(boolean isContained) throws IOException {
+        List<Trajectory> trips = getLoadHBase();
         int i = 0;
         int j = 0;
         for (Trajectory trajectory : trips) {
@@ -110,7 +108,6 @@ public class TemporalQueryTest extends TestCase {
             TimeLine trajTimeLine = new TimeLine(startTime, endTime);
             for (TimeLine queryTimeLine : timeLineList) {
                 if (queryTimeLine.contain(trajTimeLine)) {
-                    System.out.println(new TimeLine(startTime, endTime));
                     i++;
                 }
                 if (queryTimeLine.intersect(trajTimeLine)) {
@@ -118,8 +115,9 @@ public class TemporalQueryTest extends TestCase {
                 }
             }
         }
-        System.out.println("CONTAIN: " + i);
-        System.out.println("INTERSECT: " + j);
+        if (isContained){
+            return i;
+        }else return j;
     }
 
     public void testDeleteDataSet() throws IOException {

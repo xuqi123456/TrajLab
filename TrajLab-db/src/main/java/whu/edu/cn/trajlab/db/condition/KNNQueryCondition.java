@@ -8,12 +8,13 @@ import whu.edu.cn.trajlab.db.enums.KNNQueryType;
 import whu.edu.cn.trajlab.db.enums.QueryType;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author xuqi
  * @date 2024/01/24
  */
-public class KNNQueryCondition extends AbstractQueryCondition{
+public class KNNQueryCondition extends AbstractQueryCondition implements Serializable {
     private final int k;
     private BasePoint centralPoint;
     private Trajectory centralTrajectory;

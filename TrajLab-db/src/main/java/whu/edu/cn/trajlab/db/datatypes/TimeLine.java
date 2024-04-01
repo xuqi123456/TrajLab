@@ -1,5 +1,6 @@
 package whu.edu.cn.trajlab.db.datatypes;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.Objects;
@@ -8,7 +9,7 @@ import java.util.Objects;
  * @author xuqi
  * @date 2023/11/30
  */
-public class TimeLine {
+public class TimeLine implements Serializable {
 
     private ZonedDateTime timeStart;
     private ZonedDateTime timeEnd;
@@ -87,7 +88,7 @@ public class TimeLine {
 
     @Override
     public String toString() {
-        return "TimeLine{" + "timeStart=" + timeStart.toLocalDateTime() + ", timeEnd=" + timeEnd.toLocalDateTime() + '}';
+        return "TimeLine{" + "timeStart=" + timeStart + ", timeEnd=" + timeEnd + '}';
     }
     public String toReString() {
         return "TimeLine{" + "timeStart=" + reTimeStart + ", timeEnd=" + reTimeEnd + '}';

@@ -5,12 +5,13 @@ import whu.edu.cn.trajlab.db.database.meta.IndexMeta;
 import whu.edu.cn.trajlab.db.database.table.IndexTable;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author xuqi
  * @date 2023/12/03
  */
-public class DataSet {
+public class DataSet implements Serializable {
 
     private DataSetMeta dataSetMeta;
 

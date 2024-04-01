@@ -5,12 +5,13 @@ import whu.edu.cn.trajlab.base.util.SerializerUtils;
 import whu.edu.cn.trajlab.db.enums.QueryType;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author xuqi
  * @date 2024/01/29
  */
-public class SimilarQueryCondition extends AbstractQueryCondition{
+public class SimilarQueryCondition extends AbstractQueryCondition implements Serializable {
     private final Trajectory centralTrajectory;
     private final double SimDisThreshold;
     private TemporalQueryCondition temporalQueryCondition;

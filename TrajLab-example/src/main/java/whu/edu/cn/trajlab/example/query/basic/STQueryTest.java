@@ -2,6 +2,7 @@ package whu.edu.cn.trajlab.example.query.basic;
 
 import junit.framework.TestCase;
 import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.sql.SparkSession;
 import org.locationtech.jts.geom.Polygon;
 import org.locationtech.jts.io.ParseException;
 import org.locationtech.jts.io.WKTReader;
@@ -12,6 +13,8 @@ import whu.edu.cn.trajlab.db.condition.TemporalQueryCondition;
 import whu.edu.cn.trajlab.db.database.Database;
 import whu.edu.cn.trajlab.db.database.table.IndexTable;
 import whu.edu.cn.trajlab.db.datatypes.TimeLine;
+import whu.edu.cn.trajlab.example.store.HBaseDataStore;
+import whu.edu.cn.trajlab.example.util.SparkSessionUtils;
 import whu.edu.cn.trajlab.query.query.basic.SpatialTemporalQuery;
 
 import java.io.IOException;
@@ -19,7 +22,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 import static whu.edu.cn.trajlab.example.load.HBaseDataLoad.getLoadHBase;
-import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.DATASET_NAME;
+import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.*;
 
 /**
  * @author xuqi
@@ -28,10 +31,6 @@ import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.DATASET_NA
 public class STQueryTest extends TestCase {
     static SpatialTemporalQueryCondition stQueryConditionContain;
     static SpatialTemporalQueryCondition stQueryConditionIntersect;
-    static String QUERY_WKT_INTERSECT =
-            "POLYGON((114.05185384869783 22.535191684309407,114.07313985944002 22.535191684309407,114.07313985944002 22.51624317521578,114.05185384869783 22.51624317521578,114.05185384869783 22.535191684309407))";
-    static String QUERY_WKT_CONTAIN =
-            "POLYGON((114.06266851544588 22.55279006251164,114.09511251569002 22.55263152858115,114.09631414532869 22.514023096146417,114.02833624005525 22.513705939082808,114.02799291730135 22.553107129826113,114.06266851544588 22.55279006251164))";
     static List<TimeLine> timeLineList = IDTemporalQueryTest.timeLineList;
 
     static {
@@ -39,7 +38,7 @@ public class STQueryTest extends TestCase {
         TemporalQueryCondition temporalContainQuery = IDTemporalQueryTest.temporalContainCondition;
         TemporalQueryCondition temporalIntersectQuery = IDTemporalQueryTest.temporalIntersectCondition;
         SpatialQueryCondition spatialIntersectQueryCondition = SpatialQueryTest.spatialIntersectQueryCondition;
-        SpatialQueryCondition spatialContainedQueryCondition = SpatialQueryTest.spatialContainedQueryCondition;
+        SpatialQueryCondition spatialContainedQueryCondition = SpatialQueryTest.spatialContainedMinQueryCondition;
         stQueryConditionIntersect = new SpatialTemporalQueryCondition(
                 spatialIntersectQueryCondition, temporalIntersectQuery);
         stQueryConditionContain = new SpatialTemporalQueryCondition(
@@ -77,7 +76,37 @@ public class STQueryTest extends TestCase {
             Polygon envelopeINTERSECT = (Polygon) wktReader.read(QUERY_WKT_INTERSECT).getEnvelope();
             System.out.println("envelopeINTERSECT :  " + envelopeINTERSECT.intersects(trajectory.getLineString()));
         }
-        assertEquals(trajectories.size(),1);
+        int answer = testGetAnswer(false);
+        assertEquals(trajectories.size(),answer);
+    }
+    public void testExecuteRDDIntersectQuery() throws IOException {
+        long start = System.currentTimeMillis();
+        Database instance = Database.getInstance();
+        IndexTable indexTable = instance.getDataSet(DATASET_NAME).getCoreIndexTable();
+        SpatialTemporalQuery spatialTemporalQuery = new SpatialTemporalQuery(instance.getDataSet(DATASET_NAME),
+                stQueryConditionIntersect);
+        boolean isLocal = true;
+        try (SparkSession sparkSession =
+                     SparkSessionUtils.createSession(HBaseDataStore.class.getName(), isLocal)) {
+            JavaRDD<Trajectory> rddQuery = spatialTemporalQuery.getRDDQuery(sparkSession);
+            List<Trajectory> results = rddQuery.collect();
+            System.out.println(results.size());
+            long end = System.currentTimeMillis();
+            System.out.println("cost : " + (end - start) + "ms");
+//      for (Trajectory result : results) {
+//        ByteArray index = indexTable.getIndexMeta().getIndexStrategy().index(result);
+//        System.out.println(
+//            indexTable.getIndexMeta().getIndexStrategy().parsePhysicalIndex2String(index));
+//        ZonedDateTime startTime = result.getTrajectoryFeatures().getStartTime();
+//        ZonedDateTime endTime = result.getTrajectoryFeatures().getEndTime();
+//        System.out.println(new TimeLine(startTime, endTime));
+//      }
+            int answer = testGetAnswer(false);
+            assertEquals(
+                    answer, results.size());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void testContainQuery() throws IOException, ParseException {
@@ -97,7 +126,8 @@ public class STQueryTest extends TestCase {
             Polygon envelopeCONTAIN = (Polygon) wktReader.read(QUERY_WKT_CONTAIN).getEnvelope();
             System.out.println("envelopeCONTAIN :  " + envelopeCONTAIN.contains(trajectory.getLineString()));
         }
-        assertEquals(trajectories.size(),8);
+        int answer = testGetAnswer(true);
+        assertEquals(trajectories.size(),answer);
     }
 
     public void testDeleteDataSet() throws IOException {
@@ -105,9 +135,8 @@ public class STQueryTest extends TestCase {
         instance.deleteDataSet(DATASET_NAME);
     }
 
-    public void testGetAnswer() throws IOException, ParseException {
-        JavaRDD<Trajectory> loadHBase = getLoadHBase();
-        List<Trajectory> trips = loadHBase.collect();
+    public int testGetAnswer(boolean isContained) throws IOException, ParseException {
+        List<Trajectory> trips = getLoadHBase();
         int i = 0;
         int j = 0;
         WKTReader wktReader = new WKTReader();
@@ -120,13 +149,12 @@ public class STQueryTest extends TestCase {
             if (containEnv.contains(trajectory.getLineString())) {
                 for (TimeLine timeLine : timeLineList) {
                     if (timeLine.contain(trajTimeLine)) {
-                        System.out.println(new TimeLine(startTime, endTime));
+//                        System.out.println(new TimeLine(startTime, endTime));
                         i++;
                     }
                 }
             }
         }
-        System.out.println("CONTAIN: " + i);
         for (Trajectory trajectory : trips) {
             ZonedDateTime startTime = trajectory.getTrajectoryFeatures().getStartTime();
             ZonedDateTime endTime = trajectory.getTrajectoryFeatures().getEndTime();
@@ -134,12 +162,13 @@ public class STQueryTest extends TestCase {
             if (intersectEnv.intersects(trajectory.getLineString())) {
                 for (TimeLine timeLine : timeLineList) {
                     if (timeLine.intersect(trajTimeLine)) {
-                        System.out.println(new TimeLine(startTime, endTime));
+//                        System.out.println(new TimeLine(startTime, endTime));
                         j++;
                     }
                 }
             }
         }
-        System.out.println("INTERSECT: " + j);
+        if(isContained) return i;
+        else return j;
     }
 }

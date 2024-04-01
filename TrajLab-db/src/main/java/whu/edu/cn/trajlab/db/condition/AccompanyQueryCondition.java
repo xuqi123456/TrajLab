@@ -6,12 +6,13 @@ import whu.edu.cn.trajlab.db.enums.QueryType;
 import whu.edu.cn.trajlab.db.enums.TimePeriod;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author xuqi
  * @date 2024/02/18
  */
-public class AccompanyQueryCondition extends AbstractQueryCondition{
+public class AccompanyQueryCondition extends AbstractQueryCondition implements Serializable {
 
     private final Trajectory centralTrajectory;
     private final double DisThreshold;

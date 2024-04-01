@@ -18,7 +18,7 @@
     "objectId": {
       "sourceName": "object_id",
       "dataType": "String",
-      "index": 1
+      "index": 0
     },
     "trajPointConfig": {
       "@type": "traj_point",

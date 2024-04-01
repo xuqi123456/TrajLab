@@ -3,7 +3,6 @@ package whu.edu.cn.trajlab.example.store;
 import junit.framework.TestCase;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.sql.SparkSession;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;

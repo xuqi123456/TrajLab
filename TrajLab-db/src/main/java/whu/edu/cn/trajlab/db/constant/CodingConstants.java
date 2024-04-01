@@ -22,7 +22,7 @@ public class CodingConstants {
     public static final double XZ2_Y_MAX = 90.0;
 
     public static final short MAX_TIME_BIN_PRECISION = 7;
-    public static final ZoneId TIME_ZONE = ZoneOffset.UTC;
+    public static final ZoneId TIME_ZONE = ZoneId.of("UTC+8");
 
     public static final TimePeriod DEFAULT_TIME_PERIOD = TimePeriod.DAY;
     public static final double LOG_FIVE = Math.log(0.5);
