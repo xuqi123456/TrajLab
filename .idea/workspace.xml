@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="fix query contain itself (in coprocessor) and acc query bugs">
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/AdvancedQueryInterfaceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/AdvancedQuery.java" afterDir="false" />
+    <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/load/TDriveHBaseLoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/load/TDriveHBaseLoadConfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveHBaseStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveHBaseStoreConfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/enums/IndexType.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/enums/IndexType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/QueryConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/QueryConf.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dc2ca6084552d988c5aed44463dfd43f160f63af" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -189,7 +189,7 @@
       <workItem from="1710249542741" duration="43454000" />
       <workItem from="1710401705011" duration="8798000" />
       <workItem from="1710425712795" duration="19518000" />
-      <workItem from="1710507541090" duration="25436000" />
+      <workItem from="1710507541090" duration="27018000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
@@ -331,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710585113423</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add AdvancedQueryInterface and examples">
+      <created>1710614383559</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710614383559</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,6 +376,7 @@
     <MESSAGE value="add buffer query example" />
     <MESSAGE value="fix query contain itself and similar query bugs" />
     <MESSAGE value="fix query contain itself (in coprocessor) and acc query bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix query contain itself (in coprocessor) and acc query bugs" />
+    <MESSAGE value="add AdvancedQueryInterface and examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="add AdvancedQueryInterface and examples" />
   </component>
 </project>

@@ -1,0 +1,56 @@
+{
+  "loadConfig": {
+    "@type": "standalone",
+    "master": "local[*]",
+    "location": "D:/bigdata/TDrive/T_drive_Taxi_Trajectories/release/taxi_log_2008_by_id",
+    "fileMode": "multi_file",
+    "partNum": 8,
+    "splitter": ",",
+    "fileType": "csv"
+  },
+  "dataConfig": {
+    "@type": "trajectory",
+    "trajId": {
+      "sourceName": "traj_id",
+      "dataType": "String",
+      "index": 1
+    },
+    "objectId": {
+      "sourceName": "object_id",
+      "dataType": "String",
+      "index": 0
+    },
+    "trajPointConfig": {
+      "@type": "traj_point",
+      "pointId": {
+        "sourceName": "point_id",
+        "dataType": "String",
+        "index": -1
+      },
+      "lng": {
+        "sourceName": "lng",
+        "dataType": "Double",
+        "index": 2
+      },
+      "lat": {
+        "sourceName": "lat",
+        "dataType": "Double",
+        "index": 3
+      },
+      "time": {
+        "sourceName": "time",
+        "dataType": "Date",
+        "index": 1,
+        "format": "yyyy-MM-dd HH:mm:ss"
+      }
+    }
+  },
+  "storeConfig": {
+    "@type": "hbase",
+    "location": "hdfs://localhost:9000/store/",
+    "schema": "POINT_BASED_TRAJECTORY",
+    "dataSetName": "TDrive",
+    "mainIndex": "XZ2T",
+    "otherIndex": "XZ2"
+  }
+}
