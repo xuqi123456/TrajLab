@@ -1,6 +1,6 @@
 {
   "loadConfig": {
     "@type": "hbase",
-    "dataSetName": "TDrive"
+    "dataSetName": "TDrive_10000_XZ2"
   }
 }

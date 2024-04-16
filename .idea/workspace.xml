@@ -5,11 +5,89 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/load/TDriveHBaseLoad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/load/TDriveHBaseLoadConfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveHBaseStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveHBaseStoreConfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/tracluster/segment/TimeSegment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/resources/core-site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/resources/hbase-site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/resources/hdfs-site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/resources/mapred-site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-db/src/main/resources/yarn-site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/advancedQuery/RDDTDriveAccompanyQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/advancedQuery/RDDTDriveBufferQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/advancedQuery/RDDTDriveKNNQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/advancedQuery/RDDTDriveSimilarQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/application/LocalHeatmap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/application/TDriveCluster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/application/TDriveGeofence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/application/TDriveHeatmap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/CreateQueryWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/TDriveDataSetQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/TDriveIDQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/idt/RDDTDriveIDTQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/idt/TDriveIDTQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/spatial/RDDTDriveSpatialQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/spatial/TDriveSpatialQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/st/RDDTDriveSTQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/st/TDriveSTQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/temporal/RDDTDriveTemporalQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/temporal/TDriveTemporalQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/ts/RDDTDriveTSQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/ts/TDriveTSQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/DeleteTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/LoadConfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/dataLoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/dataMerge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/dataSegment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveSegmentStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_OBJECT_ID_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_TXZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_XZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_XZ2T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_ID.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_OBJECT_ID_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_TXZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_XZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_XZ2T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_ID.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_OBJECT_ID_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_TXZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_XZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_XZ2T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_ID.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_OBJECT_ID_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_TXZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_XZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_XZ2T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_ID.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_OBJECT_ID_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_TXZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_XZ2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_XZ2T.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/geofence/GeofenceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/geofence/GeofenceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/heatmap/SaveAsImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/heatmap/SaveAsImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-base/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-base/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/HDFSLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/HDFSLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/StandaloneLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/load/StandaloneLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HBaseStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/store/HBaseStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/CSV2Traj.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/CSV2Traj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/WKT2Traj.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/operator/transform/source/WKT2Traj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/util/IOUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-core/src/main/java/whu/edu/cn/trajlab/core/util/IOUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/constant/CodingConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/constant/CodingConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/table/MetaTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/database/table/MetaTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/enums/TimePeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-db/src/main/java/whu/edu/cn/trajlab/db/enums/TimePeriod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/load/TDriveHBaseLoadConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/load/TDriveHBaseLoadConfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveHBaseStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveHBaseStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveHBaseStoreConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_ID.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/AdvancedQueryInterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/AdvancedQueryInterfaceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/basic/DataSetQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/query/basic/TDriveDataSetQueryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/util/SparkSessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/util/SparkSessionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/AdvancedQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/AdvancedQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/QueryConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/QueryConf.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +135,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/bigdata/TrajLab&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/bigdata/TrajLab/TrajLab-db/src/main/resources&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -67,104 +145,96 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\bigdata\TrajLab\TrajLab-db\src\main\resources" />
+      <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources\ioconf\tdrive" />
+      <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\java\whu\edu\cn\trajlab\example\TDrive\store" />
       <recent name="D:\bigdata\TrajLab\TrajLab-analysis\src\main\java" />
       <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources" />
-      <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\java" />
-      <recent name="D:\bigdata\TrajLab\conf" />
-      <recent name="D:\bigdata\TrajLab\TrajLab-db\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources\ioconf" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="whu.edu.cn.trajlab.example.TDrive.application" />
+      <recent name="whu.edu.cn.trajlab.example.TDrive.advancedQuery" />
+      <recent name="whu.edu.cn.trajlab.example.TDrive.basicQuery.idt" />
+      <recent name="whu.edu.cn.trajlab.example.TDrive.basicQuery.ts" />
+      <recent name="whu.edu.cn.trajlab.example.TDrive.basicQuery.st" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdvancedQueryInterfaceTest.testRDDQuery">
-    <configuration name="AccompanyQueryTest.getTrajAccQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.TDriveGeofence">
+    <configuration name="CreateQueryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.TDrive.basicQuery.CreateQueryWindow" />
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.TDrive.basicQuery.spatial.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.AccompanyQueryTest" />
-      <option name="METHOD_NAME" value="getTrajAccQuery" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccompanyQueryTest.getTrajAccRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LocalHeatmap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.TDrive.application.LocalHeatmap" />
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.TDrive.application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.AccompanyQueryTest" />
-      <option name="METHOD_NAME" value="getTrajAccRDDQuery" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdvancedQueryInterfaceTest.testRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TDriveGeofence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.TDrive.application.TDriveGeofence" />
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.TDrive.application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.AdvancedQueryInterfaceTest" />
-      <option name="METHOD_NAME" value="testRDDQuery" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdvancedQueryInterfaceTest.testScanQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="dataLoad" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.TDrive.dataprocess.dataLoad" />
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.TDrive.dataprocess.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.AdvancedQueryInterfaceTest" />
-      <option name="METHOD_NAME" value="testScanQuery" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="STQueryTest.testExecuteRDDIntersectQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="dataSegment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.TDrive.dataprocess.dataSegment" />
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.basic.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.TDrive.dataprocess.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.basic" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.basic.STQueryTest" />
-      <option name="METHOD_NAME" value="testExecuteRDDIntersectQuery" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AdvancedQueryInterfaceTest.testRDDQuery" />
-        <item itemvalue="JUnit.AdvancedQueryInterfaceTest.testScanQuery" />
-        <item itemvalue="JUnit.AccompanyQueryTest.getTrajAccQuery" />
-        <item itemvalue="JUnit.AccompanyQueryTest.getTrajAccRDDQuery" />
-        <item itemvalue="JUnit.STQueryTest.testExecuteRDDIntersectQuery" />
+        <item itemvalue="Application.TDriveGeofence" />
+        <item itemvalue="Application.LocalHeatmap" />
+        <item itemvalue="Application.dataSegment" />
+        <item itemvalue="Application.dataLoad" />
+        <item itemvalue="Application.CreateQueryWindow" />
       </list>
     </recent_temporary>
   </component>
@@ -190,6 +260,7 @@
       <workItem from="1710401705011" duration="8798000" />
       <workItem from="1710425712795" duration="19518000" />
       <workItem from="1710507541090" duration="27018000" />
+      <workItem from="1712939439718" duration="47826000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>

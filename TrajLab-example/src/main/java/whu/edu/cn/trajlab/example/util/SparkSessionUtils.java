@@ -27,8 +27,9 @@ public class SparkSessionUtils {
       sparkConf.set("fs.defaultFS", loadConfig.getFsDefaultName());
     }
     sparkConf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
-    sparkConf.set("spark.kryoserializer.buffer.max", "256m");
-    sparkConf.set("spark.kryoserializer.buffer", "64m");
+    sparkConf.set("spark.kryoserializer.buffer.max", "1024m");
+    sparkConf.set("spark.kryoserializer.buffer", "256m");
+    sparkConf.set("spark.default.parallelism", "24");
     if (isLocal) {
       sparkConf.setMaster("local[*]");
     }
@@ -51,8 +52,9 @@ public class SparkSessionUtils {
     SparkConf sparkConf = new SparkConf();
     sparkConf.set("fs.permissions.umask-mode", "022");
     sparkConf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
-    sparkConf.set("spark.kryoserializer.buffer.max", "256m");
-    sparkConf.set("spark.kryoserializer.buffer", "64m");
+    sparkConf.set("spark.kryoserializer.buffer.max", "1024m");
+    sparkConf.set("spark.kryoserializer.buffer", "256m");
+    sparkConf.set("spark.default.parallelism", "24");
     if (isLocal) {
       sparkConf.setMaster("local[*]");
     }
@@ -61,5 +63,22 @@ public class SparkSessionUtils {
         .appName(className + "_" + System.currentTimeMillis())
         .config(sparkConf)
         .getOrCreate();
+  }
+
+  public static SparkSession createSession(String className, boolean isLocal, String partition) {
+    SparkConf sparkConf = new SparkConf();
+    sparkConf.set("fs.permissions.umask-mode", "022");
+    sparkConf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
+    sparkConf.set("spark.kryoserializer.buffer.max", "1024m");
+    sparkConf.set("spark.kryoserializer.buffer", "256m");
+    sparkConf.set("spark.default.parallelism", partition);
+    if (isLocal) {
+      sparkConf.setMaster("local[*]");
+    }
+
+    return SparkSession.builder()
+            .appName(className + "_" + System.currentTimeMillis())
+            .config(sparkConf)
+            .getOrCreate();
   }
 }

@@ -16,7 +16,7 @@ public class CSV2Traj {
     public static Trajectory multifileParse(String rawString,
                                             TrajectoryConfig trajectoryConfig,
                                             String splitter) throws IOException {
-        String[] points = rawString.split(System.lineSeparator());
+        String[] points = rawString.split("\n");
         int n = points.length;
         List<TrajPoint> trajPoints = new ArrayList<>(n);
         String trajId = "";
@@ -42,9 +42,11 @@ public class CSV2Traj {
             if (point.getPid() == null) {
                 genPid = true;
             }
+            //处理异常数据
+            if(point.getLat() <= 10 || point.getLng() <= 10) continue;
             trajPoints.add(point);
         }
-        return trajPoints.isEmpty() ? null : new Trajectory(trajId, objectId, trajPoints, genPid);
+        return (trajPoints.isEmpty() || trajPoints.size() < 2) ? null : new Trajectory(trajId, objectId, trajPoints, genPid);
     }
 
     public static List<Trajectory> singlefileParse(String rawString,
@@ -52,7 +54,10 @@ public class CSV2Traj {
                                                    String splitter) throws IOException {
         int objectIdIndex = trajectoryConfig.getObjectId().getIndex();
         int trajIdIndex = trajectoryConfig.getTrajId().getIndex();
-        String[] points = rawString.split(System.lineSeparator());
+        String[] points = rawString.split("\n");
+        if (points.length < 2) {
+            return new ArrayList<Trajectory>();
+        }
         // 按tid+oid分组
         Map<String, List<String>> groupList = Arrays.stream(points).collect(
                 Collectors.groupingBy(item -> getGroupKey(item, splitter, trajIdIndex, objectIdIndex)));
@@ -86,9 +91,11 @@ public class CSV2Traj {
             TrajPoint trajPoint =
                     CSV2TrajPoint.parse(point, trajectoryConfig.getTrajPointConfig(),
                             splitter);
+            //处理异常数据
+            if(trajPoint.getLat() <= 10 || trajPoint.getLng() <= 10) continue;
             trajPoints.add(trajPoint);
         }
-        if (!trajPoints.isEmpty()) {
+        if (!trajPoints.isEmpty() && trajPoints.size() >= 2) {
             trajPoints.sort(
                     (o1, o2) -> {
                         return (int)

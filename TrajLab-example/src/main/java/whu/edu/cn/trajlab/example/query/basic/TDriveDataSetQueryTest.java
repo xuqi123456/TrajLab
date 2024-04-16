@@ -21,7 +21,7 @@ import static whu.edu.cn.trajlab.example.query.basic.SpatialQueryTest.DATASET_NA
  * @author xuqi
  * @date 2024/01/24
  */
-public class DataSetQueryTest extends TestCase {
+public class TDriveDataSetQueryTest extends TestCase {
 
   public void testDataSetQuery() throws IOException {
     Database instance = Database.getInstance();

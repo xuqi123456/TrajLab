@@ -141,7 +141,10 @@ public class MetaTable {
     String dataSetName = new String(result.getRow());
     Cell cell1 = result.getColumnLatestCell(CF, INDEX_METAS_CQ);
     Cell cell2 = result.getColumnLatestCell(CF, MAIN_TABLE_CQ);
-    SetMeta setMetaFromResult = createSetMetaFromResult(result);
+    SetMeta setMetaFromResult = null;
+    if(result.containsColumn(CF, SetConstants.DATA_START_TIME)){
+      setMetaFromResult = createSetMetaFromResult(result);
+    }
     List<IndexMeta> indexMetaList =
         SerializerUtils.deserializeList(CellUtil.cloneValue(cell1), IndexMeta.class);
     IndexMeta mainTableMeta =

@@ -7,6 +7,8 @@ import java.time.temporal.ChronoUnit;
  * @date 2023/11/29
  */
 public enum TimePeriod {
+    MINUTE(ChronoUnit.MINUTES),
+    HOUR(ChronoUnit.HOURS),
     DAY(ChronoUnit.DAYS),
     WEEK(ChronoUnit.WEEKS),
     MONTH(ChronoUnit.MONTHS),

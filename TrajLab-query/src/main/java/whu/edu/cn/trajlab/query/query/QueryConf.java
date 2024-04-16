@@ -19,5 +19,6 @@ public class QueryConf extends Configured {
     public static String K = "K";
     public static String DIS_THRESHOLD = "DIS_THRESHOLD";
     public static String TIME_THRESHOLD = "TIME_THRESHOLD";
+    public static String TIME_PERIOD = "TIME_PERIOD";
 
 }
