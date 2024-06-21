@@ -3,6 +3,7 @@ package whu.edu.cn.trajlab.query.query.basic;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import whu.edu.cn.trajlab.base.util.SparkUtils;
+import whu.edu.cn.trajlab.db.condition.IDQueryCondition;
 import whu.edu.cn.trajlab.query.coprocessor.STCoprocessorQuery;
 import whu.edu.cn.trajlab.db.condition.AbstractQueryCondition;
 import whu.edu.cn.trajlab.db.condition.TemporalQueryCondition;
@@ -89,6 +90,26 @@ public class IDTemporalQuery extends AbstractQuery implements Serializable {
             .build();
 
     return STCoprocessorQuery.executeQuery(targetIndexTable, timeQueryRequest);
+  }
+
+  @Override
+  public List<Trajectory> getFinalFilter(List<Trajectory> list) {
+    IDTemporalQueryCondition idTemporalQueryCondition = null;
+    if(abstractQueryCondition instanceof IDTemporalQueryCondition){
+      idTemporalQueryCondition = (IDTemporalQueryCondition) abstractQueryCondition;
+    }
+    assert idTemporalQueryCondition != null;
+    List<TimeLine> queryWindows = idTemporalQueryCondition.getTemporalQueryCondition().getQueryWindows();
+    ArrayList<Trajectory> trajectories = new ArrayList<>();
+    for (Trajectory trajectory : list) {
+      TimeLine timeLine = new TimeLine(trajectory.getTrajectoryFeatures().getStartTime(), trajectory.getTrajectoryFeatures().getEndTime());
+      for (TimeLine queryWindow : queryWindows) {
+        if(queryWindow.intersect(timeLine)){
+          trajectories.add(trajectory);
+        }
+      }
+    }
+    return trajectories;
   }
 
   @Override

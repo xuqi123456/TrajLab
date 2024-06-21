@@ -5,6 +5,7 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.io.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import whu.edu.cn.trajlab.base.point.TrajPoint;
@@ -116,6 +117,11 @@ public class SimilarQuery extends AbstractQuery {
         }
 
         return STCoprocessorQuery.executeQuery(targetIndexTable, simQueryRequest);
+    }
+
+    @Override
+    public List<Trajectory> getFinalFilter(List<Trajectory> list) throws ParseException {
+        throw new UnsupportedOperationException();
     }
 
     @Override

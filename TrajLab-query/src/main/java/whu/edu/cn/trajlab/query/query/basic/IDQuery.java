@@ -88,6 +88,11 @@ public class IDQuery extends AbstractQuery {
         return trajectories;
     }
 
+    @Override
+    public List<Trajectory> getFinalFilter(List<Trajectory> list) {
+        return list;
+    }
+
     protected Scan buildScan(RowKeyRange rowKeyRange) {
         Scan scan = new Scan();
         String prefix  = new String(rowKeyRange.getStartKey().getBytes(), StandardCharsets.UTF_8);

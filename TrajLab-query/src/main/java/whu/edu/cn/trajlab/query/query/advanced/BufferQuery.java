@@ -4,6 +4,7 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.io.ParseException;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 import whu.edu.cn.trajlab.base.util.GeoUtils;
 import whu.edu.cn.trajlab.base.util.SparkUtils;
@@ -70,6 +71,11 @@ public class BufferQuery extends AbstractQuery {
             .setQueryOperation(QueryCondition.QueryMethod.ST)
             .build();
     return STCoprocessorQuery.executeQuery(targetIndexTable, bufferQueryRequest);
+  }
+
+  @Override
+  public List<Trajectory> getFinalFilter(List<Trajectory> list) throws ParseException {
+    throw new UnsupportedOperationException();
   }
 
   @Override
