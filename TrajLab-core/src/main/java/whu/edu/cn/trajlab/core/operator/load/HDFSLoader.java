@@ -26,7 +26,7 @@ public class HDFSLoader implements ILoader {
   private static final Logger LOGGER = Logger.getLogger(HDFSLoader.class);
 
   public JavaRDD<Trajectory> loadTrajectory(
-          SparkSession sparkSession, ILoadConfig loadConfig, IDataConfig dataConfig) {
+      SparkSession sparkSession, ILoadConfig loadConfig, IDataConfig dataConfig) {
     if (loadConfig instanceof HDFSLoadConfig && dataConfig instanceof TrajectoryConfig) {
       HDFSLoadConfig hdfsLoadConfig = (HDFSLoadConfig) loadConfig;
       TrajectoryConfig trajectoryConfig = (TrajectoryConfig) dataConfig;
@@ -58,7 +58,10 @@ public class HDFSLoader implements ILoader {
   }
 
   private JavaRDD<Trajectory> loadTrajectoryFromParquet(
-      SparkSession sparkSession, HDFSLoadConfig hdfsLoadConfig, TrajectoryConfig trajectoryConfig, boolean isTraj) {
+      SparkSession sparkSession,
+      HDFSLoadConfig hdfsLoadConfig,
+      TrajectoryConfig trajectoryConfig,
+      boolean isTraj) {
     String filterText = hdfsLoadConfig.getFilterText();
     String location = hdfsLoadConfig.getLocation();
     File directory = new File(location);

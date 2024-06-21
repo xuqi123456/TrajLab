@@ -1,0 +1,55 @@
+{
+  "loadConfig": {
+    "@type": "hdfs",
+    "master": "local[*]",
+    "location": "hdfs://u0:9000/trajlab/taxi_100",
+    "fileMode": "multi_file",
+    "partNum": 48,
+    "splitter": ",",
+    "fileType": "csv"
+  },
+  "dataConfig": {
+    "@type": "trajectory",
+    "trajId": {
+      "sourceName": "traj_id",
+      "dataType": "String",
+      "index": 0
+    },
+    "objectId": {
+      "sourceName": "object_id",
+      "dataType": "String",
+      "index": 0
+    },
+    "trajPointConfig": {
+      "@type": "traj_point",
+      "pointId": {
+        "sourceName": "point_id",
+        "dataType": "String",
+        "index": -1
+      },
+      "lng": {
+        "sourceName": "lng",
+        "dataType": "Double",
+        "index": 2
+      },
+      "lat": {
+        "sourceName": "lat",
+        "dataType": "Double",
+        "index": 3
+      },
+      "time": {
+        "sourceName": "time",
+        "dataType": "Date",
+        "index": 1,
+        "format": "yyyy-MM-dd HH:mm:ss"
+      }
+    }
+  },
+  "storeConfig": {
+    "@type": "hbase",
+    "location": "hdfs://u0:9000/store/",
+    "schema": "POINT_BASED_TRAJECTORY",
+    "dataSetName": "TDrive_100",
+    "mainIndex": "TXZ2"
+  }
+}

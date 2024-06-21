@@ -1,6 +1,5 @@
 package whu.edu.cn.trajlab.application.geofence;
 
-import org.junit.Test;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Polygon;
@@ -133,16 +132,16 @@ public class GeofenceUtils {
         return getIndexedGeoFence(geofenceList, false);
     }
 
-    @Test
-    public void test() throws ParseException {
-//    STRTreeIndex<Geometry> indexedGeoFence =
-//        getIndexedGeoFence("hdfs://localhost:9000", "/geofence/shenzhen_landuse.csv", true);
-//    System.out.println(indexedGeoFence.size());
-//    List<Geometry> geometries = readGeoFence("/Users/lynnlee/Data/land.csv");
-//    System.out.println(
-//        getIndexedGeoFence("hdfs://localhost:9000", "/geofence/fence_csv/landuseV2.csv", false).size());
-//    System.out.println(geometries.size())
-        STRTreeIndex<Geometry> indexedGeoFence = getIndexedGeoFence("hdfs://u0:9000",
-                "/geofence/GeoFenceOneKilo.csv", false);
-    }
+//    @Test
+//    public void test() throws ParseException {
+////    STRTreeIndex<Geometry> indexedGeoFence =
+////        getIndexedGeoFence("hdfs://localhost:9000", "/geofence/shenzhen_landuse.csv", true);
+////    System.out.println(indexedGeoFence.size());
+////    List<Geometry> geometries = readGeoFence("/Users/lynnlee/Data/land.csv");
+////    System.out.println(
+////        getIndexedGeoFence("hdfs://localhost:9000", "/geofence/fence_csv/landuseV2.csv", false).size());
+////    System.out.println(geometries.size())
+//        STRTreeIndex<Geometry> indexedGeoFence = getIndexedGeoFence("hdfs://u0:9000",
+//                "/geofence/GeoFenceOneKilo.csv", false);
+//    }
 }

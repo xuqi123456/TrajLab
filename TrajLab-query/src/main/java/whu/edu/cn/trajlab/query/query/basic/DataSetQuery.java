@@ -3,6 +3,7 @@ package whu.edu.cn.trajlab.query.query.basic;
 import whu.edu.cn.trajlab.core.conf.load.HBaseLoadConfig;
 import whu.edu.cn.trajlab.core.operator.load.ILoader;
 import whu.edu.cn.trajlab.db.condition.AbstractQueryCondition;
+import whu.edu.cn.trajlab.db.condition.IDQueryCondition;
 import whu.edu.cn.trajlab.db.database.DataSet;
 import whu.edu.cn.trajlab.db.database.Database;
 import whu.edu.cn.trajlab.db.database.meta.DataSetMeta;
@@ -16,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import whu.edu.cn.trajlab.base.trajectory.Trajectory;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -85,6 +87,11 @@ public class DataSetQuery extends AbstractQuery{
   @Override
   public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) {
     return null;
+  }
+
+  @Override
+  public List<Trajectory> getFinalFilter(List<Trajectory> list) {
+    return list;
   }
 
   @Override

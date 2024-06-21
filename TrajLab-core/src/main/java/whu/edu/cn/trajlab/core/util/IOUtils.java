@@ -60,6 +60,34 @@ public class IOUtils {
     return data;
   }
 
+  public static String readFileToString(String fileName) {
+    String enCoding = "UTF-8";
+    File file = new File(fileName);
+    Long fileLength = file.length();
+    byte[] fileContent = new byte[fileLength.intValue()];
+    try {
+      FileInputStream in = new FileInputStream(file);
+      in.read(fileContent);
+      in.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    try {
+      return new String(fileContent, enCoding);
+    } catch (UnsupportedEncodingException e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+  public static String readFileToString(InputStream is) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(is));
+    StringBuilder stringBuilder = new StringBuilder();
+    String s = "";
+    while ((s = br.readLine()) != null) {
+      stringBuilder.append(s);
+    }
+    return stringBuilder.toString();
+  }
   public static String readLocalTextFile(String path) {
     File file = new File(path);
     StringBuilder sb = new StringBuilder();

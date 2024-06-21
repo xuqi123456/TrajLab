@@ -1,7 +1,9 @@
 package whu.edu.cn.trajlab.core.operator.load;
 
+import org.apache.log4j.Logger;
 import whu.edu.cn.trajlab.core.conf.data.IDataConfig;
 import whu.edu.cn.trajlab.core.conf.data.TrajectoryConfig;
+import whu.edu.cn.trajlab.core.conf.load.HDFSLoadConfig;
 import whu.edu.cn.trajlab.core.conf.load.StandaloneLoadConfig;
 import whu.edu.cn.trajlab.core.enums.FileTypeEnum;
 import whu.edu.cn.trajlab.core.operator.transform.ParquetTransform;
@@ -24,6 +26,7 @@ import java.util.Objects;
  */
 public class StandaloneLoader implements ILoader {
 
+  private static final Logger LOGGER = Logger.getLogger(StandaloneLoader.class);
   public List<Trajectory> loadTrajectory(ILoadConfig loadConfig, IDataConfig dataConfig) {
     return null;
   }
@@ -40,6 +43,9 @@ public class StandaloneLoader implements ILoader {
         case SINGLE_FILE:
           return this.loadTrajectoryFromSingleFile(
               sparkSession, standaloneLoadConfig, trajectoryConfig);
+        case MULTI_SINGLE_FILE:
+          return this.loadTrajectoryFromMultiSingleFile(
+                  sparkSession, standaloneLoadConfig, trajectoryConfig);
         default:
           throw new NotSupportedException(
               "can't support fileMode " + standaloneLoadConfig.getFileMode().getMode());
@@ -230,5 +236,21 @@ public class StandaloneLoader implements ILoader {
             "can't support fileType " + standaloneLoadConfig.getFileType().getFileTypeEnum());
     }
     return resultRdd;
+  }
+
+  private JavaRDD<Trajectory> loadTrajectoryFromMultiSingleFile(
+          SparkSession sparkSession, StandaloneLoadConfig standaloneLoadConfig, TrajectoryConfig trajectoryConfig) {
+    LOGGER.info("Loading trajectories from multi_files in folder: " + standaloneLoadConfig.getLocation());
+    int partNum = standaloneLoadConfig.getPartNum();
+    return sparkSession
+            .sparkContext()
+            .wholeTextFiles(standaloneLoadConfig.getLocation(), partNum)
+            .toJavaRDD()
+            .filter((s) -> !(s._2).isEmpty())
+            .flatMap(
+                    (s) ->
+                            CSV2Traj.singlefileParse(s._2, trajectoryConfig, standaloneLoadConfig.getSplitter())
+                                    .iterator())
+            .filter(Objects::nonNull);
   }
 }

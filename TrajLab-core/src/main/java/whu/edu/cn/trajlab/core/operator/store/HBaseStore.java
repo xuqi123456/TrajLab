@@ -112,6 +112,7 @@ public class HBaseStore extends Configured implements IStore {
         LOGGER.info("Starting bulk load dataset {}", dataSetMeta.getDataSetName());
         long startLoadTime = System.currentTimeMillis();
         LOGGER.info("Start storing BasePointTrajectory into location : " + this.storeConfig.getLocation());
+        trajectoryJavaRDD.cache();
         SetMeta setMeta = new SetMeta(trajectoryJavaRDD);
         dataSetMeta.setSetMeta(setMeta);
         initDataSetTest(dataSetMeta);
@@ -119,6 +120,7 @@ public class HBaseStore extends Configured implements IStore {
         LOGGER.info("Starting bulk load main index, meta: {}", coreIndexMeta);
         try {
             bulkLoadToMainIndexTable(trajectoryJavaRDD, coreIndexMeta);
+            trajectoryJavaRDD.unpersist();
         } catch (Exception e) {
             LOGGER.error("Failed to finish bulk load main index {}", coreIndexMeta, e);
             throw e;

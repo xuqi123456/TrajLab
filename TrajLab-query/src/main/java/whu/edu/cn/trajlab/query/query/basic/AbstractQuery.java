@@ -1,14 +1,22 @@
 package whu.edu.cn.trajlab.query.query.basic;
 
 import com.google.protobuf.ByteString;
+import org.apache.hadoop.hbase.client.Get;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.MultiRowRangeFilter;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
+import org.locationtech.jts.io.ParseException;
 import whu.edu.cn.trajlab.base.util.SparkUtils;
 import whu.edu.cn.trajlab.db.condition.AbstractQueryCondition;
+import whu.edu.cn.trajlab.db.constant.DBConstants;
 import whu.edu.cn.trajlab.db.database.DataSet;
 import whu.edu.cn.trajlab.db.database.Database;
 import whu.edu.cn.trajlab.db.database.meta.IndexMeta;
 import whu.edu.cn.trajlab.db.database.table.IndexTable;
+import whu.edu.cn.trajlab.db.database.util.TrajectorySerdeUtils;
 import whu.edu.cn.trajlab.db.datatypes.ByteArray;
 import whu.edu.cn.trajlab.db.index.RowKeyRange;
 import org.apache.spark.api.java.JavaRDD;
@@ -25,7 +33,10 @@ import whu.edu.cn.trajlab.query.query.advanced.KNNQuery;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import static whu.edu.cn.trajlab.db.database.util.TrajectorySerdeUtils.mainRowToTrajectory;
 
 /**
  * @author xuqi
@@ -38,6 +49,15 @@ public abstract class AbstractQuery implements Serializable {
   public DataSet dataSet;
   public transient IndexTable targetIndexTable;
   public AbstractQueryCondition abstractQueryCondition;
+  private static final Database instance;
+
+  static {
+    try {
+      instance = Database.getInstance();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
   public AbstractQuery(DataSet dataSet, AbstractQueryCondition abstractQueryCondition) {
     this.dataSet = dataSet;
@@ -79,7 +99,49 @@ public abstract class AbstractQuery implements Serializable {
 
     return executeQuery(rowKeyRanges);
   }
+
   public abstract List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) throws IOException;
+
+  public List<Trajectory> getStagedQueryScan() throws IOException {
+    List<RowKeyRange> indexRanges = getIndexRanges();
+    ArrayList<MultiRowRangeFilter.RowRange> rowRanges = new ArrayList<>();
+    ArrayList<Trajectory> trajectories = new ArrayList<>();
+    for (RowKeyRange indexRange : indexRanges) {
+      rowRanges.add(new MultiRowRangeFilter.RowRange(
+              indexRange.getStartKey().getBytes(), true, indexRange.getEndKey().getBytes(), false));
+    }
+    Scan scan = buildScan();
+    scan.setFilter(new MultiRowRangeFilter(rowRanges));
+    ResultScanner cells = instance.getScan(targetIndexTable.getTable(), scan);
+    for (Result result : cells) {
+      if (!TrajectorySerdeUtils.isMainIndexed(result)) {
+        result = getMainIndexedResult(result);
+        trajectories.add(mainRowToTrajectory(result));
+      } else {
+        trajectories.add(mainRowToTrajectory(result));
+      }
+    }
+    return trajectories;
+  }
+  public abstract List<Trajectory> getFinalFilter(List<Trajectory> list) throws ParseException;
+  private Result getMainIndexedResult(Result result) throws IOException {
+    return instance
+            .getDataSet(IndexTable.extractDataSetName(String.valueOf(targetIndexTable.getTable().getName())))
+            .getCoreIndexTable()
+            .get(new Get(result.getValue(DBConstants.COLUMN_FAMILY, DBConstants.PTR_QUALIFIER)));
+  }
+
+  protected Scan buildScan() {
+    Scan scan = new Scan();
+    scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.MBR_QUALIFIER);
+    scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.START_POINT_QUALIFIER);
+    scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.END_POINT_QUALIFIER);
+    scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.TRAJ_POINTS_QUALIFIER);
+    scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.OBJECT_ID_QUALIFIER);
+    scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.TRAJECTORY_ID_QUALIFIER);
+    scan.addColumn(DBConstants.COLUMN_FAMILY, DBConstants.PTR_QUALIFIER);
+    return scan;
+  }
   public JavaRDD<Trajectory> getRDDQuery(SparkSession ss) throws IOException{
     List<RowKeyRange> indexRanges = getSplitIndexRanges();
     JavaSparkContext context = SparkUtils.getJavaSparkContext(ss);

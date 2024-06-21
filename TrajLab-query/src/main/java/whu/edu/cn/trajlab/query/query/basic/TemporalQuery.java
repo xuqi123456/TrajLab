@@ -1,5 +1,7 @@
 package whu.edu.cn.trajlab.query.query.basic;
 
+import org.locationtech.jts.io.ParseException;
+import whu.edu.cn.trajlab.db.condition.IDTemporalQueryCondition;
 import whu.edu.cn.trajlab.query.coprocessor.STCoprocessorQuery;
 import whu.edu.cn.trajlab.db.condition.AbstractQueryCondition;
 import whu.edu.cn.trajlab.db.condition.TemporalQueryCondition;
@@ -60,6 +62,26 @@ public class TemporalQuery extends AbstractQuery implements Serializable {
             .build();
 
     return STCoprocessorQuery.executeQuery(targetIndexTable, timeQueryRequest);
+  }
+
+  @Override
+  public List<Trajectory> getFinalFilter(List<Trajectory> list) throws ParseException {
+    TemporalQueryCondition temporalQueryCondition = null;
+    if(abstractQueryCondition instanceof TemporalQueryCondition){
+      temporalQueryCondition = (TemporalQueryCondition) abstractQueryCondition;
+    }
+    assert temporalQueryCondition != null;
+    List<TimeLine> queryWindows = temporalQueryCondition.getQueryWindows();
+    ArrayList<Trajectory> trajectories = new ArrayList<>();
+    for (Trajectory trajectory : list) {
+      TimeLine timeLine = new TimeLine(trajectory.getTrajectoryFeatures().getStartTime(), trajectory.getTrajectoryFeatures().getEndTime());
+      for (TimeLine queryWindow : queryWindows) {
+        if(queryWindow.intersect(timeLine)){
+          trajectories.add(trajectory);
+        }
+      }
+    }
+    return trajectories;
   }
 
   @Override

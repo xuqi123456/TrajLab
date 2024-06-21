@@ -58,6 +58,7 @@ public class AdvancedQueryInterfaceTest {
         conf.set(CENTER_TRAJECTORY, trajectory_str);
         conf.set(DIS_THRESHOLD, "1");
         conf.set(TIME_THRESHOLD, "5");
+        conf.set(TIME_PERIOD, "DAY");
         conf.set(K, "5");
         AdvancedQuery advancedQuery = new AdvancedQuery(conf);
         boolean isLocal = true;

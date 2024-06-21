@@ -5,6 +5,7 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.io.ParseException;
 import scala.Tuple2;
 import whu.edu.cn.trajlab.base.mbr.MinimumBoundingBox;
 import whu.edu.cn.trajlab.base.point.TrajPoint;
@@ -83,6 +84,11 @@ public class AccompanyQuery extends AbstractQuery {
   @Override
   public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges) throws IOException {
     throw new UnsupportedEncodingException();
+  }
+
+  @Override
+  public List<Trajectory> getFinalFilter(List<Trajectory> list) throws ParseException {
+    throw new UnsupportedOperationException();
   }
 
   public List<Trajectory> executeQuery(List<RowKeyRange> rowKeyRanges, Integer k)
