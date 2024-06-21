@@ -4,8 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="fix query contain itself (in coprocessor) and acc query bugs">
+    <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/idt/StagedIDTQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/spatial/StagedSpatialQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/st/StagedSTQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/temporal/StagedTemporalQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/ts/StagedTSQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/StagedQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/AccompanyQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/AccompanyQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/BufferQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/BufferQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/SimilarQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/SimilarQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDTemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDTemporalQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialTemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialTemporalQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/TemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/TemporalQuery.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dc2ca6084552d988c5aed44463dfd43f160f63af" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,7 +70,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/bigdata/TrajLab&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/bigdata/TrajLab/TrajLab-db/src/main/resources&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -63,92 +80,90 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\bigdata\TrajLab\TrajLab-db\src\main\resources" />
+      <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources\ioconf\tdrive" />
+      <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\java\whu\edu\cn\trajlab\example\TDrive\store" />
       <recent name="D:\bigdata\TrajLab\TrajLab-analysis\src\main\java" />
       <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources" />
-      <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\java" />
-      <recent name="D:\bigdata\TrajLab\conf" />
-      <recent name="D:\bigdata\TrajLab\TrajLab-db\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\bigdata\TrajLab\TrajLab-example\src\main\resources\ioconf" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="whu.edu.cn.trajlab.example.TDrive.basicQuery.idt" />
+      <recent name="whu.edu.cn.trajlab.example.TDrive.basicQuery.ts" />
+      <recent name="whu.edu.cn.trajlab.example.TDrive.application" />
+      <recent name="whu.edu.cn.trajlab.example.TDrive.advancedQuery" />
+      <recent name="whu.edu.cn.trajlab.example.TDrive.basicQuery.st" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdvancedQueryInterfaceTest.testRDDQuery">
-    <configuration name="AccompanyQueryTest.getTrajAccQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TrajToKML.TrajToKMLFromConf">
+    <configuration name="LocalHeatmap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.TDrive.application.LocalHeatmap" />
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.TDrive.application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.AccompanyQueryTest" />
-      <option name="METHOD_NAME" value="getTrajAccQuery" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TDriveGeofence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.TDrive.application.TDriveGeofence" />
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.TDrive.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dataSegment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.TDrive.dataprocess.dataSegment" />
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.TDrive.dataprocess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrajToGeojson.TrajToGeoJsonFromText" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrajLab-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.TrajToGeojson" />
+      <option name="METHOD_NAME" value="TrajToGeoJsonFromText" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccompanyQueryTest.getTrajAccRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrajToKML.TrajToKMLFromConf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrajLab-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.advanced.*" />
+          <option name="PATTERN" value="whu.edu.cn.trajlab.example.transform.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.advanced" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.advanced.AccompanyQueryTest" />
-      <option name="METHOD_NAME" value="getTrajAccRDDQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdvancedQueryInterfaceTest.testRDDQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrajLab-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.AdvancedQueryInterfaceTest" />
-      <option name="METHOD_NAME" value="testRDDQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdvancedQueryInterfaceTest.testScanQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrajLab-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.AdvancedQueryInterfaceTest" />
-      <option name="METHOD_NAME" value="testScanQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="STQueryTest.testExecuteRDDIntersectQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrajLab-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="whu.edu.cn.trajlab.example.query.basic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.query.basic" />
-      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.query.basic.STQueryTest" />
-      <option name="METHOD_NAME" value="testExecuteRDDIntersectQuery" />
+      <option name="PACKAGE_NAME" value="whu.edu.cn.trajlab.example.transform" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.cn.trajlab.example.transform.TrajToKML" />
+      <option name="METHOD_NAME" value="TrajToKMLFromConf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AdvancedQueryInterfaceTest.testRDDQuery" />
-        <item itemvalue="JUnit.AdvancedQueryInterfaceTest.testScanQuery" />
-        <item itemvalue="JUnit.AccompanyQueryTest.getTrajAccQuery" />
-        <item itemvalue="JUnit.AccompanyQueryTest.getTrajAccRDDQuery" />
-        <item itemvalue="JUnit.STQueryTest.testExecuteRDDIntersectQuery" />
+        <item itemvalue="JUnit.TrajToKML.TrajToKMLFromConf" />
+        <item itemvalue="JUnit.TrajToGeojson.TrajToGeoJsonFromText" />
+        <item itemvalue="Application.TDriveGeofence" />
+        <item itemvalue="Application.LocalHeatmap" />
+        <item itemvalue="Application.dataSegment" />
       </list>
     </recent_temporary>
   </component>
@@ -185,8 +200,10 @@
       <workItem from="1710249542741" duration="43454000" />
       <workItem from="1710401705011" duration="8798000" />
       <workItem from="1710425712795" duration="19518000" />
-      <workItem from="1710507541090" duration="25436000" />
-      <workItem from="1712509535514" duration="7102000" />
+      <workItem from="1710507541090" duration="27018000" />
+      <workItem from="1712939439718" duration="47947000" />
+      <workItem from="1714243394712" duration="644000" />
+      <workItem from="1715759215355" duration="19613000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize commit">
       <created>1705078237634</created>
@@ -328,7 +345,21 @@
       <option name="project" value="LOCAL" />
       <updated>1710585113423</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add AdvancedQueryInterface and examples">
+      <created>1710614383559</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710614383559</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add TDrive Tests">
+      <created>1713303176910</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713303176911</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,6 +397,8 @@
     <MESSAGE value="add buffer query example" />
     <MESSAGE value="fix query contain itself and similar query bugs" />
     <MESSAGE value="fix query contain itself (in coprocessor) and acc query bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix query contain itself (in coprocessor) and acc query bugs" />
+    <MESSAGE value="add AdvancedQueryInterface and examples" />
+    <MESSAGE value="add TDrive Tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add TDrive Tests" />
   </component>
 </project>

@@ -5,6 +5,7 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.io.ParseException;
 import org.locationtech.jts.io.WKTWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -264,6 +265,11 @@ public class KNNQuery extends AbstractQuery {
             default:
                 throw new UnsupportedOperationException();
         }
+    }
+
+    @Override
+    public List<Trajectory> getFinalFilter(List<Trajectory> list) throws ParseException {
+        throw new UnsupportedOperationException();
     }
 
     public AbstractQueryCondition generateSTQueryCondition(Geometry geom) throws IOException {
