@@ -86,9 +86,7 @@ public class SaveAsImage<V extends Number> implements Serializable {
             try {
                 Tile tile = image._2;
                 File output = new File( outputPath + "/" + tile.getLevel() + "_" + tile.getX() + "_" + tile.getY() + ".jpg");
-                if(tile.getLevel() < 12){
-                    ImageIO.write(image._1, "jpg", output);
-                }
+                ImageIO.write(image._1, "jpg", output);
                 System.out.println("Image saved to: " + output.getAbsolutePath());
             } catch (Exception e) {
                 e.printStackTrace();

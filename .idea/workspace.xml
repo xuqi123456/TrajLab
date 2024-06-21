@@ -5,24 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84664b4a-9c21-441f-ac75-5f89c712ad55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/idt/StagedIDTQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/spatial/StagedSpatialQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/st/StagedSTQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/temporal/StagedTemporalQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/ts/StagedTSQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/StagedQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/AccompanyQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/AccompanyQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/BufferQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/BufferQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/KNNQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/SimilarQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/advanced/SimilarQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/AbstractQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/DataSetQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDTemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/IDTemporalQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialTemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/SpatialTemporalQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/TemporalQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-query/src/main/java/whu/edu/cn/trajlab/query/query/basic/TemporalQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/geofence/GeofenceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/geofence/GeofenceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/heatmap/SaveAsImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrajLab-application/src/main/java/whu/edu/cn/trajlab/application/heatmap/SaveAsImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/advancedQuery/RDDTDriveAccompanyQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/advancedQuery/RDDTDriveBufferQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/advancedQuery/RDDTDriveKNNQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/advancedQuery/RDDTDriveSimilarQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/application/LocalHeatmap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/application/TDriveCluster.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/application/TDriveGeofence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/application/TDriveHeatmap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/CreateQueryWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/TDriveDataSetQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/TDriveIDQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/idt/RDDTDriveIDTQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/idt/StagedIDTQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/idt/TDriveIDTQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/spatial/RDDTDriveSpatialQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/spatial/StagedSpatialQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/spatial/TDriveSpatialQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/st/RDDTDriveSTQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/st/StagedSTQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/st/TDriveSTQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/temporal/RDDTDriveTemporalQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/temporal/StagedTemporalQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/temporal/TDriveTemporalQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/ts/RDDTDriveTSQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/ts/StagedTSQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/basicQuery/ts/TDriveTSQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/DeleteTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/LoadConfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/dataLoad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/dataMerge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/dataprocess/dataSegment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/load/TDriveHBaseLoad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/load/TDriveHBaseLoadConfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveHBaseStore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/java/whu/edu/cn/trajlab/example/TDrive/store/TDriveSegmentStore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_ID.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_OBJECT_ID_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_TXZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_XZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_10000_XZ2T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_ID.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_OBJECT_ID_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_TXZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_XZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_1000_XZ2T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_ID.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_OBJECT_ID_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_TXZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_XZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_100_XZ2T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_ID.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_OBJECT_ID_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_TXZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_XZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_2000_XZ2T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_ID.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_OBJECT_ID_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_T.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_TXZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_XZ2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrajLab-example/src/main/resources/ioconf/tdrive/taxi_5000_XZ2T.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

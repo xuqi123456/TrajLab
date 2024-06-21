@@ -131,17 +131,4 @@ public class GeofenceUtils {
         List<Geometry> geofenceList = readGeoFence(path);
         return getIndexedGeoFence(geofenceList, false);
     }
-
-//    @Test
-//    public void test() throws ParseException {
-////    STRTreeIndex<Geometry> indexedGeoFence =
-////        getIndexedGeoFence("hdfs://localhost:9000", "/geofence/shenzhen_landuse.csv", true);
-////    System.out.println(indexedGeoFence.size());
-////    List<Geometry> geometries = readGeoFence("/Users/lynnlee/Data/land.csv");
-////    System.out.println(
-////        getIndexedGeoFence("hdfs://localhost:9000", "/geofence/fence_csv/landuseV2.csv", false).size());
-////    System.out.println(geometries.size())
-//        STRTreeIndex<Geometry> indexedGeoFence = getIndexedGeoFence("hdfs://u0:9000",
-//                "/geofence/GeoFenceOneKilo.csv", false);
-//    }
 }
